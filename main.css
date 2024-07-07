@@ -1,0 +1,30 @@
+body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    background-color: #1b1b1b;
+    padding: 1em;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #39c5bb; /* Hatsune Miku color */
+}
+
+a {
+    color: #39c5bb;
+}
+
+.project {
+    border: 1px solid #39c5bb;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+section {
+    padding: 1em;
+    border-bottom: 1px solid #333333;
+}

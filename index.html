@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanazono-Archive</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home-style.css">
+    <title>Hanazono Archive</title>
 </head>
 <body>
-    <header>
-        <h1>Archive Progress/Projects</h1>
-    </header>
-    <main>
-        <section>
-            <h2>About Me</h2>
-            <p>A College Student on he's Second Year and aspiring coder, taking a course in Computer Science</p>
-        </section>
-        <section>
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Energy System Calculator (HSR & ZZZ)</h3>
-                <p>A Lightweight program for determining the time of when it will be full and how long it will be full</p>
-                <p>https://github.com/HanazonoArchive/Energy-System-Calculator-HSR-ZZZ</p>
+    <div class="banner">
+        <div class="navbar">
+            <img src="image/logo.png" class="logo">
+            <ul>
+                <li><a href="project.html">Home</a></li>
+                <li><a href="project.html">Goal</a></li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="project.html">Progress</a></li>
+                <li><a href="project.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Welcome! to HanazonoArchive</h1>
+            <p>Latest Update, New Released, and Project Progres.</p>
+
+            <div>
+                <button id="updatesBtn" type="button"><span></span>Check Latest Updates!</button>
+                <button id="projectsBtn" type="button"><span></span>Check Latest Project!</button>
+                <button id="progressBtn" type="button"><span></span>Check Project Progress!</button>
+
+                <script src="js/home-js.js"></script>
             </div>
-        </section>
-    </main>
-    <footer>
-        <p>© 2024 Hanazono</p>
-    </footer>
-    <script src="js/main.js"></script>
+        </div>
+    </div>
 </body>
 </html>

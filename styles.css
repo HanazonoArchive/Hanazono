@@ -10,7 +10,7 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: "Inter", Arial, sans-serif;  /* Fallback font-family */
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   background-color: var(--color1);
   color: var(--color4);
   height: 100%;                                         /* Ensure full height for the page */
@@ -23,10 +23,9 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 20px;
+  padding: 10px 20px;
   background-color: var(--color2);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  min-height: 60px; /* Prevent shifting */
 }
 
 /* Group the logo and name */
@@ -37,6 +36,7 @@ body, html {
 
 #image_logo {
   height: 35px;
+  width: 35px;
   margin-right: 10px;
 }
 
@@ -46,6 +46,11 @@ body, html {
   font-weight: bold;
   color: var(--color4);
   text-decoration: none;
+  transition: color 0.3s ease; /* Add a smooth transition for hover effect */
+}
+
+.site-name:hover {
+  color: var(--highlight-color); /* Color change on hover */
 }
 
 /* Button Styling: Styles for the buttons inside the header */
@@ -81,6 +86,7 @@ body, html {
   flex-grow: 2; /* Ensures this section grows to fill available space */
   gap: 0px;    /* Add space between sections */
 }
+
 
 .introduction {
   display: flex;
@@ -159,12 +165,12 @@ body, html {
 .view-project {
   display: block;
   margin-top: 10px;
-  color: #FF6F61;
+  color: var(--color3);
   text-decoration: none;
 }
 
 .view-project:hover {
-  color: #FF8C00;
+  color: var(--highlight-color);
 }
 
 /* Footer Styling (Sticky at the bottom of the content) */

@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home-style.css">
-    <title>Hanazono Archive</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jay Mark Agsoy</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="banner">
-        <div class="navbar">
-            <img src="image/logo.png" class="logo">
-            <ul>
-                <li><a href="project.html">Home</a></li>
-                <li><a href="project.html">Goal</a></li>
-                <li><a href="project.html">Project</a></li>
-                <li><a href="project.html">Progress</a></li>
-                <li><a href="project.html">Contact</a></li>
-            </ul>
-        </div>
-        <div class="content">
-            <h1>Welcome! to HanazonoArchive</h1>
-            <p>Latest Update, New Released, and Project Progres.</p>
-
-            <div>
-                <button id="updatesBtn" type="button"><span></span>Check Latest Updates!</button>
-                <button id="projectsBtn" type="button"><span></span>Check Latest Project!</button>
-                <button id="progressBtn" type="button"><span></span>Check Project Progress!</button>
-
-                <script src="js/home-js.js"></script>
-            </div>
-        </div>
+  <div class="header">
+    <!-- Logo and Name grouped in a container -->
+    <div class="logo-container">
+      <img id="image_logo" src="assets/vscode.png" alt="logo">
+      <a href="#home" class="site-name">Hanazono</a>    
     </div>
+
+    <!-- Navigation Buttons -->
+    <div class="header_button">
+      <button class="front_buttons" type="button">Home</button>
+      <button class="front_buttons" type="button">About</button>
+      <button class="front_buttons" type="button">Projects</button>
+      <button class="front_buttons" type="button">Skills</button>
+      <button class="front_buttons" type="button">Contact</button>
+    </div>
+  </div>
+
+  <div class="introduction">
+    <h1>Hi, I’m Jay, a Web/Software Developer</h1>
+    <p>A web developer and software developer. I create software and website to help business and individual to make their life easier and automated</p>
+    <a href="#projects" class="cta-button">My Projects</a>
+  </div>
+
+  <div class="projects-preview">
+    <h2>Featured Projects</h2>
+    <div class="project-item">
+      <img src="assets/MPOS-System.png" alt="Project 1">
+      <h3>MPOS System for Small Business</h3>
+      <p>A mobile point-of-sale system designed for a repair and service business to streamline their operations.</p>
+      <a href="#project1" class="view-project">View Project</a>
+    </div>
+
+    <div class="project-item">
+      <img src="assets/HSRCalculator.png" alt="Project 2">
+      <h3>HSR Trailblaze Calculator</h3>
+      <p>A Simple tool, for calcualting the time, consumption and predict the time to reach max with customized options</p>
+      <a href="#project2" class="view-project">View Project</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Jay Mark Agsoy. All rights reserved.</p>
+    <script src="script.js"></script>
+  </footer>
 </body>
 </html>

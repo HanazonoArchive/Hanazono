@@ -22,13 +22,13 @@
 // }
 
 
-let string = "";
+// let string = "";
 
-// Event listener for the button click
-document.getElementById('TextAreaButton').addEventListener('click', function() {
-  // Get the value from the textarea
-  string = document.getElementById('TextArea').value;
+// // Event listener for the button click
+// document.getElementById('TextAreaButton').addEventListener('click', function() {
+//   // Get the value from the textarea
+//   string = document.getElementById('TextArea').value;
 
-  // Set the text content of the p tag to the string from the textarea
-  document.getElementById('TextAreaResult').textContent = string || "Blank!";
-});
+//   // Set the text content of the p tag to the string from the textarea
+//   document.getElementById('TextAreaResult').textContent = string || "Blank!";
+// });

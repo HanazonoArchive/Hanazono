@@ -1,0 +1,119 @@
+@import url(./font/inter.css);
+  
+:root {
+    --color1: #1C1C1C; /* Background color (Dark Charcoal) */
+    --color2: #303030; /* Navigation bar background (Slate Gray) */
+    --color3: #FF6F61; /* Tabs/Buttons background (Neon Coral) */
+    --color4: #F4F4F4; /* Text fill color (Light Off-White) */
+    --highlight-color: #FF8C00; /* Neon Orange (used for hover states) */
+  }
+  
+
+.skills_title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    padding: 100px;
+    color: var(--color4);
+  }
+  
+  /* Container for the entire skills section */
+  .skills_section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+    padding: 0px 50px 200px 50px;
+  }
+  
+  /* Individual skill block */
+  .skill {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 400px;
+  }
+  
+  /* Circular skill container */
+  .circle {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: conic-gradient(
+        var(--color3) var(--percentage, 0%),
+        var(--color4) var(--percentage, 0%)
+    );
+  }
+  
+  /* Set the percentage dynamically using attribute selector */
+  
+  /*Beginner*/
+  .circle[data-percentage="10"] {
+    --percentage: 10%;
+  }
+  
+  .circle[data-percentage="20"] {
+    --percentage: 20%;
+  }
+  
+  /*Intermediate*/
+  .circle[data-percentage="30"] {
+    --percentage: 30%;
+  }
+  
+  .circle[data-percentage="40"] {
+    --percentage: 40%;
+  }
+  
+  /*Advanced*/
+  .circle[data-percentage="50"] {
+    --percentage: 50%;
+  }
+  
+  .circle[data-percentage="60"] {
+    --percentage: 60%;
+  }
+  
+  /*Expert*/
+  .circle[data-percentage="70"] {
+    --percentage: 70%;
+  }
+  
+  .circle[data-percentage="80"] {
+    --percentage: 80%;
+  }
+  
+  /*Master*/
+  .circle[data-percentage="90"] {
+    --percentage: 90%;
+  }
+  
+  .circle[data-percentage="100"] {
+    --percentage: 100%;
+  }
+  
+  /* Text inside the circle */
+  .circle span {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--text-color, var(--color1)); /* Default text color */
+  }
+  
+  /* Skill details on the right */
+  .details h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .details p {
+    font-size: 16px;
+    color: var(--highlight-color);
+    margin: 5px 0 0;
+  }
+  
+  

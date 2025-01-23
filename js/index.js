@@ -83,7 +83,7 @@ function loadCSS(file) {
     document.head.appendChild(linkTag);
 }
 
-// Default to 'home' section when the page loads
+// // Default to 'home' section when the page loads
 window.addEventListener('DOMContentLoaded', function() {
     loadContent('home');
 });

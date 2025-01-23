@@ -22,7 +22,6 @@
   .header {
     display: grid;
     grid-template-columns: 1fr auto; /* Flexes the logo and the buttons */
-    gap: 20px; /* Space between logo and buttons */
     align-items: center;
     padding: 10px 20px;
     background-color: var(--color2);

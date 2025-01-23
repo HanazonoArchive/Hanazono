@@ -52,6 +52,8 @@
   }
   
   .header_button {
+    display: flex;
+    gap: 2px;
     display: block;
     position: relative;
   }

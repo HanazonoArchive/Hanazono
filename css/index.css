@@ -23,6 +23,7 @@
     display: grid;
     grid-template-columns: 1fr auto; /* Flexes the logo and the buttons */
     align-items: center;
+    gap: 0px;
     padding: 10px 20px;
     background-color: var(--color2);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);

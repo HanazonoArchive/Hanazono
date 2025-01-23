@@ -20,12 +20,15 @@
   }
   
   .header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto; /* Flexes the logo and the buttons */
+    gap: 20px; /* Space between logo and buttons */
     align-items: center;
     padding: 10px 20px;
     background-color: var(--color2);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .logo-container {
@@ -76,7 +79,7 @@
     background-color: var(--highlight-color);
     color: var(--color1);
     border-color: var(--highlight-color);
-  }
+  }  
   
   .introduction {
     padding: 225px 50px;
@@ -160,6 +163,4 @@
     font-size: 12px;
     position: relative;
     margin-top: auto;
-  }
-  
-  
+  }  

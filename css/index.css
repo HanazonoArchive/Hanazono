@@ -21,7 +21,7 @@
   
   .header {
     display: grid;
-    grid-template-columns: 1fr auto; /* Flexes the logo and the buttons */
+    grid-template-columns: 1fr 500px; /* Flexes the logo and the buttons */
     align-items: center;
     gap: 0px;
     padding: 10px 20px;

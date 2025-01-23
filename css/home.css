@@ -1,4 +1,4 @@
-@import url(./web/inter.css);
+@import url(./font/inter.css);
   
 :root {
     --color1: #1C1C1C; /* Background color (Dark Charcoal) */
@@ -8,8 +8,13 @@
     --highlight-color: #FF8C00; /* Neon Orange (used for hover states) */
   }
 
+  #intro_img {
+    height: 225px;
+    width: 225px;
+  }
+
   .introduction {
-    padding: 225px 50px;
+    padding: 120px 50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

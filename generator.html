@@ -123,6 +123,40 @@
         </section>
 
         <section class="generator-card">
+          <h3>Unrelated Topic</h3>
+          <form id="unrelated-form" class="form-grid">
+            <label>
+              Title
+              <input type="text" name="title" placeholder="Topic name">
+            </label>
+            <label>
+              Date
+              <input type="text" name="date" placeholder="2026-05-14">
+            </label>
+            <label class="span-2">
+              Tags (comma separated)
+              <input type="text" name="tags" placeholder="DAW, Composition">
+            </label>
+            <label class="span-2">
+              Summary
+              <input type="text" name="summary" placeholder="Short description for cards.">
+            </label>
+            <label class="span-2">
+              Body
+              <textarea name="body" rows="6" placeholder="Write the topic notes here."></textarea>
+            </label>
+          </form>
+          <div class="output-block">
+            <div class="output-head">
+              <span>Output</span>
+              <button type="button" class="button" id="unrelated-copy">Copy</button>
+            </div>
+            <textarea id="unrelated-output" rows="10" readonly></textarea>
+            <p class="helper">Save as data/unrelated/your-topic.md</p>
+          </div>
+        </section>
+
+        <section class="generator-card">
           <h3>Skills JSON</h3>
           <form id="skills-form" class="form-grid">
             <label class="span-2">

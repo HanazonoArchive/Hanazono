@@ -131,6 +131,42 @@ a:hover {
   gap: 32px;
 }
 
+.home-hero {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(280px, 1fr) minmax(220px, 1fr);
+  align-items: start;
+}
+
+.home-card {
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.home-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.link-card {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.link-card-arrow {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.28em;
@@ -612,6 +648,10 @@ body.modal-open {
 
   .span-2 {
     grid-column: span 1;
+  }
+
+  .home-hero {
+    grid-template-columns: 1fr;
   }
 
   .about-grid {

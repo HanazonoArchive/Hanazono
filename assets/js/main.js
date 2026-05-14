@@ -8,42 +8,68 @@ const state = {
   unrelated: [],
 };
 
+function setText(id, value) {
+  const el = byId(id);
+  if (el) {
+    el.textContent = value || "";
+  }
+}
+
 function renderProfile(profile, skills) {
-  byId("profile-name").textContent = profile.name || "Your Name";
-  byId("profile-major").textContent = profile.major || "Major";
-  byId("profile-summary").textContent = profile.summary || "";
-  byId("profile-tagline").textContent = profile.tagline || "";
+  if (!profile) {
+    return;
+  }
+  setText("profile-name", profile.name || "Your Name");
+  setText("profile-major", profile.major || "Major");
+  setText("profile-summary", profile.summary || "");
+  setText("profile-tagline", profile.tagline || "");
 
   const focusPanel = profile.focus?.length ? profile.focus.join(" + ") : "";
-  byId("profile-focus-panel").textContent = focusPanel;
+  setText("profile-focus-panel", focusPanel);
 
-  const stackPanel = skills.languages?.length
+  const stackPanel = skills?.languages?.length
     ? skills.languages.slice(0, 6).join(", ")
     : "";
-  byId("profile-stack-panel").textContent = stackPanel;
+  setText("profile-stack-panel", stackPanel);
 
   const focusContainer = byId("profile-focus");
-  renderChips(focusContainer, profile.focus || [], true);
+  if (focusContainer) {
+    renderChips(focusContainer, profile.focus || [], true);
+  }
 
   const linksContainer = byId("profile-links");
-  linksContainer.innerHTML = "";
-  if (profile.links && profile.links.length) {
-    profile.links.forEach((link) => {
-      const anchor = document.createElement("a");
-      anchor.href = link.url;
-      anchor.textContent = link.label;
-      anchor.target = "_blank";
-      anchor.rel = "noopener noreferrer";
-      anchor.className = "chip";
-      linksContainer.appendChild(anchor);
-    });
+  if (linksContainer) {
+    linksContainer.innerHTML = "";
+    if (profile.links && profile.links.length) {
+      profile.links.forEach((link) => {
+        const anchor = document.createElement("a");
+        anchor.href = link.url;
+        anchor.textContent = link.label;
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+        anchor.className = "chip";
+        linksContainer.appendChild(anchor);
+      });
+    }
   }
 }
 
 function renderSkills(skills) {
-  renderChips(byId("skills-languages"), skills.languages || [], true);
-  renderChips(byId("skills-tools"), skills.tools || []);
-  renderChips(byId("skills-platforms"), skills.platforms || []);
+  if (!skills) {
+    return;
+  }
+  const languages = byId("skills-languages");
+  const tools = byId("skills-tools");
+  const platforms = byId("skills-platforms");
+  if (languages) {
+    renderChips(languages, skills.languages || [], true);
+  }
+  if (tools) {
+    renderChips(tools, skills.tools || []);
+  }
+  if (platforms) {
+    renderChips(platforms, skills.platforms || []);
+  }
 }
 
 function buildCard(item, typeLabel) {
@@ -106,6 +132,9 @@ function buildCard(item, typeLabel) {
 
 function renderCardGrid(containerId, items, typeLabel) {
   const grid = byId(containerId);
+  if (!grid) {
+    return;
+  }
   grid.innerHTML = "";
   if (!items.length) {
     const empty = document.createElement("div");
@@ -151,12 +180,20 @@ function attachCardHandlers() {
 async function init() {
   try {
     const config = await loadConfig();
+    const wantsProfile = Boolean(byId("profile-name") || byId("profile-major"));
+    const wantsSkills = Boolean(
+      byId("skills-languages") || byId("skills-tools") || byId("skills-platforms")
+    );
+    const wantsProjects = Boolean(byId("projects-grid"));
+    const wantsCertifications = Boolean(byId("certifications-grid"));
+    const wantsUnrelated = Boolean(byId("unrelated-grid"));
+
     const [profile, skills, projects, certifications, unrelated] = await Promise.all([
-      loadProfile(),
-      loadSkills(),
-      loadMarkdownItems("projects", config),
-      loadMarkdownItems("certifications", config),
-      loadMarkdownItems("unrelated", config),
+      wantsProfile ? loadProfile() : Promise.resolve(null),
+      wantsSkills || wantsProfile ? loadSkills() : Promise.resolve(null),
+      wantsProjects ? loadMarkdownItems("projects", config) : Promise.resolve([]),
+      wantsCertifications ? loadMarkdownItems("certifications", config) : Promise.resolve([]),
+      wantsUnrelated ? loadMarkdownItems("unrelated", config) : Promise.resolve([]),
     ]);
 
     state.projects = projects;
@@ -169,8 +206,10 @@ async function init() {
     renderCardGrid("certifications-grid", certifications, "Certification");
     renderCardGrid("unrelated-grid", unrelated, "Unrelated");
 
-    attachCardHandlers();
-    initModal();
+    if (wantsProjects || wantsCertifications || wantsUnrelated) {
+      attachCardHandlers();
+      initModal();
+    }
   } catch (error) {
     console.error(error);
   }

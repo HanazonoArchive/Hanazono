@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Unrelated topics and side interests.">
+  <meta name="color-scheme" content="dark">
+  <title>Unrelated Topics | Agsoy, Jay Mark V.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap');
+  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="unrelated.html">Unrelated</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-head">
+          <h2>Unrelated Topics</h2>
+          <p class="section-subtitle">Side interests and non-core work.</p>
+        </div>
+        <div class="card-grid" id="unrelated-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Built with static HTML, CSS, and JS.</span>
+    </footer>
+  </div>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" data-modal-close aria-label="Close modal">&times;</button>
+      <div class="modal-body">
+        <div class="modal-media" id="modal-media"></div>
+        <div class="modal-content">
+          <div class="modal-kicker" id="modal-kicker"></div>
+          <h3 id="modal-title"></h3>
+          <div class="modal-meta" id="modal-meta"></div>
+          <div class="chip-list modal-chips" id="modal-chips"></div>
+          <div class="modal-links" id="modal-links"></div>
+          <div class="modal-markdown" id="modal-markdown"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

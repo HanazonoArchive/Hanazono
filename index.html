@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap');
   </style>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -20,9 +20,12 @@
       </div> -->
       <nav class="site-nav">
         <a href="#about">About</a>
+        <a href="#about-me">About Me</a>
         <a href="#projects">Projects</a>
         <a href="#certifications">Certifications</a>
+        <a href="#unrelated">Unrelated Topics</a>
         <a href="#skills">Skills</a>
+        <a href="#contact">Contact Me</a>
       </nav>
     </header>
 
@@ -52,10 +55,37 @@
         </div>
       </section>
 
+      <section id="about-me" class="section">
+        <div class="section-head">
+          <h2>About Me</h2>
+          <p class="section-subtitle">Education and background.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card about-image-card">
+            <div class="about-image">
+              <img src="assets/images/about-placeholder.svg" alt="About me placeholder">
+            </div>
+            <p class="helper">Replace with your photo or campus image.</p>
+          </div>
+          <div class="about-card">
+            <p>
+              Computer science student focused on machine learning and cybersecurity.
+              Open to applied work and hands-on projects.
+            </p>
+            <ul class="about-list">
+              <li><strong>Education:</strong> University of Mindanao (2023-2027)</li>
+              <li><strong>Major:</strong> BS in Computer Science (ML and Cybersecurity)</li>
+              <li><strong>Focus:</strong> Machine Learning, Cybersecurity</li>
+              <li><strong>Certifications:</strong> Certiport Database, Certiport Network Security</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section id="projects" class="section">
         <div class="section-head">
           <h2>Projects</h2>
-          <p class="section-subtitle">Add markdown files in data/projects.</p>
+          <p class="section-subtitle"></p>
         </div>
         <div class="card-grid" id="projects-grid"></div>
       </section>
@@ -63,15 +93,23 @@
       <section id="certifications" class="section">
         <div class="section-head">
           <h2>Certifications</h2>
-          <p class="section-subtitle">Credentials and proof of training.</p>
+          <p class="section-subtitle"></p>
         </div>
         <div class="card-grid" id="certifications-grid"></div>
+      </section>
+
+      <section id="unrelated" class="section">
+        <div class="section-head">
+          <h2>Unrelated Topics</h2>
+          <p class="section-subtitle">Side interests and non-core work.</p>
+        </div>
+        <div class="card-grid" id="unrelated-grid"></div>
       </section>
 
       <section id="skills" class="section">
         <div class="section-head">
           <h2>Skills</h2>
-          <p class="section-subtitle">Languages and tools in regular rotation.</p>
+          <p class="section-subtitle"></p>
         </div>
         <div class="skills-columns">
           <div>
@@ -85,6 +123,41 @@
           <div>
             <h3>Platforms</h3>
             <div class="chip-list" id="skills-platforms"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-head">
+          <h2>Contact Me</h2>
+          <p class="section-subtitle">Reach out for collaboration or roles.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Send a message</h3>
+            <form class="contact-form" action="https://formsubmit.co/jagsoy.sanhs@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="Portfolio contact">
+              <input type="hidden" name="_captcha" value="true">
+              <label>
+                Name
+                <input type="text" name="name" required>
+              </label>
+              <label>
+                Email
+                <input type="email" name="_replyto" required>
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows="5" required></textarea>
+              </label>
+              <button type="submit" class="button">Send</button>
+            </form>
+            <p class="helper">Powered by FormSubmit (free form-to-email).</p>
+          </div>
+          <div class="contact-card">
+            <h3>Direct</h3>
+            <p>Email: <a href="mailto:jagsoy.sanhs@gmail.com">jagsoy.sanhs@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/HanazonoArchive" target="_blank" rel="noopener noreferrer">HanazonoArchive</a></p>
           </div>
         </div>
       </section>

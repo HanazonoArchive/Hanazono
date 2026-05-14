@@ -5,6 +5,7 @@ import { initModal, openModal } from "./modal.js";
 const state = {
   projects: [],
   certifications: [],
+  unrelated: [],
 };
 
 function renderProfile(profile, skills) {
@@ -83,6 +84,16 @@ function buildCard(item, typeLabel) {
     chip.className = "chip";
     chip.textContent = item.certifier;
     chips.appendChild(chip);
+  } else if (item.tags?.length) {
+    item.tags.slice(0, 3).forEach((tag, index) => {
+      const chip = document.createElement("span");
+      chip.className = "chip";
+      if (index === 0) {
+        chip.classList.add("accent");
+      }
+      chip.textContent = tag;
+      chips.appendChild(chip);
+    });
   }
 
   card.appendChild(top);
@@ -122,7 +133,14 @@ function attachCardHandlers() {
     if (Number.isNaN(index)) {
       return;
     }
-    const list = typeLabel === "Project" ? state.projects : state.certifications;
+    let list = [];
+    if (typeLabel === "Project") {
+      list = state.projects;
+    } else if (typeLabel === "Certification") {
+      list = state.certifications;
+    } else if (typeLabel === "Unrelated") {
+      list = state.unrelated;
+    }
     const item = list[index];
     if (item) {
       openModal(item, typeLabel);
@@ -133,20 +151,23 @@ function attachCardHandlers() {
 async function init() {
   try {
     const config = await loadConfig();
-    const [profile, skills, projects, certifications] = await Promise.all([
+    const [profile, skills, projects, certifications, unrelated] = await Promise.all([
       loadProfile(),
       loadSkills(),
       loadMarkdownItems("projects", config),
       loadMarkdownItems("certifications", config),
+      loadMarkdownItems("unrelated", config),
     ]);
 
     state.projects = projects;
     state.certifications = certifications;
+    state.unrelated = unrelated;
 
     renderProfile(profile, skills);
     renderSkills(skills);
     renderCardGrid("projects-grid", projects, "Project");
     renderCardGrid("certifications-grid", certifications, "Certification");
+    renderCardGrid("unrelated-grid", unrelated, "Unrelated");
 
     attachCardHandlers();
     initModal();

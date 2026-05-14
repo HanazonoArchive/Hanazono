@@ -36,6 +36,14 @@ function closeModal() {
   document.body.classList.remove("modal-open");
 }
 
+function buildPdfSrc(path) {
+  if (!path) {
+    return path;
+  }
+  const base = path.split("#")[0];
+  return `${base}#toolbar=0&navpanes=0&scrollbar=0`;
+}
+
 export function openModal(item, typeLabel) {
   modalTitle.textContent = item.title;
   modalKicker.textContent = typeLabel;
@@ -82,7 +90,7 @@ export function openModal(item, typeLabel) {
   if (imagePath) {
     if (isPdf) {
       const frame = document.createElement("iframe");
-      frame.src = imagePath;
+      frame.src = buildPdfSrc(imagePath);
       frame.title = `${item.title} file`;
       frame.loading = "lazy";
       modalMedia.appendChild(frame);

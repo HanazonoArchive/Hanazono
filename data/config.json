@@ -1,0 +1,14 @@
+{
+  "site": {
+    "title": "Agsoy, Jay Mark V. | Portfolio",
+    "description": "Portfolio for a newly graduated computer science student focused on machine learning and cybersecurity."
+  },
+  "github": {
+    "enabled": true,
+    "user": "HanazonoArchive",
+    "repo": "Hanazono",
+    "branch": "Main",
+    "basePath": "",
+    "cacheMinutes": 10
+  }
+}

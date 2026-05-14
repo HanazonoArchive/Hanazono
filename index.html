@@ -1,33 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay's Portfolio</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="icon" href="assets/HanazonoLogo.png" type="image/png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Agsoy, Jay Mark V.">
+  <meta name="color-scheme" content="dark">
+  <title>Agsoy, Jay Mark V. | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div class="header">
-        <div class="logo-container">
-            <img id="image_logo" src="assets/HanazonoLogo.png" alt="stelle">
-            <a href="#home" class="site-name"> Hanazono</a>
-        </div>
-        
-        <div class="header_button">
-            <button class="nav_buttons" data="button" id="home_button">Home</button>
-            <button class="nav_buttons" type="button" id="about_button">About</button>
-            <button class="nav_buttons" type="button" id="projects_button">Projects</button>
-            <button class="nav_buttons" type="button" id="skills_button">Skills</button>
-            <button class="nav_buttons" type="button" id="contact_button">Contact</button>
-        </div>
-    </div>
-    <div id="content">
+  <div class="page">
+    <header class="site-header">
+      <div class="logo">AJ</div>
+      <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#skills">Skills</a>
+      </nav>
+    </header>
 
-    </div>    
-    <footer>
-        <p>&copy; 2025 Jay Mark Agsoy. All rights reserved</p>
-        <script src="js/index.js"></script>
+    <main>
+      <section id="about" class="section hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Portfolio</p>
+          <h1 id="profile-name">Agsoy, Jay Mark V.</h1>
+          <p class="subtitle" id="profile-major"></p>
+          <p class="summary" id="profile-summary"></p>
+          <div class="hero-tags" id="profile-focus"></div>
+          <div class="hero-links" id="profile-links"></div>
+        </div>
+        <div class="hero-panel">
+          <div class="panel-item">
+            <span class="panel-label">Focus</span>
+            <p class="panel-value" id="profile-focus-panel"></p>
+          </div>
+          <div class="panel-item">
+            <span class="panel-label">Stack</span>
+            <p class="panel-value" id="profile-stack-panel"></p>
+          </div>
+          <div class="panel-item">
+            <span class="panel-label">Profile</span>
+            <p class="panel-value" id="profile-tagline"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p class="section-subtitle">Add markdown files in data/projects.</p>
+        </div>
+        <div class="card-grid" id="projects-grid"></div>
+      </section>
+
+      <section id="certifications" class="section">
+        <div class="section-head">
+          <h2>Certifications</h2>
+          <p class="section-subtitle">Credentials and proof of training.</p>
+        </div>
+        <div class="card-grid" id="certifications-grid"></div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p class="section-subtitle">Languages and tools in regular rotation.</p>
+        </div>
+        <div class="skills-columns">
+          <div>
+            <h3>Languages</h3>
+            <div class="chip-list" id="skills-languages"></div>
+          </div>
+          <div>
+            <h3>Tools</h3>
+            <div class="chip-list" id="skills-tools"></div>
+          </div>
+          <div>
+            <h3>Platforms</h3>
+            <div class="chip-list" id="skills-platforms"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Built with static HTML, CSS, and JS.</span>
     </footer>
+  </div>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" data-modal-close aria-label="Close modal">&times;</button>
+      <div class="modal-body">
+        <div class="modal-media" id="modal-media"></div>
+        <div class="modal-content">
+          <div class="modal-kicker" id="modal-kicker"></div>
+          <h3 id="modal-title"></h3>
+          <div class="modal-meta" id="modal-meta"></div>
+          <div class="chip-list modal-chips" id="modal-chips"></div>
+          <div class="modal-links" id="modal-links"></div>
+          <div class="modal-markdown" id="modal-markdown"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

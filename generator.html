@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Markdown generator for portfolio content.">
+  <meta name="color-scheme" content="dark">
+  <title>Portfolio Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="generator-page">
+  <div class="page">
+    <header class="site-header">
+      <div class="logo">AJ</div>
+      <nav class="site-nav">
+        <a href="index.html">Back to portfolio</a>
+      </nav>
+    </header>
+
+    <main class="section">
+      <div class="section-head">
+        <h2>Markdown Generator</h2>
+        <p class="section-subtitle">Create project and certification files fast.</p>
+      </div>
+
+      <div class="generator-grid">
+        <section class="generator-card">
+          <h3>Project</h3>
+          <form id="project-form" class="form-grid">
+            <label>
+              Title
+              <input type="text" name="title" placeholder="Project name">
+            </label>
+            <label>
+              Date
+              <input type="text" name="date" placeholder="2026-05-14">
+            </label>
+            <label>
+              Languages (comma separated)
+              <input type="text" name="languages" placeholder="Python, JavaScript">
+            </label>
+            <label>
+              Tools (comma separated)
+              <input type="text" name="tools" placeholder="Docker, PostgreSQL">
+            </label>
+            <label>
+              Link
+              <input type="text" name="link" placeholder="https://github.com/username/project">
+            </label>
+            <label>
+              Image path
+              <input type="text" name="image" placeholder="assets/images/project.jpg">
+            </label>
+            <label class="span-2">
+              Summary
+              <input type="text" name="summary" placeholder="Short description for cards.">
+            </label>
+            <label class="span-2">
+              Body
+              <textarea name="body" rows="6" placeholder="Write the project story here."></textarea>
+            </label>
+          </form>
+          <div class="output-block">
+            <div class="output-head">
+              <span>Output</span>
+              <button type="button" class="button" id="project-copy">Copy</button>
+            </div>
+            <textarea id="project-output" rows="10" readonly></textarea>
+            <p class="helper">Save as data/projects/your-project.md</p>
+          </div>
+        </section>
+
+        <section class="generator-card">
+          <h3>Certification</h3>
+          <form id="cert-form" class="form-grid">
+            <label>
+              Title
+              <input type="text" name="title" placeholder="Certification name">
+            </label>
+            <label>
+              Date
+              <input type="text" name="date" placeholder="2026-05-14">
+            </label>
+            <label>
+              Certifier
+              <input type="text" name="certifier" placeholder="Certiport">
+            </label>
+            <label>
+              Credential ID
+              <input type="text" name="credential" placeholder="Optional">
+            </label>
+            <label>
+              Link
+              <input type="text" name="link" placeholder="https://verify.example.com">
+            </label>
+            <label>
+              Image path
+              <input type="text" name="image" placeholder="assets/images/cert.jpg">
+            </label>
+            <label class="span-2">
+              Summary
+              <input type="text" name="summary" placeholder="Short description for cards.">
+            </label>
+            <label class="span-2">
+              Body
+              <textarea name="body" rows="6" placeholder="Coverage, outcomes, and notes."></textarea>
+            </label>
+          </form>
+          <div class="output-block">
+            <div class="output-head">
+              <span>Output</span>
+              <button type="button" class="button" id="cert-copy">Copy</button>
+            </div>
+            <textarea id="cert-output" rows="10" readonly></textarea>
+            <p class="helper">Save as data/certifications/your-cert.md</p>
+          </div>
+        </section>
+
+        <section class="generator-card">
+          <h3>Skills JSON</h3>
+          <form id="skills-form" class="form-grid">
+            <label class="span-2">
+              Languages (comma separated)
+              <input type="text" name="languages" placeholder="Python, Java, C++">
+            </label>
+            <label class="span-2">
+              Tools (comma separated)
+              <input type="text" name="tools" placeholder="Git, Docker">
+            </label>
+            <label class="span-2">
+              Platforms (comma separated)
+              <input type="text" name="platforms" placeholder="Linux, AWS">
+            </label>
+          </form>
+          <div class="output-block">
+            <div class="output-head">
+              <span>Output</span>
+              <button type="button" class="button" id="skills-copy">Copy</button>
+            </div>
+            <textarea id="skills-output" rows="10" readonly></textarea>
+            <p class="helper">Paste into data/skills.json</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>Generator is intentionally not linked from the main site.</span>
+    </footer>
+  </div>
+
+  <script type="module" src="assets/js/generator.js"></script>
+</body>
+</html>

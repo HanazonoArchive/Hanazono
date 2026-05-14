@@ -22,16 +22,16 @@
 
 body {
   margin: 0;
-  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+  font-family: "Google Sans Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
 }
 
 h1, h2, h3, h4 {
-  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+  font-family: "Google Sans Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   margin: 0 0 0.4rem 0;
   letter-spacing: -0.02em;
@@ -400,6 +400,7 @@ body.modal-open {
   display: grid;
   gap: 26px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: stretch;
 }
 
 .generator-card {
@@ -410,6 +411,7 @@ body.modal-open {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  height: 100%;
 }
 
 .form-grid {
@@ -449,6 +451,7 @@ body.modal-open {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: auto;
 }
 
 .output-block textarea {
@@ -459,7 +462,7 @@ body.modal-open {
   border-radius: var(--radius-sm);
   color: var(--text);
   padding: 12px;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: inherit;
 }
 
 .output-head {

@@ -1,5 +1,5 @@
 {
-  "languages": ["Python", "Java", "C++", "PHP", "Kotlin", "JavaScript", "HTML", "CSS"],
+  "languages": ["Python", "Java", "C++", "PHP", "Kotlin", "JavaScript", "CSS", "SQL"],
   "tools": [
     "Git",
     "GitHub",

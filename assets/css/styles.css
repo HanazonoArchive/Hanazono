@@ -10,8 +10,8 @@
   --accent-3: #9cff6a;
   --stroke: rgba(255, 255, 255, 0.08);
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-  --radius: 16px;
-  --radius-sm: 12px;
+  --radius: 8px;
+  --radius-sm: 6px;
   --max-width: 1120px;
   --transition: 200ms ease;
 }
@@ -22,40 +22,17 @@
 
 body {
   margin: 0;
-  font-family: "IBM Plex Sans", sans-serif;
-  background: radial-gradient(circle at top left, rgba(255, 107, 107, 0.08), transparent 55%),
-    radial-gradient(circle at 70% 10%, rgba(74, 217, 255, 0.08), transparent 55%),
-    var(--bg);
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  background: var(--bg);
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
 }
 
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-body::before {
-  inset: -20% auto auto -10%;
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, rgba(156, 255, 106, 0.18), transparent 60%);
-}
-
-body::after {
-  inset: auto -20% -30% auto;
-  width: 620px;
-  height: 620px;
-  background: radial-gradient(circle, rgba(255, 107, 107, 0.12), transparent 60%);
-}
-
 h1, h2, h3, h4 {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
   margin: 0 0 0.4rem 0;
   letter-spacing: -0.02em;
 }
@@ -86,9 +63,8 @@ a:hover {
   justify-content: space-between;
   padding: 12px 18px;
   border: 1px solid var(--stroke);
-  border-radius: 999px;
-  background: rgba(18, 21, 26, 0.8);
-  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  background: var(--panel-strong);
   position: sticky;
   top: 18px;
   z-index: 4;
@@ -97,12 +73,20 @@ a:hover {
 .logo {
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   display: grid;
   place-items: center;
   font-weight: 600;
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(74, 217, 255, 0.3));
+  background: var(--panel);
   border: 1px solid var(--stroke);
+}
+
+.logo svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  color: #ffffff;
+  fill: currentColor;
 }
 
 .site-nav {
@@ -114,7 +98,7 @@ a:hover {
 
 .site-nav a {
   padding: 6px 10px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   transition: var(--transition);
 }
 
@@ -172,7 +156,7 @@ a:hover {
 }
 
 .hero-panel {
-  background: linear-gradient(160deg, rgba(26, 31, 38, 0.9), rgba(14, 16, 20, 0.9));
+  background: var(--panel);
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
   padding: 22px;
@@ -259,7 +243,7 @@ a:hover {
 
 .chip {
   padding: 4px 10px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   font-size: 0.78rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--text);
@@ -330,7 +314,7 @@ a:hover {
   top: 16px;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--stroke);
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);
@@ -388,7 +372,7 @@ a:hover {
   align-items: center;
   gap: 8px;
   padding: 6px 12px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--text);
   font-size: 0.85rem;
@@ -490,7 +474,7 @@ body.modal-open {
   background: rgba(255, 107, 107, 0.2);
   border: 1px solid rgba(255, 107, 107, 0.5);
   color: var(--text);
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   padding: 6px 14px;
   cursor: pointer;
   font-size: 0.85rem;

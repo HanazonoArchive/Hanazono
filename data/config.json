@@ -7,7 +7,7 @@
     "enabled": true,
     "user": "HanazonoArchive",
     "repo": "Hanazono",
-    "branch": "Main",
+    "branch": "main",
     "basePath": "",
     "cacheMinutes": 10
   }

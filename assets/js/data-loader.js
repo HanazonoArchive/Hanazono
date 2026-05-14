@@ -97,7 +97,12 @@ function sortByDate(items) {
 export async function loadMarkdownItems(type, config) {
   let list = [];
   if (config?.github?.enabled) {
-    list = await fetchGitHubList(type, config.github);
+    try {
+      list = await fetchGitHubList(type, config.github);
+    } catch (error) {
+      console.warn("GitHub listing failed, falling back to local index.", error);
+      list = await fetchLocalIndex(type);
+    }
   } else {
     list = await fetchLocalIndex(type);
   }

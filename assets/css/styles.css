@@ -397,10 +397,11 @@ body.modal-open {
 }
 
 .generator-page .generator-grid {
-  display: grid;
+  display: flex;
   gap: 26px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   align-items: stretch;
+  flex-direction: column;
 }
 
 .generator-card {

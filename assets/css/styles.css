@@ -152,14 +152,16 @@ a:hover {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 100%;
 }
 
 .link-card {
   text-decoration: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-height: 72px;
+  font-size: larger;
 }
 
 .link-card-arrow {

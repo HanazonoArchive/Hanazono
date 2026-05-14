@@ -4,7 +4,7 @@ certifier: Certiport
 date: 2025-03-10
 credential:
 link:
-image: data/certifications/resources/certiport-database.pdf
+image: data/certifications/resources/Database.pdf
 summary: Certification in database fundamentals and structured query skills.
 ---
 Validated knowledge of relational concepts, schema basics, and structured queries.

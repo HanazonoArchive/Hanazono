@@ -5,7 +5,7 @@ import { initModal, openModal } from "./modal.js";
 const state = {
   projects: [],
   certifications: [],
-  unrelated: [],
+  explorations: [],
 };
 
 function setText(id, value) {
@@ -167,8 +167,8 @@ function attachCardHandlers() {
       list = state.projects;
     } else if (typeLabel === "Certification") {
       list = state.certifications;
-    } else if (typeLabel === "Unrelated") {
-      list = state.unrelated;
+    } else if (typeLabel === "Explorations") {
+      list = state.explorations;
     }
     const item = list[index];
     if (item) {
@@ -186,27 +186,27 @@ async function init() {
     );
     const wantsProjects = Boolean(byId("projects-grid"));
     const wantsCertifications = Boolean(byId("certifications-grid"));
-    const wantsUnrelated = Boolean(byId("unrelated-grid"));
+    const wantsExplorations = Boolean(byId("explorations-grid"));
 
-    const [profile, skills, projects, certifications, unrelated] = await Promise.all([
+    const [profile, skills, projects, certifications, explorations] = await Promise.all([
       wantsProfile ? loadProfile() : Promise.resolve(null),
       wantsSkills || wantsProfile ? loadSkills() : Promise.resolve(null),
       wantsProjects ? loadMarkdownItems("projects", config) : Promise.resolve([]),
       wantsCertifications ? loadMarkdownItems("certifications", config) : Promise.resolve([]),
-      wantsUnrelated ? loadMarkdownItems("unrelated", config) : Promise.resolve([]),
+      wantsExplorations ? loadMarkdownItems("explorations", config) : Promise.resolve([]),
     ]);
 
     state.projects = projects;
     state.certifications = certifications;
-    state.unrelated = unrelated;
+    state.explorations = explorations;
 
     renderProfile(profile, skills);
     renderSkills(skills);
     renderCardGrid("projects-grid", projects, "Project");
     renderCardGrid("certifications-grid", certifications, "Certification");
-    renderCardGrid("unrelated-grid", unrelated, "Unrelated");
+    renderCardGrid("explorations-grid", explorations, "Explorations");
 
-    if (wantsProjects || wantsCertifications || wantsUnrelated) {
+    if (wantsProjects || wantsCertifications || wantsExplorations) {
       attachCardHandlers();
       initModal();
     }

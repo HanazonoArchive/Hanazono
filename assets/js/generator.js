@@ -8,9 +8,9 @@ const certForm = document.getElementById("cert-form");
 const certOutput = document.getElementById("cert-output");
 const certCopy = document.getElementById("cert-copy");
 
-const unrelatedForm = document.getElementById("unrelated-form");
-const unrelatedOutput = document.getElementById("unrelated-output");
-const unrelatedCopy = document.getElementById("unrelated-copy");
+const explorationsForm = document.getElementById("explorations-form");
+const explorationsOutput = document.getElementById("explorations-output");
+const explorationsCopy = document.getElementById("explorations-copy");
 
 const skillsForm = document.getElementById("skills-form");
 const skillsOutput = document.getElementById("skills-output");
@@ -64,15 +64,15 @@ function buildCertificationMarkdown() {
   return `${buildFrontMatter(lines)}${body}`;
 }
 
-function buildUnrelatedMarkdown() {
-  const data = new FormData(unrelatedForm);
+function buildExplorationsMarkdown() {
+  const data = new FormData(explorationsForm);
   const lines = [];
   addLine(lines, "title", data.get("title"));
   addLine(lines, "date", data.get("date"));
   addList(lines, "tags", toList(data.get("tags")));
   addLine(lines, "summary", data.get("summary"));
 
-  const body = data.get("body") || "Write the topic notes here.";
+  const body = data.get("body") || "Write the exploration notes here.";
   return `${buildFrontMatter(lines)}${body}`;
 }
 
@@ -89,7 +89,7 @@ function buildSkillsJson() {
 function updateOutputs() {
   projectOutput.value = buildProjectMarkdown();
   certOutput.value = buildCertificationMarkdown();
-  unrelatedOutput.value = buildUnrelatedMarkdown();
+  explorationsOutput.value = buildExplorationsMarkdown();
   skillsOutput.value = buildSkillsJson();
 }
 
@@ -108,12 +108,12 @@ async function copyToClipboard(text) {
 
 projectForm.addEventListener("input", updateOutputs);
 certForm.addEventListener("input", updateOutputs);
-unrelatedForm.addEventListener("input", updateOutputs);
+explorationsForm.addEventListener("input", updateOutputs);
 skillsForm.addEventListener("input", updateOutputs);
 
 projectCopy.addEventListener("click", () => copyToClipboard(projectOutput.value));
 certCopy.addEventListener("click", () => copyToClipboard(certOutput.value));
-unrelatedCopy.addEventListener("click", () => copyToClipboard(unrelatedOutput.value));
+explorationsCopy.addEventListener("click", () => copyToClipboard(explorationsOutput.value));
 skillsCopy.addEventListener("click", () => copyToClipboard(skillsOutput.value));
 
 updateOutputs();

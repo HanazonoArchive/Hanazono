@@ -1,4 +1,5 @@
 const LIST_KEYS = new Set(["languages", "tools", "tags", "platforms"]);
+const BASE_PATH = "/Hanazono"; // Set to "" for local development
 
 async function loadJson(path) {
   const response = await fetch(path);
@@ -9,15 +10,15 @@ async function loadJson(path) {
 }
 
 export async function loadConfig() {
-  return loadJson("/data/config.json");
+  return loadJson(`${BASE_PATH}/data/config.json`);
 }
 
 export async function loadProfile() {
-  return loadJson("/data/profile.json");
+  return loadJson(`${BASE_PATH}/data/profile.json`);
 }
 
 export async function loadSkills() {
-  return loadJson("/data/skills.json");
+  return loadJson(`${BASE_PATH}/data/skills.json`);
 }
 
 function parseFrontMatter(raw) {
@@ -76,10 +77,10 @@ async function fetchGitHubList(type, github) {
 }
 
 async function fetchLocalIndex(type) {
-  const index = await loadJson(`/data/${type}/index.json`);
+  const index = await loadJson(`${BASE_PATH}/data/${type}/index.json`);
   return (index.items || []).map((name) => ({
     name,
-    url: `/data/${type}/${name}`,
+    url: `${BASE_PATH}/data/${type}/${name}`,
   }));
 }
 

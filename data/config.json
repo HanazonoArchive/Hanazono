@@ -8,7 +8,7 @@
     "user": "HanazonoArchive",
     "repo": "Hanazono",
     "branch": "main",
-    "basePath": "",
+    "basePath": "/Hanazono",
     "cacheMinutes": 10
   }
 }

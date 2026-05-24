@@ -505,9 +505,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  min-height: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 .modal-kicker {
@@ -535,6 +534,10 @@ a:hover {
 
 .modal-markdown {
   color: var(--muted);
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
 }
 
 .modal-markdown h1,

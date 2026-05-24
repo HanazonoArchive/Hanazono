@@ -9,6 +9,46 @@ const modalLinks = byId("modal-links");
 const modalMarkdown = byId("modal-markdown");
 const modalMedia = byId("modal-media");
 
+// Skill to icon mapping
+const skillIconMap = {
+  "Python": "fab fa-python",
+  "Java": "fab fa-java",
+  "JavaScript": "fab fa-js",
+  "HTML": "fab fa-html5",
+  "CSS": "fab fa-css3",
+  "PHP": "fab fa-php",
+  "C/C++": "fas fa-copyright",
+  "Kotlin": "fas fa-k",
+  "SQL": "fas fa-database",
+  "Git": "fab fa-git",
+  "GitHub": "fab fa-github",
+  "VS Code": "fas fa-code",
+  "IntelliJ IDEA": "fas fa-terminal",
+  "PyCharm": "fas fa-terminal",
+  "Django": "fas fa-leaf",
+  "Node.js": "fab fa-node-js",
+  "React": "fab fa-react",
+  "npm": "fab fa-npm",
+  "Gradle": "fas fa-hammer",
+  "Maven": "fas fa-hammer",
+  "Docker": "fab fa-docker",
+  "Jupyter": "fas fa-book",
+  "MySQL": "fas fa-database",
+  "SQLite": "fas fa-database",
+  "Wireshark": "fas fa-network-wired",
+  "GitHub Actions": "fab fa-github",
+  "Electron": "fas fa-desktop",
+  "Matplotlib": "fas fa-chart-bar",
+  "Windows": "fab fa-windows",
+  "Android": "fab fa-android",
+  "Linux": "fab fa-linux",
+  "macOS": "fab fa-apple",
+};
+
+function getSkillIcon(skillName) {
+  return skillIconMap[skillName] || "fas fa-star";
+}
+
 function appendChips(container, label, items, accentFirst = false) {
   if (!items || items.length === 0) {
     return;
@@ -21,11 +61,19 @@ function appendChips(container, label, items, accentFirst = false) {
   }
   items.forEach((item, index) => {
     const chip = document.createElement("span");
-    chip.className = "chip";
+    chip.className = "chip chip-with-icon";
     if (accentFirst && index === 0) {
       chip.classList.add("accent");
     }
-    chip.textContent = item;
+    
+    const icon = document.createElement("i");
+    icon.className = getSkillIcon(item);
+    
+    const text = document.createElement("span");
+    text.textContent = item;
+    
+    chip.appendChild(icon);
+    chip.appendChild(text);
     container.appendChild(chip);
   });
 }

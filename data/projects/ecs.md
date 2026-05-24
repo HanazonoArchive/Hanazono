@@ -5,7 +5,7 @@ languages: [Java, CSS]
 tools: [JavaFX, Scenebuilder, IntelliJ IDEA, Gradle]
 link: https://github.com/HanazonoArchive/ECS
 image: ../data/projects/resources/ecs.png
-summary: GitHub repository. Add the project summary here.
+summary: A Desktop Application that helps players accurately calculate how long their energy/power will take to regenerate to maximum.
 ---
 ## Overview
 

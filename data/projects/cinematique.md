@@ -5,7 +5,7 @@ languages: [Java, CSS]
 tools: [JavaFX, Scenebuilder, IntelliJ IDEA, Gradle]
 link: https://github.com/HanazonoArchive/Cinematique
 image:
-summary: GitHub repository. Add the project summary here.
+summary: A Desktop Application for Managing Movie Rentals.
 ---
 A comprehensive desktop application for managing movie rentals, built with **Java 16**, **JavaFX**, and **MySQL**. This full-featured system includes user authentication, movie browsing, rental management, and a complete admin dashboard for system administration.
 

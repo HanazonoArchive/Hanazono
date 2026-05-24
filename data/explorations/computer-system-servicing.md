@@ -1,6 +1,6 @@
 ---
 title: Computer System Servicing (Hardware & System Maintenance)
-date:
+date: 2023-01-01
 tags: [Hardware, Maintenance, Troubleshooting]
 summary: Performs system servicing, hardware upkeep, and maintenance tasks.
 ---

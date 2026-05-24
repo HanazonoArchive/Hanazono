@@ -60,8 +60,8 @@ function parseFrontMatter(raw) {
 }
 
 async function fetchGitHubList(type, github) {
-  const basePath = github.basePath ? `${github.basePath.replace(/\/$/, "")}/` : "";
-  const apiUrl = `https://api.github.com/repos/${github.user}/${github.repo}/contents/${basePath}data/${type}?ref=${github.branch}`;
+  // GitHub API doesn't use basePath - it always accesses from repo root
+  const apiUrl = `https://api.github.com/repos/${github.user}/${github.repo}/contents/data/${type}?ref=${github.branch}`;
   const response = await fetch(apiUrl, {
     headers: {
       Accept: "application/vnd.github+json",

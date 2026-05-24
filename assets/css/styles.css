@@ -441,11 +441,14 @@ a:hover {
   position: relative;
   max-width: 960px;
   width: min(96vw, 960px);
+  max-height: 90vh;
   background: var(--panel-strong);
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   transform: translateY(20px) scale(0.98);
   transition: transform 200ms ease;
 }
@@ -472,6 +475,9 @@ a:hover {
   display: grid;
   grid-template-columns: minmax(200px, 320px) 1fr;
   gap: 0;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .modal-media {
@@ -499,6 +505,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
 }
 
 .modal-kicker {

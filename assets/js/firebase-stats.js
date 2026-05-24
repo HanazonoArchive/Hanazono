@@ -34,7 +34,10 @@ function hashIP(ip) {
 async function recordView() {
   try {
     const location = await getUserLocation();
-    const timestamp = new Date().toISOString();
+    const now = new Date();
+    const timestamp = now.toISOString();
+    // Use a safe key format for Firebase (replace special chars)
+    const safeTimestamp = timestamp.replace(/[:.]/g, '-');
     const ipHash = hashIP(location.ip);
 
     // Check if this IP visited in the last 24 hours
@@ -45,7 +48,6 @@ async function recordView() {
     let shouldIncrementTotal = true;
     if (lastVisitTimestamp) {
       const lastVisit = new Date(lastVisitTimestamp);
-      const now = new Date();
       const hoursSinceLastVisit = (now - lastVisit) / (1000 * 60 * 60);
 
       // Don't increment if visited within last 24 hours
@@ -78,7 +80,7 @@ async function recordView() {
     });
 
     // Always record individual visit with location data
-    const visitUrl = `${FIREBASE_DB_URL}/stats/views/visits/${timestamp}.json?auth=${FIREBASE_API_KEY}`;
+    const visitUrl = `${FIREBASE_DB_URL}/stats/views/visits/${safeTimestamp}.json?auth=${FIREBASE_API_KEY}`;
     await fetch(visitUrl, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -247,16 +249,31 @@ async function createVisitorClock() {
       appendToFooter();
     }
 
-    // Calculate UTC offset using proper method
+    // Calculate UTC offset using a more reliable method
     function getUTCOffset(timezone) {
-      const dtf = new Intl.DateTimeFormat('en-US', {
-        timeZone: timezone,
-        timeZoneName: 'shortOffset'
-      });
-      
-      const parts = dtf.formatToParts(new Date());
-      const timeZoneName = parts.find(p => p.type === 'timeZoneName')?.value;
-      return timeZoneName || 'UTC+0';
+      try {
+        const now = new Date();
+        // Get the time in UTC
+        const utcTime = now.getTime();
+        // Get the time in the target timezone by parsing the locale string
+        const tzTime = new Date(now.toLocaleString('en-US', { timeZone: timezone }));
+        // Calculate difference in hours
+        const diffMs = tzTime - now;
+        const diffHours = -diffMs / (1000 * 60 * 60);
+        
+        // Format as GMT+/-X or GMT+/-X:30 for half-hour zones
+        const sign = diffHours >= 0 ? '+' : '';
+        const hours = Math.floor(Math.abs(diffHours));
+        const minutes = Math.round((Math.abs(diffHours) - hours) * 60);
+        
+        if (minutes === 0) {
+          return `GMT${sign}${hours}`;
+        } else {
+          return `GMT${sign}${hours}:${minutes.toString().padStart(2, '0')}`;
+        }
+      } catch (e) {
+        return 'UTC+0';
+      }
     }
 
     const utcOffset = getUTCOffset(location.timezone);

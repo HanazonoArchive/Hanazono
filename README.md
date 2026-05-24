@@ -1,45 +1,42 @@
-# Portfolio (Static)
+# Hanazono Portfolio - Static Site
 
-A modular, scalable, and straightforward static portfolio built with HTML, CSS, and JavaScript.
+A modern, modular static portfolio website built with HTML, CSS, and JavaScript. Features a clean, component-based architecture with automatic GitHub API content loading, markdown support, and interactive modals.
 
-## Structure
-- index.html - main site
-- generator.html - hidden markdown generator
-- assets/css/styles.css - theme and layout
-- assets/js - modular scripts
-- data - profile, skills, and markdown content
+## 🎯 Overview
 
-## Quick start
-1. Update your profile in data/profile.json.
-2. Update your skills in data/skills.json.
-3. Add markdown files to data/projects and data/certifications.
+**Hanazono** is a fully customizable static portfolio site for showcasing projects, certifications, explorations, skills, and professional information. It requires no backend or build process—just pure HTML, CSS, and JavaScript with data-driven content from JSON and markdown files.
 
-## Auto listing (no manual index)
-Enable GitHub API listing so new markdown files show up automatically:
-1. Open data/config.json.
-2. Set github.enabled to true.
-3. Fill github.user, github.repo, github.branch, and github.basePath.
+**Tech Stack:** HTML (40.3%) | JavaScript (37.5%) | CSS (22.2%)
 
-When enabled, the site reads the contents of data/projects and data/certifications directly from GitHub.
+## ✨ Key Features
 
-## Local fallback
-If github.enabled is false, update:
-- data/projects/index.json
-- data/certifications/index.json
+### 📱 Responsive Design
+- Clean, modern dark theme with custom CSS variables
+- Mobile-first responsive grid layouts
+- Google Sans Code monospace typography
+- Smooth animations and transitions with `prefers-reduced-motion` support
 
-## Markdown format
-Use front matter at the top of each file:
+### 🎨 Dynamic Content
+- **Profile System**: Display your bio, major, focus areas, and links
+- **Skills Showcase**: Languages, tools, and platforms with Font Awesome icons
+- **Portfolio Grid**: Display projects, certifications, and explorations as interactive cards
+- **Modal System**: Click cards to view full details, images, and markdown-rendered content
 
----
-title: Example Project
-date: 2026-05-14
-languages: [Python, JavaScript]
-tools: [Docker, PostgreSQL]
-link: https://example.com
-image: assets/images/example.jpg
-summary: Short summary used on cards.
----
-Write the full project story here.
+### 🚀 Smart Loading
+- **GitHub API Integration**: Automatically list markdown files from your repository
+- **Local Fallback**: Falls back to `index.json` if GitHub integration is disabled
+- **Markdown Support**: Front matter YAML + markdown body for rich content
+- **Lazy Loading**: Efficient data fetching with caching
 
-## Generator
-Open generator.html directly (it is intentionally not linked on the main site).
+### 📊 Analytics
+- View counter with localStorage persistence
+- Last updated timestamp
+- Per-page view tracking
+- Scroll-to-top button for better UX
+
+### 🔧 Developer Features
+- **Markdown Generator**: Built-in tool (`generator.html`) for creating content files
+- **Modular JS**: Separate data-loader, modal, utils modules
+- **Easy Customization**: JSON configs for site settings and content
+
+## 📁 Project Structure

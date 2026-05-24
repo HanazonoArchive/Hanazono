@@ -1,21 +1,6 @@
-import { initializeApp } from 'https://www.gstatic.com/firebaseapps/11.0.2/firebase-app.js';
-import { getDatabase, ref, get, set, update, increment } from 'https://www.gstatic.com/firebaseapps/11.0.2/firebase-database.js';
-
-// Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyCjj_VEsYsApjW8YoUeRZfuC2MxJ3U1Py8",
-  authDomain: "portfolio-hanazonoarchive.firebaseapp.com",
-  projectId: "portfolio-hanazonoarchive",
-  storageBucket: "portfolio-hanazonoarchive.firebasestorage.app",
-  messagingSenderId: "472791185335",
-  appId: "1:472791185335:web:a241ec20131b860b5dda32",
-  measurementId: "G-ZFSFSGS5T1",
-  databaseURL: "https://portfolio-hanazonoarchive-default-rtdb.firebaseio.com"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+// Firebase REST API configuration
+const FIREBASE_DB_URL = "https://portfolio-hanazonoarchive-default-rtdb.asia-southeast1.firebasedatabase.app";
+const FIREBASE_API_KEY = "AIzaSyCjj_VEsYsApjW8YoUeRZfuC2MxJ3U1Py8";
 
 // Get user location from IP
 async function getUserLocation() {
@@ -48,35 +33,38 @@ function hashIP(ip) {
 async function recordView() {
   try {
     const location = await getUserLocation();
-    const now = new Date();
-    const timestamp = now.toISOString();
+    const timestamp = new Date().toISOString();
     const ipHash = hashIP(location.ip);
 
-    const viewsRef = ref(database, 'stats/views');
-    
-    // Get current data
-    const snapshot = await get(viewsRef);
-    const currentData = snapshot.val() || { total: 0, visits: [] };
-    
-    // Add new visit
-    const newVisit = {
-      timestamp,
-      country: location.country,
-      countryCode: location.countryCode,
-      city: location.city,
-      ipHash
-    };
+    // Get current total
+    const totalUrl = `${FIREBASE_DB_URL}/stats/views/total.json?auth=${FIREBASE_API_KEY}`;
+    const totalResponse = await fetch(totalUrl);
+    const currentTotal = (await totalResponse.json()) || 0;
+    const newTotal = currentTotal + 1;
 
-    // Update database with increment and new visit
-    const updates = {
-      'stats/views/total': (currentData.total || 0) + 1,
-      [`stats/views/visits/${now.getTime()}`]: newVisit
-    };
+    // Update total count
+    await fetch(totalUrl, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newTotal)
+    });
 
-    await update(ref(database), updates);
+    // Record individual visit
+    const visitUrl = `${FIREBASE_DB_URL}/stats/views/visits/${timestamp}.json?auth=${FIREBASE_API_KEY}`;
+    await fetch(visitUrl, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        timestamp,
+        country: location.country,
+        countryCode: location.countryCode,
+        city: location.city,
+        ipHash
+      })
+    });
 
     // Update UI
-    updateViewCount(currentData.total + 1);
+    updateViewCount(newTotal);
     console.log(`View recorded from ${location.country}`);
   } catch (error) {
     console.error('Error recording view:', error);
@@ -104,9 +92,9 @@ function updateViewCountLocal() {
 async function initStats() {
   try {
     // Get total views from Firebase
-    const viewsRef = ref(database, 'stats/views/total');
-    const snapshot = await get(viewsRef);
-    const totalViews = snapshot.val() || 0;
+    const totalUrl = `${FIREBASE_DB_URL}/stats/views/total.json?auth=${FIREBASE_API_KEY}`;
+    const response = await fetch(totalUrl);
+    const totalViews = (await response.json()) || 0;
     updateViewCount(totalViews);
 
     // Record this visit

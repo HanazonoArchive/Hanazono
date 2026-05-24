@@ -247,14 +247,16 @@ async function createVisitorClock() {
       appendToFooter();
     }
 
-    // Calculate UTC offset
+    // Calculate UTC offset using proper method
     function getUTCOffset(timezone) {
-      const now = new Date();
-      const utcDate = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
-      const tzDate = new Date(now.toLocaleString('en-US', { timeZone: timezone }));
-      const offset = (tzDate - utcDate) / (1000 * 60 * 60);
-      const sign = offset >= 0 ? '+' : '';
-      return `UTC${sign}${offset.toFixed(1)}`.replace('.0', '');
+      const dtf = new Intl.DateTimeFormat('en-US', {
+        timeZone: timezone,
+        timeZoneName: 'shortOffset'
+      });
+      
+      const parts = dtf.formatToParts(new Date());
+      const timeZoneName = parts.find(p => p.type === 'timeZoneName')?.value;
+      return timeZoneName || 'UTC+0';
     }
 
     const utcOffset = getUTCOffset(location.timezone);

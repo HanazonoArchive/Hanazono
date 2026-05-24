@@ -299,13 +299,12 @@ async function createVisitorClock() {
     function getUTCOffset(timezone) {
       try {
         const now = new Date();
-        // Get the time in UTC
-        const utcTime = now.getTime();
         // Get the time in the target timezone by parsing the locale string
         const tzTime = new Date(now.toLocaleString('en-US', { timeZone: timezone }));
-        // Calculate difference in hours
+        // Calculate difference in milliseconds
         const diffMs = tzTime - now;
-        const diffHours = -diffMs / (1000 * 60 * 60);
+        // Convert to hours
+        const diffHours = diffMs / (1000 * 60 * 60);
         
         // Format as GMT+/-X or GMT+/-X:30 for half-hour zones
         const sign = diffHours >= 0 ? '+' : '';
@@ -318,6 +317,7 @@ async function createVisitorClock() {
           return `GMT${sign}${hours}:${minutes.toString().padStart(2, '0')}`;
         }
       } catch (e) {
+        console.warn('Error calculating UTC offset for timezone:', timezone, e);
         return 'UTC+0';
       }
     }

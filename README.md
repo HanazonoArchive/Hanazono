@@ -6,7 +6,7 @@ A modern, modular static portfolio website built with HTML, CSS, and JavaScript.
 
 **Hanazono** is a fully customizable static portfolio site for showcasing projects, certifications, explorations, skills, and professional information. It requires no backend or build process—just pure HTML, CSS, and JavaScript with data-driven content from JSON and markdown files.
 
-**Tech Stack:** HTML (40.3%) | JavaScript (37.5%) | CSS (22.2%)
+**Tech Stack:** HTML| JavaScript | CSS
 
 ## ✨ Key Features
 

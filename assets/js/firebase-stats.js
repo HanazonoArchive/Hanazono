@@ -5,7 +5,7 @@ const FIREBASE_API_KEY = "AIzaSyCjj_VEsYsApjW8YoUeRZfuC2MxJ3U1Py8";
 // Get user location from IP
 async function getUserLocation() {
   try {
-    const response = await fetch('https://ipapi.co/json/');
+    const response = await fetch('https://ipwhois.app/json/');
     const data = await response.json();
     return {
       country: data.country_name || 'Unknown',
@@ -197,7 +197,7 @@ function updateLastModified() {
 
 updateLastModified();
 
-// Create live visitor clock with timezone
+// Create live visitor clock with timezone (footer style)
 async function createVisitorClock() {
   try {
     const location = await getUserLocation();
@@ -206,31 +206,35 @@ async function createVisitorClock() {
     clockContainer.id = 'visitor-clock';
     clockContainer.style.cssText = `
       position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(26, 31, 38, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
-      padding: 12px 16px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 13, 16, 0.98);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 20px;
       font-family: 'Courier New', monospace;
       font-size: 0.85rem;
       color: var(--text);
       z-index: 98;
       backdrop-filter: blur(10px);
-      min-width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
     `;
 
     const timeDisplay = document.createElement('div');
     timeDisplay.style.cssText = `
-      font-size: 1.1rem;
-      margin-bottom: 6px;
+      font-size: 1rem;
       font-weight: 500;
       letter-spacing: 0.05em;
+      min-width: 100px;
     `;
 
     const tzDisplay = document.createElement('div');
     tzDisplay.style.cssText = `
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -239,6 +243,9 @@ async function createVisitorClock() {
     clockContainer.appendChild(timeDisplay);
     clockContainer.appendChild(tzDisplay);
     document.body.appendChild(clockContainer);
+
+    // Adjust body padding to account for footer clock
+    document.body.style.paddingBottom = '55px';
 
     // Update clock every 100ms for smooth seconds display
     function updateClock() {

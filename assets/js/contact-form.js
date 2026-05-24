@@ -129,7 +129,7 @@ async function submitForm(e) {
     });
 
     if (response.ok) {
-      showStatus('✓ Message sent successfully! I\'ll get back to you soon.', 'success');
+      showStatus('Message sent successfully!', 'success');
       recordSubmission();
       clearForm();
     } else {

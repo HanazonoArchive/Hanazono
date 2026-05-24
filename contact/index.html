@@ -37,26 +37,27 @@
         <div class="contact-grid">
           <div class="contact-card fade-in-delay">
             <h3><i class="fas fa-paper-plane"></i> Send a message</h3>
-            <form class="contact-form" action="https://formsubmit.co/jagsoy.sanhs@gmail.com" method="POST">
-              <input type="hidden" name="_subject" value="Portfolio contact">
-              <input type="hidden" name="_captcha" value="true">
+            <form class="contact-form" id="contact-form">
               <label>
                 <i class="fas fa-user"></i> Name
-                <input type="text" name="name" required style="margin-left: 2%;">
+                <input type="text" name="name" id="form-name" required style="margin-left: 2%;">
               </label>
               <label>
                 <i class="fas fa-at"></i> Email
-                <input type="email" name="_replyto" required>
+                <input type="email" name="email" id="form-email" required>
               </label>
               <label class="label-no-icon">
                 Message
-                <textarea name="message" rows="5" required></textarea>
+                <textarea name="message" id="form-message" rows="5" required></textarea>
               </label>
               <div class="form-button-container">
-                <button type="submit" class="button" style="font-weight: 500; font-size: 100%;">Send</button>
+                <button type="submit" class="button" id="submit-btn" style="font-weight: 500; font-size: 100%;">
+                  <span id="btn-text">Send</span>
+                </button>
               </div>
+              <div id="form-status" class="form-status"></div>
             </form>
-            <p class="helper">Powered by FormSubmit (free form-to-email).</p>
+            <p class="helper">Powered by Formspree with reCAPTCHA protection.</p>
           </div>
           <div class="contact-card fade-in-delay-2">
             <h3><i class="fas fa-phone"></i> Direct</h3>
@@ -81,7 +82,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script type="module" src="../assets/js/main.js"></script>
   <script src="../assets/js/stats.js"></script>
+  <script type="module" src="../assets/js/contact-form.js"></script>
 </body>
 </html>

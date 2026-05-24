@@ -4,30 +4,158 @@ const FIREBASE_API_KEY = "AIzaSyCjj_VEsYsApjW8YoUeRZfuC2MxJ3U1Py8";
 
 // Country code to timezone mapping
 const countryTimezoneMap = {
-  'PH': 'Asia/Manila',      // Philippines
-  'US': 'America/New_York',  // USA (Eastern)
-  'GB': 'Europe/London',     // UK
-  'AU': 'Australia/Sydney',  // Australia
-  'JP': 'Asia/Tokyo',        // Japan
-  'CN': 'Asia/Shanghai',     // China
-  'IN': 'Asia/Kolkata',      // India
-  'SG': 'Asia/Singapore',    // Singapore
-  'TH': 'Asia/Bangkok',      // Thailand
-  'MY': 'Asia/Kuala_Lumpur', // Malaysia
-  'VN': 'Asia/Ho_Chi_Minh',  // Vietnam
-  'ID': 'Asia/Jakarta',      // Indonesia
-  'KR': 'Asia/Seoul',        // South Korea
-  'BR': 'America/Sao_Paulo', // Brazil
-  'MX': 'America/Mexico_City', // Mexico
-  'CA': 'America/Toronto',   // Canada
-  'DE': 'Europe/Berlin',     // Germany
-  'FR': 'Europe/Paris',      // France
-  'IT': 'Europe/Rome',       // Italy
-  'ES': 'Europe/Madrid',     // Spain
-  'NZ': 'Pacific/Auckland',  // New Zealand
-  'SG': 'Asia/Singapore',    // Singapore
-  'HK': 'Asia/Hong_Kong',    // Hong Kong
-  'TW': 'Asia/Taipei'        // Taiwan
+  'PH': 'Asia/Manila',
+  'US': 'America/New_York',
+  'GB': 'Europe/London',
+  'AU': 'Australia/Sydney',
+  'JP': 'Asia/Tokyo',
+  'CN': 'Asia/Shanghai',
+  'IN': 'Asia/Kolkata',
+  'SG': 'Asia/Singapore',
+  'TH': 'Asia/Bangkok',
+  'MY': 'Asia/Kuala_Lumpur',
+  'VN': 'Asia/Ho_Chi_Minh',
+  'ID': 'Asia/Jakarta',
+  'KR': 'Asia/Seoul',
+  'BR': 'America/Sao_Paulo',
+  'MX': 'America/Mexico_City',
+  'CA': 'America/Toronto',
+  'DE': 'Europe/Berlin',
+  'FR': 'Europe/Paris',
+  'IT': 'Europe/Rome',
+  'ES': 'Europe/Madrid',
+  'NZ': 'Pacific/Auckland',
+  'HK': 'Asia/Hong_Kong',
+  'TW': 'Asia/Taipei',
+  'RU': 'Europe/Moscow',
+  'ZA': 'Africa/Johannesburg',
+  'EG': 'Africa/Cairo',
+  'NG': 'Africa/Lagos',
+  'KE': 'Africa/Nairobi',
+  'AE': 'Asia/Dubai',
+  'SA': 'Asia/Riyadh',
+  'QA': 'Asia/Qatar',
+  'TR': 'Europe/Istanbul',
+  'PK': 'Asia/Karachi',
+  'BD': 'Asia/Dhaka',
+  'LK': 'Asia/Colombo',
+  'NP': 'Asia/Kathmandu',
+  'MM': 'Asia/Yangon',
+  'KH': 'Asia/Phnom_Penh',
+  'LA': 'Asia/Vientiane',
+  'PW': 'Pacific/Palau',
+  'FJ': 'Pacific/Fiji',
+  'SB': 'Pacific/Guadalcanal',
+  'VU': 'Pacific/Efate',
+  'WS': 'Pacific/Apia',
+  'TO': 'Pacific/Tongatapu',
+  'KI': 'Pacific/Kiritimati',
+  'MH': 'Pacific/Majuro',
+  'FM': 'Pacific/Pohnpei',
+  'NR': 'Pacific/Nauru',
+  'TV': 'Pacific/Funafuti',
+  'AR': 'America/Argentina/Buenos_Aires',
+  'CL': 'America/Santiago',
+  'CO': 'America/Bogota',
+  'PE': 'America/Lima',
+  'VE': 'America/Caracas',
+  'EC': 'America/Guayaquil',
+  'GY': 'America/Guyana',
+  'SR': 'America/Paramaribo',
+  'CR': 'America/Costa_Rica',
+  'PA': 'America/Panama',
+  'CU': 'America/Havana',
+  'DO': 'America/Santo_Domingo',
+  'PR': 'America/Puerto_Rico',
+  'JM': 'America/Jamaica',
+  'BB': 'America/Barbados',
+  'TT': 'America/Port_of_Spain',
+  'BS': 'America/Nassau',
+  'BZ': 'America/Belize',
+  'GT': 'America/Guatemala',
+  'HN': 'America/Tegucigalpa',
+  'SV': 'America/El_Salvador',
+  'NI': 'America/Managua',
+  'IE': 'Europe/Dublin',
+  'PT': 'Europe/Lisbon',
+  'GR': 'Europe/Athens',
+  'SE': 'Europe/Stockholm',
+  'NO': 'Europe/Oslo',
+  'FI': 'Europe/Helsinki',
+  'DK': 'Europe/Copenhagen',
+  'BE': 'Europe/Brussels',
+  'NL': 'Europe/Amsterdam',
+  'AT': 'Europe/Vienna',
+  'CH': 'Europe/Zurich',
+  'PL': 'Europe/Warsaw',
+  'CZ': 'Europe/Prague',
+  'HU': 'Europe/Budapest',
+  'RO': 'Europe/Bucharest',
+  'BG': 'Europe/Sofia',
+  'HR': 'Europe/Zagreb',
+  'RS': 'Europe/Belgrade',
+  'UA': 'Europe/Kyiv',
+  'BY': 'Europe/Minsk',
+  'LV': 'Europe/Riga',
+  'LT': 'Europe/Vilnius',
+  'EE': 'Europe/Tallinn',
+  'IS': 'Atlantic/Reykjavik',
+  'MT': 'Europe/Malta',
+  'CY': 'Europe/Nicosia',
+  'IL': 'Asia/Jerusalem',
+  'JO': 'Asia/Amman',
+  'LB': 'Asia/Beirut',
+  'SY': 'Asia/Damascus',
+  'IR': 'Asia/Tehran',
+  'IQ': 'Asia/Baghdad',
+  'KW': 'Asia/Kuwait',
+  'BH': 'Asia/Bahrain',
+  'OM': 'Asia/Muscat',
+  'YE': 'Asia/Aden',
+  'AF': 'Asia/Kabul',
+  'TJ': 'Asia/Dushanbe',
+  'TM': 'Asia/Ashgabat',
+  'UZ': 'Asia/Tashkent',
+  'KZ': 'Asia/Almaty',
+  'MN': 'Asia/Ulaanbaatar',
+  'TL': 'Asia/Dili',
+  'BN': 'Asia/Brunei',
+  'GD': 'America/Grenada',
+  'LC': 'America/St_Lucia',
+  'VC': 'America/St_Vincent',
+  'AG': 'America/Antigua',
+  'KN': 'America/St_Kitts',
+  'DM': 'America/Dominica',
+  'MF': 'America/Marigot',
+  'BM': 'Atlantic/Bermuda',
+  'BW': 'Africa/Gaborone',
+  'MW': 'Africa/Blantyre',
+  'MZ': 'Africa/Maputo',
+  'ZM': 'Africa/Lusaka',
+  'ZW': 'Africa/Harare',
+  'ET': 'Africa/Addis_Ababa',
+  'UG': 'Africa/Kampala',
+  'TZ': 'Africa/Dar_es_Salaam',
+  'RW': 'Africa/Kigali',
+  'BJ': 'Africa/Porto-Novo',
+  'BF': 'Africa/Ouagadougou',
+  'CM': 'Africa/Douala',
+  'GA': 'Africa/Libreville',
+  'GQ': 'Africa/Malabo',
+  'CF': 'Africa/Bangui',
+  'TD': 'Africa/Ndjamena',
+  'DJ': 'Africa/Djibouti',
+  'ER': 'Africa/Asmara',
+  'MA': 'Africa/Casablanca',
+  'DZ': 'Africa/Algiers',
+  'TN': 'Africa/Tunis',
+  'LY': 'Africa/Tripoli',
+  'SN': 'Africa/Dakar',
+  'GM': 'Africa/Banjul',
+  'GH': 'Africa/Accra',
+  'CI': 'Africa/Abidjan',
+  'SL': 'Africa/Freetown',
+  'LR': 'Africa/Monrovia'
 };
 
 // Get user location from IP
@@ -245,46 +373,32 @@ function updateLastModified() {
 
 updateLastModified();
 
-// Create live visitor clock with timezone (integrated with footer info)
+// Create live visitor clock (time + country only)
 async function createVisitorClock() {
   try {
     const location = await getUserLocation();
     
-    const clockContainer = document.createElement('span');
-    clockContainer.id = 'visitor-clock';
-    clockContainer.style.cssText = `
+    const clockSpan = document.createElement('span');
+    clockSpan.id = 'visitor-clock';
+    clockSpan.style.cssText = `
       display: inline;
       margin: 0 8px;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       font-size: 0.85rem;
       color: var(--muted);
-    `;
-
-    const timeDisplay = document.createElement('span');
-    timeDisplay.style.cssText = `
       font-weight: 500;
       color: var(--text);
     `;
-
-    const tzDisplay = document.createElement('span');
-    tzDisplay.style.cssText = `
-      font-size: 0.8rem;
-      color: var(--muted);
-    `;
-
-    clockContainer.appendChild(timeDisplay);
-    clockContainer.appendChild(document.createTextNode(' • '));
-    clockContainer.appendChild(tzDisplay);
     
     // Find footer and append to it
     function appendToFooter() {
       const footer = document.querySelector('footer') || document.querySelector('[id="footer"]');
       if (footer) {
         footer.appendChild(document.createTextNode(' | '));
-        footer.appendChild(clockContainer);
+        footer.appendChild(clockSpan);
       } else {
         // Fallback: append to body if no footer found
-        document.body.appendChild(clockContainer);
+        document.body.appendChild(clockSpan);
       }
     }
 
@@ -294,35 +408,6 @@ async function createVisitorClock() {
     } else {
       appendToFooter();
     }
-
-    // Calculate UTC offset using a more reliable method
-    function getUTCOffset(timezone) {
-      try {
-        const now = new Date();
-        // Get the time in the target timezone by parsing the locale string
-        const tzTime = new Date(now.toLocaleString('en-US', { timeZone: timezone }));
-        // Calculate difference in milliseconds
-        const diffMs = tzTime - now;
-        // Convert to hours
-        const diffHours = diffMs / (1000 * 60 * 60);
-        
-        // Format as GMT+/-X or GMT+/-X:30 for half-hour zones
-        const sign = diffHours >= 0 ? '+' : '';
-        const hours = Math.floor(Math.abs(diffHours));
-        const minutes = Math.round((Math.abs(diffHours) - hours) * 60);
-        
-        if (minutes === 0) {
-          return `GMT${sign}${hours}`;
-        } else {
-          return `GMT${sign}${hours}:${minutes.toString().padStart(2, '0')}`;
-        }
-      } catch (e) {
-        console.warn('Error calculating UTC offset for timezone:', timezone, e);
-        return 'UTC+0';
-      }
-    }
-
-    const utcOffset = getUTCOffset(location.timezone);
 
     // Update clock every 100ms for smooth seconds display
     function updateClock() {
@@ -348,16 +433,14 @@ async function createVisitorClock() {
           }
         }
         
-        timeDisplay.textContent = timeStr;
-        tzDisplay.textContent = `${location.country} (${utcOffset})`;
+        clockSpan.textContent = `${timeStr} • ${location.country}`;
       } catch (e) {
         // Fallback if timezone is invalid
         console.warn('Invalid timezone:', location.timezone, e);
         const hours = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
-        timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
-        tzDisplay.textContent = location.country;
+        clockSpan.textContent = `${hours}:${minutes}:${seconds} • ${location.country}`;
       }
     }
 

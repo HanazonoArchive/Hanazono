@@ -11,6 +11,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap');
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="generator-page">
@@ -19,13 +20,19 @@
       <!--<div class="logo" aria-label="GitHub">
       </div>-->
       <nav class="site-nav">
-        <a href="index.html">Back to portfolio</a>
+        <a href="./"><i class="fas fa-home"></i> Home</a>
+        <a href="about/"><i class="fas fa-user"></i> About</a>
+        <a href="projects/"><i class="fas fa-briefcase"></i> Projects</a>
+        <a href="certifications/"><i class="fas fa-certificate"></i> Certifications</a>
+        <a href="explorations/"><i class="fas fa-compass"></i> Explorations</a>
+        <a href="skills/"><i class="fas fa-code"></i> Skills</a>
+        <a href="contact/"><i class="fas fa-envelope"></i> Contact</a>
       </nav>
     </header>
 
-    <main class="section">
+    <main class="section fade-in">
       <div class="section-head">
-        <h2>Markdown Generator</h2>
+        <h2><i class="fas fa-tools"></i> Markdown Generator</h2>
         <p class="section-subtitle">Create project and certification files fast.</p>
       </div>
 
@@ -185,10 +192,14 @@
     </main>
 
     <footer class="site-footer">
-      <span>Generator is intentionally not linked from the main site.</span>
+      <div class="footer-content">
+        <span>Generator is intentionally not linked from the main site.</span>
+        <span class="footer-meta">Last updated: <span id="last-updated"></span> | Views: <span id="view-count">0</span></span>
+      </div>
     </footer>
   </div>
 
   <script type="module" src="assets/js/generator.js"></script>
+  <script src="assets/js/stats.js"></script>
 </body>
 </html>

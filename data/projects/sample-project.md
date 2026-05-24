@@ -1,7 +1,7 @@
 ---
 title: Modular Portfolio Site
 date: 2026-05-14
-languages: [HTML, CSS, JavaScript]
+languages: [HTML, CSS]
 tools: []
 link:
 image:

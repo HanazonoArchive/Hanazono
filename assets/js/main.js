@@ -8,6 +8,51 @@ const state = {
   explorations: [],
 };
 
+// Skill to icon mapping using Font Awesome
+const skillIconMap = {
+  // Languages
+  "Python": "fab fa-python",
+  "Java": "fab fa-java",
+  "JavaScript": "fab fa-js",
+  "HTML": "fab fa-html5",
+  "CSS": "fab fa-css3",
+  "PHP": "fab fa-php",
+  "C/C++": "fas fa-copyright",
+  "Kotlin": "fas fa-k",
+  "SQL": "fas fa-database",
+  
+  // Tools & Frameworks
+  "Git": "fab fa-git",
+  "GitHub": "fab fa-github",
+  "VS Code": "fas fa-code",
+  "IntelliJ IDEA": "fas fa-terminal",
+  "PyCharm": "fas fa-terminal",
+  "Django": "fas fa-leaf",
+  "Node.js": "fab fa-node-js",
+  "React": "fab fa-react",
+  "npm": "fab fa-npm",
+  "Gradle": "fas fa-hammer",
+  "Maven": "fas fa-hammer",
+  "Docker": "fab fa-docker",
+  "Jupyter": "fas fa-book",
+  "MySQL": "fas fa-database",
+  "SQLite": "fas fa-database",
+  "Wireshark": "fas fa-network-wired",
+  "GitHub Actions": "fab fa-github",
+  "Electron": "fas fa-desktop",
+  "Matplotlib": "fas fa-chart-bar",
+  
+  // Platforms
+  "Windows": "fab fa-windows",
+  "Android": "fab fa-android",
+  "Linux": "fab fa-linux",
+  "macOS": "fab fa-apple",
+};
+
+function getSkillIcon(skillName) {
+  return skillIconMap[skillName] || "fas fa-star";
+}
+
 function setText(id, value) {
   const el = byId(id);
   if (el) {
@@ -54,6 +99,31 @@ function renderProfile(profile, skills) {
   }
 }
 
+function renderSkillsWithIcons(container, skills, isAccent = false) {
+  container.innerHTML = "";
+  if (!skills || skills.length === 0) {
+    return;
+  }
+  
+  skills.forEach((skill) => {
+    const chip = document.createElement("span");
+    chip.className = "chip chip-with-icon";
+    if (isAccent) {
+      chip.classList.add("accent");
+    }
+    
+    const icon = document.createElement("i");
+    icon.className = getSkillIcon(skill);
+    
+    const text = document.createElement("span");
+    text.textContent = skill;
+    
+    chip.appendChild(icon);
+    chip.appendChild(text);
+    container.appendChild(chip);
+  });
+}
+
 function renderSkills(skills) {
   if (!skills) {
     return;
@@ -61,14 +131,15 @@ function renderSkills(skills) {
   const languages = byId("skills-languages");
   const tools = byId("skills-tools");
   const platforms = byId("skills-platforms");
+  
   if (languages) {
-    renderChips(languages, skills.languages || [], true);
+    renderSkillsWithIcons(languages, skills.languages || [], true);
   }
   if (tools) {
-    renderChips(tools, skills.tools || []);
+    renderSkillsWithIcons(tools, skills.tools || []);
   }
   if (platforms) {
-    renderChips(platforms, skills.platforms || []);
+    renderSkillsWithIcons(platforms, skills.platforms || []);
   }
 }
 
@@ -98,11 +169,19 @@ function buildCard(item, typeLabel) {
   if (item.languages?.length) {
     item.languages.slice(0, 3).forEach((lang, index) => {
       const chip = document.createElement("span");
-      chip.className = "chip";
+      chip.className = "chip chip-with-icon";
       if (index === 0) {
         chip.classList.add("accent");
       }
-      chip.textContent = lang;
+      
+      const icon = document.createElement("i");
+      icon.className = getSkillIcon(lang);
+      
+      const text = document.createElement("span");
+      text.textContent = lang;
+      
+      chip.appendChild(icon);
+      chip.appendChild(text);
       chips.appendChild(chip);
     });
   } else if (item.certifier) {
@@ -113,11 +192,19 @@ function buildCard(item, typeLabel) {
   } else if (item.tags?.length) {
     item.tags.slice(0, 3).forEach((tag, index) => {
       const chip = document.createElement("span");
-      chip.className = "chip";
+      chip.className = "chip chip-with-icon";
       if (index === 0) {
         chip.classList.add("accent");
       }
-      chip.textContent = tag;
+      
+      const icon = document.createElement("i");
+      icon.className = getSkillIcon(tag);
+      
+      const text = document.createElement("span");
+      text.textContent = tag;
+      
+      chip.appendChild(icon);
+      chip.appendChild(text);
       chips.appendChild(chip);
     });
   }

@@ -1,10 +1,43 @@
 ---
 title: Cinematique
-date:
-languages: []
-tools: []
+date: 2024-02-27
+languages: [Java, CSS]
+tools: [JavaFX, Scenebuilder, IntelliJ IDEA, Gradle]
 link: https://github.com/HanazonoArchive/Cinematique
 image:
 summary: GitHub repository. Add the project summary here.
 ---
-Add the project overview, goals, and outcomes.
+A comprehensive desktop application for managing movie rentals, built with **Java 16**, **JavaFX**, and **MySQL**. This full-featured system includes user authentication, movie browsing, rental management, and a complete admin dashboard for system administration.
+
+## Project Overview
+
+Cinematique is a school project that demonstrates proficiency in:
+- **Desktop GUI Development** with JavaFX and FXML
+- **Database Management** with MySQL and JDBC
+- **MVC Architecture** and design patterns
+- **User Authentication** and role-based access control
+- **Modern UI/UX** with CSS styling
+
+### Key Features
+
+- **User System**
+  - User registration and authentication
+  - Profile management
+  - Rental history tracking
+
+- **Movie Rental**
+  - Browse and search movies
+  - Add movies to cart
+  - Process rentals
+  - View rental details and status
+
+- **Admin Dashboard**
+  - User management (create, view, delete)
+  - Movie inventory management
+  - Rental management and tracking
+  - System logs and audit trail
+  - Statistics and reporting
+
+- **Social Features**
+  - Movie reviews and ratings
+  - User comments and feedback

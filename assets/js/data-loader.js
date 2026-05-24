@@ -9,15 +9,15 @@ async function loadJson(path) {
 }
 
 export async function loadConfig() {
-  return loadJson("data/config.json");
+  return loadJson("/data/config.json");
 }
 
 export async function loadProfile() {
-  return loadJson("data/profile.json");
+  return loadJson("/data/profile.json");
 }
 
 export async function loadSkills() {
-  return loadJson("data/skills.json");
+  return loadJson("/data/skills.json");
 }
 
 function parseFrontMatter(raw) {
@@ -76,10 +76,10 @@ async function fetchGitHubList(type, github) {
 }
 
 async function fetchLocalIndex(type) {
-  const index = await loadJson(`data/${type}/index.json`);
+  const index = await loadJson(`/data/${type}/index.json`);
   return (index.items || []).map((name) => ({
     name,
-    url: `data/${type}/${name}`,
+    url: `/data/${type}/${name}`,
   }));
 }
 

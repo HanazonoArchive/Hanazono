@@ -11,24 +11,25 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap');
   </style>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
   <div class="page">
     <header class="site-header">
       <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="explorations.html">Explorations</a>
-        <a href="skills.html">Skills</a>
-        <a href="contact.html">Contact</a>
+        <a href="../"><i class="fas fa-home"></i> Home</a>
+        <a href="../about/"><i class="fas fa-user"></i> About</a>
+        <a href="../projects/"><i class="fas fa-briefcase"></i> Projects</a>
+        <a href="../certifications/"><i class="fas fa-certificate"></i> Certifications</a>
+        <a href="../explorations/"><i class="fas fa-compass"></i> Explorations</a>
+        <a href="../skills/"><i class="fas fa-code"></i> Skills</a>
+        <a href="../contact/"><i class="fas fa-envelope"></i> Contact</a>
       </nav>
     </header>
 
     <main>
-      <section class="section hero">
+      <section class="section hero fade-in">
         <div class="hero-copy">
           <p class="eyebrow">About</p>
           <h1 id="profile-name">Agsoy, Jay Mark V.</h1>
@@ -53,15 +54,15 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section fade-in">
         <div class="section-head">
-          <h2>Education</h2>
+          <h2><i class="fas fa-graduation-cap"></i> Education</h2>
           <p class="section-subtitle">University of Mindanao (2023-2027).</p>
         </div>
         <div class="about-grid">
           <div class="about-card about-image-card">
             <div class="about-image">
-              <img src="assets/images/about-placeholder.svg" alt="About me placeholder">
+              <img src="../assets/images/about-placeholder.svg" alt="About me placeholder">
             </div>
             <p class="helper">Replace with your photo or campus image.</p>
           </div>
@@ -71,10 +72,10 @@
               Open to applied work and hands-on projects.
             </p>
             <ul class="about-list">
-              <li><strong>Education:</strong> University of Mindanao (2023-2027)</li>
-              <li><strong>Major:</strong> BS in Computer Science (ML and Cybersecurity)</li>
-              <li><strong>Focus:</strong> Machine Learning, Cybersecurity</li>
-              <li><strong>Certifications:</strong> Certiport Database, Certiport Network Security</li>
+              <li><strong><i class="fas fa-graduation-cap"></i> Education:</strong> University of Mindanao (2023-2027)</li>
+              <li><strong><i class="fas fa-book"></i> Major:</strong> BS in Computer Science (ML and Cybersecurity)</li>
+              <li><strong><i class="fas fa-bullseye"></i> Focus:</strong> Machine Learning, Cybersecurity</li>
+              <li><strong><i class="fas fa-award"></i> Certifications:</strong> Certiport Database, Certiport Network Security</li>
             </ul>
           </div>
         </div>
@@ -82,12 +83,16 @@
     </main>
 
     <footer class="site-footer">
-      <span>Built with static HTML, CSS, and JS.</span>
+      <div class="footer-content">
+        <span>Built with ❤️ by Hanazono</span>
+        <span class="footer-meta">Last updated: <span id="last-updated"></span> | Views: <span id="view-count">0</span></span>
+      </div>
     </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="../assets/js/main.js"></script>
+  <script src="../assets/js/stats.js"></script>
 </body>
 </html>

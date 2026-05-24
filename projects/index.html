@@ -3,42 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explorations and side interests.">
+  <meta name="description" content="Projects by Agsoy, Jay Mark V.">
   <meta name="color-scheme" content="dark">
-  <title>Explorations</title>
+  <title>Projects</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap');
   </style>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
   <div class="page">
     <header class="site-header">
       <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="explorations.html">Explorations</a>
-        <a href="skills.html">Skills</a>
-        <a href="contact.html">Contact</a>
+        <a href="../"><i class="fas fa-home"></i> Home</a>
+        <a href="../about/"><i class="fas fa-user"></i> About</a>
+        <a href="../projects/"><i class="fas fa-briefcase"></i> Projects</a>
+        <a href="../certifications/"><i class="fas fa-certificate"></i> Certifications</a>
+        <a href="../explorations/"><i class="fas fa-compass"></i> Explorations</a>
+        <a href="../skills/"><i class="fas fa-code"></i> Skills</a>
+        <a href="../contact/"><i class="fas fa-envelope"></i> Contact</a>
       </nav>
     </header>
 
     <main>
-      <section class="section">
+      <section class="section fade-in">
         <div class="section-head">
-          <h2>Explorations</h2>
-          <p class="section-subtitle">Side interests and non-core work.</p>
+          <h2><i class="fas fa-briefcase"></i> Projects</h2>
+          <p class="section-subtitle">Selected work and experiments.</p>
         </div>
-        <div class="card-grid" id="explorations-grid"></div>
+        <div class="card-grid" id="projects-grid"></div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>Built with ❤️ by Hanazono</span>
+      <div class="footer-content">
+        <span>Built with ❤️ by Hanazono</span>
+        <span class="footer-meta">Last updated: <span id="last-updated"></span> | Views: <span id="view-count">0</span></span>
+      </div>
     </footer>
   </div>
 
@@ -62,6 +66,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="../assets/js/main.js"></script>
+  <script src="../assets/js/stats.js"></script>
 </body>
 </html>

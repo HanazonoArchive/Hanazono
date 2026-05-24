@@ -1,9 +1,8 @@
 {
-  "languages": ["Python", "Java", "C++", "PHP", "Kotlin", "JavaScript", "CSS", "SQL"],
+  "languages": ["Python", "Java", "C/C++", "PHP", "Kotlin", "JavaScript", "CSS", "SQL", "HTML"],
   "tools": [
     "Git",
     "GitHub",
-    "Docker",
     "VS Code",
     "IntelliJ IDEA",
     "PyCharm",
@@ -12,19 +11,16 @@
     "MySQL",
     "SQLite",
     "Matplotlib",
-    "OpenCV",
-    "Flask",
     "Django",
     "Node.js",
     "Gradle",
     "Maven",
     "npm",
-    "GitHub Actions"
+    "GitHub Actions",
+    "Electron"
   ],
   "platforms": [
     "Windows",
-    "Linux",
-    "Android",
-    "GitHub Pages"
+    "Android"
   ]
 }

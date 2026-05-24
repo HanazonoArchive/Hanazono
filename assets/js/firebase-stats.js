@@ -11,11 +11,12 @@ async function getUserLocation() {
       country: data.country_name || 'Unknown',
       countryCode: data.country_code || 'XX',
       city: data.city || '',
+      timezone: data.timezone || 'UTC',
       ip: data.ip || ''
     };
   } catch (error) {
     console.warn('Failed to get location:', error);
-    return { country: 'Unknown', countryCode: 'XX', city: '', ip: '' };
+    return { country: 'Unknown', countryCode: 'XX', city: '', timezone: 'UTC', ip: '' };
   }
 }
 
@@ -36,20 +37,47 @@ async function recordView() {
     const timestamp = new Date().toISOString();
     const ipHash = hashIP(location.ip);
 
-    // Get current total
-    const totalUrl = `${FIREBASE_DB_URL}/stats/views/total.json?auth=${FIREBASE_API_KEY}`;
-    const totalResponse = await fetch(totalUrl);
-    const currentTotal = (await totalResponse.json()) || 0;
-    const newTotal = currentTotal + 1;
+    // Check if this IP visited in the last 24 hours
+    const ipVisitUrl = `${FIREBASE_DB_URL}/stats/views/last_visit/${ipHash}.json?auth=${FIREBASE_API_KEY}`;
+    const ipVisitResponse = await fetch(ipVisitUrl);
+    const lastVisitTimestamp = await ipVisitResponse.json();
 
-    // Update total count
-    await fetch(totalUrl, {
+    let shouldIncrementTotal = true;
+    if (lastVisitTimestamp) {
+      const lastVisit = new Date(lastVisitTimestamp);
+      const now = new Date();
+      const hoursSinceLastVisit = (now - lastVisit) / (1000 * 60 * 60);
+
+      // Don't increment if visited within last 24 hours
+      if (hoursSinceLastVisit < 24) {
+        shouldIncrementTotal = false;
+      }
+    }
+
+    // Update total count only if this is a new visitor (24h window)
+    if (shouldIncrementTotal) {
+      const totalUrl = `${FIREBASE_DB_URL}/stats/views/total.json?auth=${FIREBASE_API_KEY}`;
+      const totalResponse = await fetch(totalUrl);
+      const currentTotal = (await totalResponse.json()) || 0;
+      const newTotal = currentTotal + 1;
+
+      await fetch(totalUrl, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newTotal)
+      });
+
+      updateViewCount(newTotal);
+    }
+
+    // Update last visit timestamp for this IP
+    await fetch(ipVisitUrl, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newTotal)
+      body: JSON.stringify(timestamp)
     });
 
-    // Record individual visit
+    // Always record individual visit with location data
     const visitUrl = `${FIREBASE_DB_URL}/stats/views/visits/${timestamp}.json?auth=${FIREBASE_API_KEY}`;
     await fetch(visitUrl, {
       method: 'PUT',
@@ -59,16 +87,15 @@ async function recordView() {
         country: location.country,
         countryCode: location.countryCode,
         city: location.city,
+        timezone: location.timezone,
         ipHash
       })
     });
 
-    // Update UI
-    updateViewCount(newTotal);
-    console.log(`View recorded from ${location.country}`);
+    const status = shouldIncrementTotal ? '(new visitor)' : '(returning visitor)';
+    console.log(`View recorded from ${location.country} ${status}`);
   } catch (error) {
     console.error('Error recording view:', error);
-    // Fallback to localStorage
     updateViewCountLocal();
   }
 }
@@ -169,3 +196,73 @@ function updateLastModified() {
 }
 
 updateLastModified();
+
+// Create live visitor clock with timezone
+async function createVisitorClock() {
+  try {
+    const location = await getUserLocation();
+    
+    const clockContainer = document.createElement('div');
+    clockContainer.id = 'visitor-clock';
+    clockContainer.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(26, 31, 38, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      color: var(--text);
+      z-index: 98;
+      backdrop-filter: blur(10px);
+      min-width: 200px;
+    `;
+
+    const timeDisplay = document.createElement('div');
+    timeDisplay.style.cssText = `
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    `;
+
+    const tzDisplay = document.createElement('div');
+    tzDisplay.style.cssText = `
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    `;
+
+    clockContainer.appendChild(timeDisplay);
+    clockContainer.appendChild(tzDisplay);
+    document.body.appendChild(clockContainer);
+
+    // Update clock every 100ms for smooth seconds display
+    function updateClock() {
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: location.timezone,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      });
+
+      const parts = formatter.formatToParts(now);
+      const timeStr = parts.map(p => p.value).join('');
+      
+      timeDisplay.textContent = timeStr;
+      tzDisplay.textContent = `${location.country} • ${location.timezone}`;
+    }
+
+    updateClock();
+    setInterval(updateClock, 100);
+  } catch (error) {
+    console.warn('Failed to create visitor clock:', error);
+  }
+}
+
+createVisitorClock();

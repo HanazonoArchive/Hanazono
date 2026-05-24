@@ -207,7 +207,7 @@ async function createVisitorClock() {
     clockContainer.style.cssText = `
       display: inline;
       margin: 0 8px;
-      font-family: 'Courier New', monospace;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       font-size: 0.85rem;
       color: var(--muted);
     `;
@@ -222,8 +222,6 @@ async function createVisitorClock() {
     tzDisplay.style.cssText = `
       font-size: 0.8rem;
       color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     `;
 
     clockContainer.appendChild(timeDisplay);
@@ -249,6 +247,18 @@ async function createVisitorClock() {
       appendToFooter();
     }
 
+    // Calculate UTC offset
+    function getUTCOffset(timezone) {
+      const now = new Date();
+      const utcDate = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
+      const tzDate = new Date(now.toLocaleString('en-US', { timeZone: timezone }));
+      const offset = (tzDate - utcDate) / (1000 * 60 * 60);
+      const sign = offset >= 0 ? '+' : '';
+      return `UTC${sign}${offset.toFixed(1)}`.replace('.0', '');
+    }
+
+    const utcOffset = getUTCOffset(location.timezone);
+
     // Update clock every 100ms for smooth seconds display
     function updateClock() {
       const now = new Date();
@@ -257,14 +267,23 @@ async function createVisitorClock() {
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
-        hour12: false
+        hour12: true
       });
 
       const parts = formatter.formatToParts(now);
-      const timeStr = parts.map(p => p.value).join('');
+      let timeStr = '';
+      for (let part of parts) {
+        if (part.type !== 'literal') {
+          timeStr += part.value;
+        } else if (part.value === ':') {
+          timeStr += ':';
+        } else if (part.value === ' ') {
+          timeStr += ' ';
+        }
+      }
       
       timeDisplay.textContent = timeStr;
-      tzDisplay.textContent = location.country;
+      tzDisplay.textContent = `${location.country} (${utcOffset})`;
     }
 
     updateClock();

@@ -1,9 +1,8 @@
-// Contact form handler with rate limiting, reCAPTCHA, and input sanitation
+// Contact form handler with rate limiting and input sanitation
 const RATE_LIMIT_KEY = 'contact_form_last_submission';
 const RATE_LIMIT_MINUTES = 2; // Minimum 2 minutes between submissions
 const MAX_SUBMISSIONS_PER_HOUR = 5; // Max 5 submissions per hour
 const SUBMISSIONS_KEY = 'contact_form_submissions';
-const RECAPTCHA_SITE_KEY = '6LffmPosAAAAAD-Xp12_OW1zy3HblEa5S-Bqnjza'; // Public demo key - CHANGE THIS
 
 const form = document.getElementById('contact-form');
 const nameInput = document.getElementById('form-name');
@@ -12,11 +11,6 @@ const messageInput = document.getElementById('form-message');
 const submitBtn = document.getElementById('submit-btn');
 const btnText = document.getElementById('btn-text');
 const statusDiv = document.getElementById('form-status');
-
-// Initialize reCAPTCHA v3
-window.grecaptcha.ready(() => {
-  console.log('reCAPTCHA loaded');
-});
 
 function showStatus(message, type) {
   statusDiv.textContent = message;
@@ -121,13 +115,6 @@ async function submitForm(e) {
   btnText.textContent = 'Sending...';
 
   try {
-    // Get reCAPTCHA token
-    const token = await new Promise((resolve, reject) => {
-      window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' })
-        .then(token => resolve(token))
-        .catch(err => reject(err));
-    });
-
     // Send form via Formspree
     const response = await fetch('https://formspree.io/f/xojbnvra', {
       method: 'POST',
@@ -137,8 +124,7 @@ async function submitForm(e) {
       body: JSON.stringify({
         name: name,
         email: email,
-        message: message,
-        'g-recaptcha-response': token
+        message: message
       })
     });
 

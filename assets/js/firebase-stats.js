@@ -7,6 +7,14 @@ async function getUserLocation() {
   try {
     const response = await fetch('https://geolocation-db.com/json/geoip.php?vip=false');
     const data = await response.json();
+    
+    // Log for debugging
+    console.log('Geolocation data:', { 
+      country: data.country_name,
+      timezone: data.timezone,
+      ip: data.IPv4
+    });
+    
     return {
       country: data.country_name || 'Unknown',
       countryCode: data.country_code || 'XX',
@@ -281,28 +289,38 @@ async function createVisitorClock() {
     // Update clock every 100ms for smooth seconds display
     function updateClock() {
       const now = new Date();
-      const formatter = new Intl.DateTimeFormat('en-US', {
-        timeZone: location.timezone,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      });
+      try {
+        const formatter = new Intl.DateTimeFormat('en-US', {
+          timeZone: location.timezone,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true
+        });
 
-      const parts = formatter.formatToParts(now);
-      let timeStr = '';
-      for (let part of parts) {
-        if (part.type !== 'literal') {
-          timeStr += part.value;
-        } else if (part.value === ':') {
-          timeStr += ':';
-        } else if (part.value === ' ') {
-          timeStr += ' ';
+        const parts = formatter.formatToParts(now);
+        let timeStr = '';
+        for (let part of parts) {
+          if (part.type !== 'literal') {
+            timeStr += part.value;
+          } else if (part.value === ':') {
+            timeStr += ':';
+          } else if (part.value === ' ') {
+            timeStr += ' ';
+          }
         }
+        
+        timeDisplay.textContent = timeStr;
+        tzDisplay.textContent = `${location.country} (${utcOffset})`;
+      } catch (e) {
+        // Fallback if timezone is invalid
+        console.warn('Invalid timezone:', location.timezone, e);
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+        tzDisplay.textContent = location.country;
       }
-      
-      timeDisplay.textContent = timeStr;
-      tzDisplay.textContent = `${location.country} (${utcOffset})`;
     }
 
     updateClock();

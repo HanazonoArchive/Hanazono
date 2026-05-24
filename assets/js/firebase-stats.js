@@ -2,16 +2,54 @@
 const FIREBASE_DB_URL = "https://portfolio-hanazonoarchive-default-rtdb.asia-southeast1.firebasedatabase.app";
 const FIREBASE_API_KEY = "AIzaSyCjj_VEsYsApjW8YoUeRZfuC2MxJ3U1Py8";
 
+// Country code to timezone mapping
+const countryTimezoneMap = {
+  'PH': 'Asia/Manila',      // Philippines
+  'US': 'America/New_York',  // USA (Eastern)
+  'GB': 'Europe/London',     // UK
+  'AU': 'Australia/Sydney',  // Australia
+  'JP': 'Asia/Tokyo',        // Japan
+  'CN': 'Asia/Shanghai',     // China
+  'IN': 'Asia/Kolkata',      // India
+  'SG': 'Asia/Singapore',    // Singapore
+  'TH': 'Asia/Bangkok',      // Thailand
+  'MY': 'Asia/Kuala_Lumpur', // Malaysia
+  'VN': 'Asia/Ho_Chi_Minh',  // Vietnam
+  'ID': 'Asia/Jakarta',      // Indonesia
+  'KR': 'Asia/Seoul',        // South Korea
+  'BR': 'America/Sao_Paulo', // Brazil
+  'MX': 'America/Mexico_City', // Mexico
+  'CA': 'America/Toronto',   // Canada
+  'DE': 'Europe/Berlin',     // Germany
+  'FR': 'Europe/Paris',      // France
+  'IT': 'Europe/Rome',       // Italy
+  'ES': 'Europe/Madrid',     // Spain
+  'NZ': 'Pacific/Auckland',  // New Zealand
+  'SG': 'Asia/Singapore',    // Singapore
+  'HK': 'Asia/Hong_Kong',    // Hong Kong
+  'TW': 'Asia/Taipei'        // Taiwan
+};
+
 // Get user location from IP
 async function getUserLocation() {
   try {
     const response = await fetch('https://geolocation-db.com/json/geoip.php?vip=false');
     const data = await response.json();
     
+    // Use timezone from API, or fallback to country mapping
+    let timezone = data.timezone;
+    if (!timezone && data.country_code) {
+      timezone = countryTimezoneMap[data.country_code] || 'UTC';
+    }
+    if (!timezone) {
+      timezone = 'UTC';
+    }
+    
     // Log for debugging
     console.log('Geolocation data:', { 
       country: data.country_name,
-      timezone: data.timezone,
+      countryCode: data.country_code,
+      timezone: timezone,
       ip: data.IPv4
     });
     
@@ -19,7 +57,7 @@ async function getUserLocation() {
       country: data.country_name || 'Unknown',
       countryCode: data.country_code || 'XX',
       city: data.city || '',
-      timezone: data.timezone || 'UTC',
+      timezone: timezone,
       ip: data.IPv4 || ''
     };
   } catch (error) {

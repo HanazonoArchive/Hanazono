@@ -5,14 +5,14 @@ const FIREBASE_API_KEY = "AIzaSyCjj_VEsYsApjW8YoUeRZfuC2MxJ3U1Py8";
 // Get user location from IP
 async function getUserLocation() {
   try {
-    const response = await fetch('https://ipwhois.app/json/');
+    const response = await fetch('https://geolocation-db.com/json/geoip.php?vip=false');
     const data = await response.json();
     return {
       country: data.country_name || 'Unknown',
       countryCode: data.country_code || 'XX',
       city: data.city || '',
       timezone: data.timezone || 'UTC',
-      ip: data.ip || ''
+      ip: data.IPv4 || ''
     };
   } catch (error) {
     console.warn('Failed to get location:', error);
@@ -202,29 +202,25 @@ async function createVisitorClock() {
   try {
     const location = await getUserLocation();
     
-    const clockContainer = document.createElement('div');
+    const clockContainer = document.createElement('span');
     clockContainer.id = 'visitor-clock';
     clockContainer.style.cssText = `
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      display: inline;
+      margin: 0 8px;
       font-family: 'Courier New', monospace;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       color: var(--muted);
-      margin: 0 12px;
     `;
 
     const timeDisplay = document.createElement('span');
     timeDisplay.style.cssText = `
-      font-size: 0.75rem;
       font-weight: 500;
-      letter-spacing: 0.05em;
       color: var(--text);
     `;
 
     const tzDisplay = document.createElement('span');
     tzDisplay.style.cssText = `
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -234,8 +230,24 @@ async function createVisitorClock() {
     clockContainer.appendChild(document.createTextNode(' • '));
     clockContainer.appendChild(tzDisplay);
     
-    // Append to body for now, will be styled in footer area
-    document.body.appendChild(clockContainer);
+    // Find footer and append to it
+    function appendToFooter() {
+      const footer = document.querySelector('footer') || document.querySelector('[id="footer"]');
+      if (footer) {
+        footer.appendChild(document.createTextNode(' | '));
+        footer.appendChild(clockContainer);
+      } else {
+        // Fallback: append to body if no footer found
+        document.body.appendChild(clockContainer);
+      }
+    }
+
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', appendToFooter);
+    } else {
+      appendToFooter();
+    }
 
     // Update clock every 100ms for smooth seconds display
     function updateClock() {

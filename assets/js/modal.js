@@ -53,12 +53,23 @@ function appendChips(container, label, items, accentFirst = false) {
   if (!items || items.length === 0) {
     return;
   }
+  
+  // Create a section for this category
+  const section = document.createElement("div");
+  section.className = "modal-chip-section";
+  
+  // Add label if provided
   if (label) {
-    const labelChip = document.createElement("span");
-    labelChip.className = "chip";
-    labelChip.textContent = label;
-    container.appendChild(labelChip);
+    const labelEl = document.createElement("div");
+    labelEl.className = "modal-chip-label";
+    labelEl.textContent = label;
+    section.appendChild(labelEl);
   }
+  
+  // Create chip list for items
+  const chipList = document.createElement("div");
+  chipList.className = "chip-list";
+  
   items.forEach((item, index) => {
     const chip = document.createElement("span");
     chip.className = "chip chip-with-icon";
@@ -74,8 +85,11 @@ function appendChips(container, label, items, accentFirst = false) {
     
     chip.appendChild(icon);
     chip.appendChild(text);
-    container.appendChild(chip);
+    chipList.appendChild(chip);
   });
+  
+  section.appendChild(chipList);
+  container.appendChild(section);
 }
 
 function closeModal() {

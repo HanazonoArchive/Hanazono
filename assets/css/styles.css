@@ -521,6 +521,32 @@ a:hover {
   font-size: 0.9rem;
 }
 
+.modal-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-chip-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-chip-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.modal-chip-section .chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 .modal-links a {
   display: inline-flex;
   align-items: center;

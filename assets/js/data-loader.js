@@ -1,5 +1,6 @@
 const LIST_KEYS = new Set(["languages", "tools", "tags", "platforms"]);
-const BASE_PATH = "/Hanazono"; // Set to "" for local development
+// Use GitHub raw content CDN for compatibility with custom domains and Cloudflare
+const BASE_PATH = "https://raw.githubusercontent.com/HanazonoArchive/Hanazono/main";
 
 async function loadJson(path) {
   const response = await fetch(path);

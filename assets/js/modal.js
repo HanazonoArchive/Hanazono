@@ -106,6 +106,23 @@ function buildPdfSrc(path) {
   return `${base}#toolbar=0&navpanes=0&scrollbar=0`;
 }
 
+function isImage(path) {
+  if (!path) return false;
+  const extensions = [".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp", ".svg"];
+  return extensions.some(ext => path.toLowerCase().endsWith(ext));
+}
+
+function isVideo(path) {
+  if (!path) return false;
+  const extensions = [".mp4", ".webm", ".ogg", ".mov", ".avi", ".mkv"];
+  return extensions.some(ext => path.toLowerCase().endsWith(ext));
+}
+
+function isPdf(path) {
+  if (!path) return false;
+  return path.toLowerCase().endsWith(".pdf");
+}
+
 export function openModal(item, typeLabel) {
   modalTitle.textContent = item.title;
   modalKicker.textContent = typeLabel;
@@ -127,8 +144,10 @@ export function openModal(item, typeLabel) {
   appendChips(modalChips, "Tools", item.tools);
   appendChips(modalChips, "Tags", item.tags, true);
 
-  const imagePath = item.image || "";
-  const isPdf = imagePath.toLowerCase().endsWith(".pdf");
+  const mediaPath = item.image || "";
+  const isPdfFile = isPdf(mediaPath);
+  const isImageFile = isImage(mediaPath);
+  const isVideoFile = isVideo(mediaPath);
 
   modalLinks.innerHTML = "";
   if (item.link) {
@@ -139,9 +158,9 @@ export function openModal(item, typeLabel) {
     link.textContent = "Visit link";
     modalLinks.appendChild(link);
   }
-  if (isPdf) {
+  if (isPdfFile) {
     const fileLink = document.createElement("a");
-    fileLink.href = imagePath;
+    fileLink.href = mediaPath;
     fileLink.target = "_blank";
     fileLink.rel = "noopener noreferrer";
     fileLink.textContent = "Open file";
@@ -149,23 +168,40 @@ export function openModal(item, typeLabel) {
   }
 
   modalMedia.innerHTML = "";
-  if (imagePath) {
-    if (isPdf) {
+  if (mediaPath) {
+    if (isPdfFile) {
       const frame = document.createElement("iframe");
-      frame.src = buildPdfSrc(imagePath);
+      frame.src = buildPdfSrc(mediaPath);
       frame.title = `${item.title} file`;
       frame.loading = "lazy";
       modalMedia.appendChild(frame);
-    } else {
+    } else if (isVideoFile) {
+      const video = document.createElement("video");
+      video.src = mediaPath;
+      video.controls = true;
+      video.autoplay = false;
+      video.loop = false;
+      video.muted = false;
+      video.setAttribute("playsinline", "");
+      video.style.width = "100%";
+      video.style.maxHeight = "400px";
+      video.style.borderRadius = "8px";
+      modalMedia.appendChild(video);
+    } else if (isImageFile) {
       const image = document.createElement("img");
-      image.src = imagePath;
+      image.src = mediaPath;
       image.alt = `${item.title} image`;
       modalMedia.appendChild(image);
+    } else {
+      const unsupported = document.createElement("div");
+      unsupported.className = "chip";
+      unsupported.textContent = "Unsupported media type";
+      modalMedia.appendChild(unsupported);
     }
   } else {
     const placeholder = document.createElement("div");
     placeholder.className = "chip";
-    placeholder.textContent = "No image provided";
+    placeholder.textContent = "No media provided";
     modalMedia.appendChild(placeholder);
   }
 

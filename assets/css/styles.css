@@ -7,8 +7,10 @@
   --muted: #9aa3ad;
   --accent-1: #ff6b6b;
   --accent-2: #4ad9ff;
+  --accent-2sub1: #92e5fc;
   --accent-3: #9cff6a;
-  --stroke: rgba(255, 255, 255, 0.08);
+  --accent-4: #ffb86c;
+  --stroke: rgba(255, 255, 255, 0.26);
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
   --radius: 8px;
   --radius-sm: 6px;
@@ -88,7 +90,7 @@ a:hover {
   padding: 12px 18px;
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
-  background: var(--panel-strong);
+  background: var(--bg);
   position: sticky;
   top: 18px;
   z-index: 4;
@@ -163,7 +165,7 @@ a:hover {
 }
 
 .home-card {
-  background: var(--panel);
+  background: var(--bg);
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
   padding: 24px;
@@ -219,7 +221,7 @@ a:hover {
 }
 
 .hero-panel {
-  background: var(--panel);
+  background: var(--bg);
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
   padding: 22px;
@@ -242,7 +244,7 @@ a:hover {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  color: var(--accent-1);
+  color: var(--accent-3);
 }
 
 .panel-value {
@@ -258,17 +260,22 @@ a:hover {
 }
 
 .card {
-  background: var(--panel);
+  background: var(--bg);
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
   padding: 20px;
   text-align: left;
-  color: var(--text);
+  color: var(--accent-3);
   transition: transform var(--transition), box-shadow var(--transition), border var(--transition);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.card h3 {
+  color: var(--accent-3);
+  font-weight: 500;
 }
 
 .card:hover {
@@ -290,7 +297,10 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   font-size: 0.85rem;
-  color: var(--muted);
+  color: var(--accent-2);
+  font-family: "Google Sans Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-weight: 300;
 }
 
 .card-summary {
@@ -310,7 +320,7 @@ a:hover {
   font-size: 0.78rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--text);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg);
 }
 
 .chip.accent {
@@ -332,7 +342,7 @@ a:hover {
 }
 
 .about-card {
-  background: var(--panel);
+  background: var(--bg);
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
   padding: 20px;
@@ -383,7 +393,7 @@ a:hover {
 }
 
 .contact-card {
-  background: var(--panel);
+  background: var(--bg);
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
   padding: 20px;
@@ -541,7 +551,7 @@ a:hover {
 }
 
 .modal-media {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg);
   border-right: 1px solid rgba(255, 255, 255, 0.06);
   display: grid;
   place-items: center;
@@ -567,6 +577,11 @@ a:hover {
   gap: 14px;
   height: 100%;
   overflow: hidden;
+  background: var(--bg);
+}
+
+.modal-content h3 {
+  color: var(--accent-3);
 }
 
 .modal-kicker {
@@ -577,9 +592,11 @@ a:hover {
 }
 
 .modal-meta {
-  color: var(--muted);
+  color: var(--accent-2);
   font-size: 0.9rem;
+  font-weight: 600;
 }
+
 
 .modal-chips {
   display: flex;
@@ -1059,4 +1076,9 @@ body.modal-open {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+.highlited_nav {
+  color: var(--accent-3);
+  font-weight: 500;
 }

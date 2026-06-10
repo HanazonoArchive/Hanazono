@@ -5,22 +5,16 @@
     "GitHub",
     "VS Code",
     "IntelliJ IDEA",
-    "PyCharm",
-    "Jupyter",
-    "Wireshark",
     "MySQL",
-    "SQLite",
-    "Matplotlib",
-    "Django",
     "Node.js",
-    "Gradle",
-    "Maven",
-    "npm",
-    "GitHub Actions",
-    "Electron"
+    "Vue",
+    "Laravel",
+    "Cloudflare",
+    "Live2D Cubism"
   ],
   "platforms": [
     "Windows",
-    "Android"
+    "Android",
+    "Linux"
   ]
 }

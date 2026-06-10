@@ -1,9 +1,9 @@
 {
   "name": "Agsoy, Jay Mark V.",
-  "major": "Bachelor of Science in Computer Science | Specialized in Machine Learning and Cybersecurity",
-  "summary": "Aspiring software developer with a strong foundation in computer science, specializing in machine learning and cybersecurity. Experienced in developing secure and efficient software solutions, with a passion for continuous learning and growth in the tech industry.",
-  "focus": ["Web Development", "Software Development", "Machine Learning", "Cybersecurity"],
-  "tagline": "Passionate about building secure and efficient software solutions.",
+  "major": "Bachelor of Science in Computer Science",
+  "summary": "Aspiring Developer with a strong foundation in software developement, web development, and cybersecurity. Eager to apply my skills and knowledge to real-world projects and contribute to innovative solutions.",
+  "focus": ["Web Development", "Software Development", "LLM Development", "Cybersecurity"],
+  "tagline": "Simple, safe, reversible. Working code stays working.",
   "links": [
     {
       "label": "GitHub",

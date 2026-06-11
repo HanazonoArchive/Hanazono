@@ -1,4 +1,4 @@
-`import { loadConfig, loadProfile, loadSkills, loadMarkdownItems } from "./data-loader.js";
+import { loadConfig, loadProfile, loadSkills, loadMarkdownItems } from "./data-loader.js";
 import { byId, extractSummary, formatDate, renderChips } from "./utils.js";
 import { initModal, openModal } from "./modal.js";
 
@@ -303,4 +303,3 @@ async function init() {
 }
 
 document.addEventListener("DOMContentLoaded", init);
-`

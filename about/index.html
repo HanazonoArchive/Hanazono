@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="About Agsoy, Jay Mark V.">
   <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="About — Hanazono">
+  <meta property="og:description" content="About Agsoy, Jay Mark V. — Computer Science student at the University of Mindanao.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hanazono">
+  <meta name="twitter:card" content="summary">
   <title>About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +24,7 @@
     <header class="site-header">
       <nav class="site-nav">
         <a href="../"><i class="fas fa-home"></i>_home</a>
-        <a href="../about/" class="highlited_nav"><i class="fas fa-user"></i>_about</a>
+        <a href="../about/" class="highlighted-nav"><i class="fas fa-user"></i>_about</a>
         <a href="../projects/"><i class="fas fa-briefcase"></i>_projects</a>
         <a href="../certifications/"><i class="fas fa-certificate"></i>_certifications</a>
         <a href="../explorations/"><i class="fas fa-compass"></i>_explorations</a>
@@ -57,23 +62,21 @@
       <section class="section fade-in">
         <div class="section-head">
           <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-          <p class="section-subtitle">University of Mindanao (2023-2027).</p>
+          <p class="section-subtitle" id="profile-education"></p>
         </div>
         <div class="about-grid">
           <div class="about-card about-image-card">
             <div class="about-image">
-              <img src="../assets/images/University_of_Mindanao_Logo.png" alt="About me placeholder">
+              <img src="../assets/images/University_of_Mindanao_Logo.png" alt="University of Mindanao logo">
             </div>
           </div>
           <div class="about-card">
-            <p>
-              Computer Science student at the University of Mindanao. Focused on web development, LLM systems, and cybersecurity. Certified in Database and Network Security.
-            </p>
+            <p id="profile-bio"></p>
             <ul class="about-list">
-              <li><strong><i class="fas fa-graduation-cap"></i> Education:</strong> University of Mindanao (2023-2027)</li>
-              <li><strong><i class="fas fa-book"></i> Major:</strong> Bachelor of Science  in Computer Science</li>
-              <li><strong><i class="fas fa-bullseye"></i> Focus:</strong> Web Development, Software Development, LLM Developement, Cybersecurity</li>
-              <li><strong><i class="fas fa-award"></i> Certifications:</strong> Certiport Database, Certiport Network Security</li>
+              <li><strong><i class="fas fa-graduation-cap"></i> Education:</strong> <span id="profile-education-name"></span> (<span id="profile-education-years"></span>)</li>
+              <li><strong><i class="fas fa-book"></i> Major:</strong> <span id="profile-edu-major"></span></li>
+              <li><strong><i class="fas fa-bullseye"></i> Focus:</strong> <span id="profile-edu-focus"></span></li>
+              <li><strong><i class="fas fa-award"></i> Certifications:</strong> <span id="profile-certifications"></span></li>
             </ul>
           </div>
         </div>

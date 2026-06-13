@@ -864,10 +864,19 @@ body.modal-open {
 
 @keyframes shimmer {
   0% {
-    background-position: -1000px 0;
+    background-position: -200% 0;
   }
   100% {
-    background-position: 1000px 0;
+    background-position: 200% 0;
+  }
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
 
@@ -1078,7 +1087,79 @@ body.modal-open {
   }
 }
 
+.highlighted-nav {
+  color: var(--accent-3);
+  font-weight: 500;
+}
+
+/* Keep old class for backward compatibility — remove after Cloudflare cache clears */
 .highlited_nav {
   color: var(--accent-3);
   font-weight: 500;
+}
+
+/* ===== SKELETON LOADING ===== */
+.skeleton {
+  pointer-events: none;
+  cursor: default;
+  gap: 14px;
+}
+
+.skeleton:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--stroke);
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-short {
+  width: 35%;
+}
+
+.skeleton-title {
+  width: 70%;
+  height: 20px;
+}
+
+.skeleton-body {
+  width: 100%;
+}
+
+.skeleton-chips {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.skeleton-chip {
+  height: 26px;
+  width: 64px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+/* ===== ERROR CARD ===== */
+.error-card {
+  text-align: center;
+  padding: 28px 20px;
+  cursor: default;
+}
+
+.error-card:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--stroke);
+}
+
+.error-card .retry-btn {
+  margin-top: 4px;
 }

@@ -1,27 +1,60 @@
 const LIST_KEYS = new Set(["languages", "tools", "tags", "platforms"]);
-// Use GitHub raw content CDN for compatibility with custom domains and Cloudflare
-const BASE_PATH = "https://raw.githubusercontent.com/HanazonoArchive/Hanazono/main";
+
+// Compute the relative path to the site root based on the current page depth.
+// Root page "/" or "/index.html" → "."; "/about/" → ".."; etc.
+function getRoot() {
+  const path = window.location.pathname.replace(/\/$/, "");
+  const depth = path.split("/").filter(Boolean).length;
+  return depth === 0 ? "." : Array(depth).fill("..").join("/");
+}
 
 async function loadJson(path) {
   const response = await fetch(path);
   if (!response.ok) {
-    throw new Error(`Failed to load ${path}`);
+    throw new Error(`Failed to load ${path} (${response.status})`);
   }
   return response.json();
 }
 
-export async function loadConfig() {
-  return loadJson(`${BASE_PATH}/data/config.json`);
+// ── Config (loaded relatively — works locally, on Cloudflare Pages, and on GitHub Pages) ──
+let _configPromise = null;
+
+export function loadConfig() {
+  if (!_configPromise) {
+    const root = getRoot();
+    _configPromise = loadJson(`${root}/data/config.json`);
+  }
+  return _configPromise;
 }
 
+// ── Build the CDN base from config after it loads ──
+async function getCdnBase() {
+  const config = await loadConfig();
+  const g = config.github || {};
+  return `https://raw.githubusercontent.com/${g.user || "HanazonoArchive"}/${g.repo || "Hanazono"}/${g.branch || "main"}`;
+}
+
+// ── Profile & skills (loaded relatively — always reflects local state) ──
+let _profilePromise = null;
+let _skillsPromise = null;
+
 export async function loadProfile() {
-  return loadJson(`${BASE_PATH}/data/profile.json`);
+  if (!_profilePromise) {
+    const root = getRoot();
+    _profilePromise = loadJson(`${root}/data/profile.json`);
+  }
+  return _profilePromise;
 }
 
 export async function loadSkills() {
-  return loadJson(`${BASE_PATH}/data/skills.json`);
+  if (!_skillsPromise) {
+    const root = getRoot();
+    _skillsPromise = loadJson(`${root}/data/skills.json`);
+  }
+  return _skillsPromise;
 }
 
+// ── Frontmatter parser ──
 function parseFrontMatter(raw) {
   if (!raw.startsWith("---")) {
     return { frontMatter: {}, body: raw.trim() };
@@ -60,13 +93,39 @@ function parseFrontMatter(raw) {
   return { frontMatter, body };
 }
 
+// ── Fetch a single markdown item and parse it ──
+async function fetchMarkdownItem(entry) {
+  try {
+    const response = await fetch(entry.url);
+    if (!response.ok) {
+      return null;
+    }
+    const raw = await response.text();
+    const { frontMatter, body } = parseFrontMatter(raw);
+    return {
+      id: entry.name.replace(/\.md$/, ""),
+      title: frontMatter.title || entry.name.replace(/\.md$/, ""),
+      date: frontMatter.date || "",
+      summary: frontMatter.summary || "",
+      link: frontMatter.link || "",
+      image: frontMatter.image || "",
+      certifier: frontMatter.certifier || "",
+      credential: frontMatter.credential || "",
+      languages: frontMatter.languages || [],
+      tools: frontMatter.tools || [],
+      tags: frontMatter.tags || [],
+      body,
+    };
+  } catch {
+    return null;
+  }
+}
+
+// ── GitHub API listing (only when github.enabled is true) ──
 async function fetchGitHubList(type, github) {
-  // GitHub API doesn't use basePath - it always accesses from repo root
   const apiUrl = `https://api.github.com/repos/${github.user}/${github.repo}/contents/data/${type}?ref=${github.branch}`;
   const response = await fetch(apiUrl, {
-    headers: {
-      Accept: "application/vnd.github+json",
-    },
+    headers: { Accept: "application/vnd.github+json" },
   });
   if (!response.ok) {
     throw new Error(`GitHub API error: ${response.status}`);
@@ -77,14 +136,17 @@ async function fetchGitHubList(type, github) {
     .map((item) => ({ name: item.name, url: item.download_url }));
 }
 
+// ── Local index.json fallback ──
 async function fetchLocalIndex(type) {
-  const index = await loadJson(`${BASE_PATH}/data/${type}/index.json`);
+  const base = await getCdnBase();
+  const index = await loadJson(`${base}/data/${type}/index.json`);
   return (index.items || []).map((name) => ({
     name,
-    url: `${BASE_PATH}/data/${type}/${name}`,
+    url: `${base}/data/${type}/${name}`,
   }));
 }
 
+// ── Sort by date descending ──
 function sortByDate(items) {
   return items.sort((a, b) => {
     const aTime = Date.parse(a.date || "");
@@ -96,6 +158,7 @@ function sortByDate(items) {
   });
 }
 
+// ── Main entry: load all markdown items for a content type ──
 export async function loadMarkdownItems(type, config) {
   let list = [];
   if (config?.github?.enabled) {
@@ -109,30 +172,9 @@ export async function loadMarkdownItems(type, config) {
     list = await fetchLocalIndex(type);
   }
 
-  const items = [];
-  for (const entry of list) {
-    const response = await fetch(entry.url);
-    if (!response.ok) {
-      continue;
-    }
-    const raw = await response.text();
-    const { frontMatter, body } = parseFrontMatter(raw);
-    items.push({
-      id: entry.name.replace(/\.md$/, ""),
-      type,
-      title: frontMatter.title || entry.name.replace(/\.md$/, ""),
-      date: frontMatter.date || "",
-      summary: frontMatter.summary || "",
-      link: frontMatter.link || "",
-      image: frontMatter.image || "",
-      certifier: frontMatter.certifier || "",
-      credential: frontMatter.credential || "",
-      languages: frontMatter.languages || [],
-      tools: frontMatter.tools || [],
-      tags: frontMatter.tags || [],
-      body,
-    });
-  }
+  // Fetch all markdown files in parallel
+  const results = await Promise.all(list.map((entry) => fetchMarkdownItem(entry)));
 
+  const items = results.filter(Boolean);
   return sortByDate(items);
 }

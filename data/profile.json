@@ -4,6 +4,10 @@
   "summary": "Aspiring Developer with a strong foundation in software developement, web development, and cybersecurity. Eager to apply my skills and knowledge to real-world projects and contribute to innovative solutions.",
   "focus": ["Web Development", "Software Development", "LLM Development", "Cybersecurity"],
   "tagline": "Simple, safe, reversible. Working code stays working.",
+  "bio": "Computer Science student at the University of Mindanao. Focused on web development, LLM systems, and cybersecurity. Certified in Database and Network Security.",
+  "education": "University of Mindanao",
+  "educationYears": "2023-2027",
+  "certifications": "Certiport Database, Certiport Network Security",
   "links": [
     {
       "label": "GitHub",

@@ -7,38 +7,18 @@ link: https://github.com/HanazonoArchive/Cinematique
 image:
 summary: A Desktop Application for Managing Movie Rentals.
 ---
+## Cinematique
 
-## Overview
+**What it is?**  
+A desktop application for managing movie rentals, built with **Java 16**, **JavaFX**, **MySQL**, and **Gradle**. It includes user authentication, movie browsing, rental management, and an admin dashboard.
 
-Cinematique is a desktop application for managing movie rentals, built with **Java 16**, **JavaFX**, and **MySQL**. It includes user authentication, movie browsing, rental management, and a complete admin dashboard for system administration.
+**Why I built it?**  
+This was our first-year final project for our CS Major, designed to apply object-oriented programming, database integration, and GUI development in a real-world rental system scenario.
 
-The project demonstrates proficiency in:
-- Desktop GUI Development with JavaFX and FXML
-- Database Management with MySQL and JDBC
-- MVC Architecture and design patterns
-- User Authentication and role-based access control
-- Modern UI/UX with CSS styling
+**What is my role?**  
+I handled the design, built the frontend using JavaFX and SceneBuilder, and prepared the frontend connections so the backend team could directly manipulate variables without refactoring the UI.
 
-## Features
-
-### User System
-- User registration and authentication
-- Profile management
-- Rental history tracking
-
-### Movie Rental
-- Browse and search movies
-- Add movies to cart
-- Process rentals
-- View rental details and status
-
-### Admin Dashboard
-- User management (create, view, delete)
-- Movie inventory management
-- Rental management and tracking
-- System logs and audit trail
-- Statistics and reporting
-
-### Social Features
-- Movie reviews and ratings
-- User comments and feedback
+**Challenges**  
+- As the project grew in scope, the increasing complexity made it harder to maintain clean frontend-backend separation  
+- New features introduced unexpected bugs and errors, requiring careful regression testing  
+- Managing state across multiple UI components became more difficult as the rental flow expanded

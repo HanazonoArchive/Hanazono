@@ -6,18 +6,16 @@ image: ../data/explorations/resources/digital-music-producer.png
 summary: 21 published tracks in 1 year. Semi-professional producer building toward professional level.
 ---
 
-## Output
+## Digital Music Producer / Composer
 
-21 tracks published on SoundCloud. Started 1 year ago. Consistent release cadence.
+**What it is?**  
+21 published tracks in 1 year as a semi-professional producer building toward professional level. Each track involves arranging, mixing, sound design, and composition, with consistent release cadence on SoundCloud.
 
-## Process
+**Why I started this?**  
+Summer arrived, I had nothing to do, and my newly arrived MIDI keyboard left me with no excuse but to master it. I made a rulebook from the start: ditch YouTube, tutorials, textbooks, and guidance. Follow three rules — feedback is most important, don't get comfortable, and if something holds you back, destroy it. Then I found a professional-grade project file from someone online and reverse-engineered the heck out of it.
 
-Arranging, mixing, sound design, composition. Each track evolves and improves.
+**What I learned?**  
+A tremendous amount — music theory, building musical intuition, and discovering new parts of myself. The most interesting takeaway: I sharpened my metacognition. Now I know how I learn things.
 
-## Current Level
-
-Semi-professional. Actively building experience toward professional production quality.
-
-## Platform
-
-SoundCloud (published, distributed).
+**Results**  
+21 tracks produced in just 1 year. I now have a clear musical identity and artistic identity.

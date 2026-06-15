@@ -8,59 +8,21 @@ image: ../data/projects/resources/demo.mp4
 summary: A modular, zero-cost AI assistant with intelligent LLM routing, Live2D character, and custom-tuned TTS voice.
 ---
 
-## Overview
+## Rei - Live 2D AI Assistant
 
-**LLMPixiLive2D** is one of the four parts of our AI assistant system. It acts as our medium holder, forked from **pixi-live2d-display**.
+**What it is?**  
+A modular, zero-cost AI assistant with intelligent LLM routing, Live2D character integration, and custom-tuned TTS voice. It consists of four interconnected systems: **LLMPixiLive2D** (Live2D character medium), **LLMKokoroTTS** (text-to-speech with custom pitch/EQ tuning), **LLMAPIUI** (orchestrator for routing, cooldowns, memory, and retries), and **FreeLLMAPI** (unified API key provider aggregating 1.3B tokens from free LLM APIs across the internet).
 
-**LLMAPIUI** is one of the four parts of our AI assistant system. It acts as our orchestrator — managing, balancing, and routing for **FreeLLMAPI**. Created by me.
+**Why I built it?**  
+This project is the successor to ReiPortable — an old local AI assistant that died due to scope creep and lack of proper tools. My goal was to create a closer version of Neuro-sama using only free LLM APIs found online. The four-part architecture solves the previous project's limitations through intelligent orchestration and free API aggregation.
 
-**LLMKokoroTTS** is one of the four parts of our AI assistant system. It acts as the voice for our medium (**LLMPixiLive2D**). It uses Kokoro TTS with carefully tweaked pitch, speed, and EQ to create the appropriate voice for our character.
+**What is my role?**  
+Full-stack developer using a three-phase approach:
+- **Phase 1 (Plausibility)** — Ran the project at bare minimum to see if it worked
+- **Phase 2 (Stability & Foundation)** — Converted the project into scalable, maintainable, and modular architecture
+- **Phase 3 (Expanding & Scaling)** — Added features and improvements
 
-**FreeLLMAPI** is one of the four parts of our AI assistant system. It acts as our unified API key, aggregating various free LLM APIs from around the internet.
-
-### System Components
-
-| Component | Role |
-|-----------|------|
-| **FreeLLMAPI** | Provides 1.3B tokens of free LLM access via unified API key |
-| **LLMAPIUI** | Intelligent orchestrator — routing, cooldowns, ranker, memory, retries, auto-exclusion |
-| **LLMKokoroTTS** | Lightweight text-to-speech engine with custom pitch/EQ tuning for character voice |
-| **LLMPixiLive2D** | Browser-based vtuber character with mouse-follow and lipsync integration |
-
-### Key Features
-
-- **Provider-agnostic LLM routing** — Works with any OpenAI-compatible API, auto-discovers available models
-- **Smart load balancing** — Latency-weighted ranking + last-tested fairness + cooldown tracking
-- **Fault tolerance** — Auto-exclusion of failing models, retry logic, cut-off response recovery
-- **Persistent memory** — Conversation history saved across sessions, intelligent context management
-- **Text-to-speech with audio engineering** — Pitch, speed, and EQ tuned specifically for the character
-- **Live2D integration** — Reactive character with lipsync and mouse tracking
-- **Content filtering** — Automatic substitution of inappropriate language with polite alternatives
-- **Modular architecture** — Clean separation of concerns (API, state, UI, logging, validation)
-
-### Technical Highlights
-
-- HTTP as universal glue — each component communicates via network, making the system language-agnostic
-- Weighted exponential moving average for response latency tracking
-- Circuit breaker pattern for model auto-exclusion
-- Persistent cooldown state across browser sessions
-- One-time guardrail injection carried via context memory
-- Async-ready design for future improvements
-
-### What I Learned
-
-- Orchestrating multiple independent systems into a cohesive experience
-- Designing for fault tolerance in a resource-constrained environment
-- Cross-domain integration — LLMs, TTS, real-time graphics, and audio production
-- The importance of documenting for your future self
-- Building with zero budget using free APIs and open-source tools
-
-### Next Steps
-
-- Sentence-level TTS chunking to reduce response latency
-- Summarized context memory for long conversations
-- Open-source release as a foundation for others to build their own AI assistants
-
-### Historical Context
-
-This project revived **ReiPortable** — a local AI assistant that was abandoned due to scope creep and LLM limitations. The new architecture solves both problems through intelligent orchestration and free API aggregation.
+**Challenges**  
+- As the four independent systems grew more interconnected, the increasing complexity made communication between them harder to manage — HTTP as the universal glue helped but introduced network-related bugs  
+- Getting Live2D mouth movement to sync properly with Kokoro TTS output required extensive timing adjustments and cross-system coordination  
+- Each new feature (memory persistence, auto-exclusion, latency tracking) increased the potential for cascading errors across all four components

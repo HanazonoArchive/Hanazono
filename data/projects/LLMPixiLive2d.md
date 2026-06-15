@@ -8,15 +8,18 @@ image: ../data/projects/resources/LLMPixiLive2D.png
 summary: Browser-based Live2D character holder with mouse-follow and lipsync integration for AI assistant system.
 ---
 
-## Overview
+## LLMPixiLive2D
 
-**LLMPixiLive2D** is one of the four parts of our AI assistant system. It acts as our medium holder, forked from **pixi-live2d-display**.
+**What it is?**  
+A browser-based Live2D character holder that acts as the visual medium for our AI assistant system. Forked from pixi-live2d-display, it enables a reactive vtuber-style character with mouse-follow interaction, facial expressions, and lipsync animation integration when receiving TTS audio — all running in the browser without external software.
 
-The component enables a reactive vtuber-style character that follows mouse movement, displays facial expressions, and integrates lipsync animation when receiving TTS audio.
+**Why I built it?**  
+As part of the larger Rei AI assistant system, the Live2D character needed a lightweight, browser-based medium that could display expressions and move naturally. The original pixi-live2d-display provided the foundation, but I needed to integrate it with our orchestrator and TTS system for lipsync and reactive behavior.
 
-### Key Features
+**What is my role?**  
+Sole developer — I forked and integrated pixi-live2d-display into our four-part architecture, added mouse-follow behavior, and connected lipsync animation to receive triggers from LLMKokoroTTS.
 
-- Mouse-follow character interaction
-- Lipsync animation support
-- Browser-based (no external software required)
-- Compatible with standard Live2D Cubism models
+**Challenges**  
+- As the integration between Live2D and TTS deepened, the increasing complexity made it harder to sync lipsync timing with audio playback across HTTP  
+- Getting mouse-follow to feel natural while not interfering with the character's other animations required fine-tuning movement thresholds  
+- Browser performance constraints meant optimizing the Live2D renderer to stay lightweight while handling continuous mouse tracking and occasional lipsync events

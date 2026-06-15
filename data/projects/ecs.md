@@ -7,14 +7,18 @@ link: https://github.com/HanazonoArchive/ECS
 image: ../data/projects/resources/ecs.png
 summary: A Desktop Application that helps players accurately calculate how long their energy/power will take to regenerate to maximum.
 ---
-## Overview
+## ECS (Energy System Calculator)
 
-The **Energy System Calculator** is a JavaFX-based desktop application that helps players accurately calculate how long their energy/power will take to regenerate to maximum. Simply input your current energy, maximum energy capacity, and regeneration rate to get instant results with precise time calculations.
+**What it is?**  
+A JavaFX-based desktop application that helps players calculate exactly how long their energy or power will take to regenerate to maximum capacity. Simply input current energy, maximum capacity, and regeneration rate to get instant time calculations. Designed for games like Honkai: Star Rail and Zenless Zone Zero.
 
-### Designed For
-- **Honkai: Star Rail**
-- **Zenless Zone Zero**
-- Any other game with energy regeneration mechanics
+**Why I built it?**  
+My old version of this project from a previous GitHub account was CLI-based and only gave rough approximations of when energy would reach full. I took that old project and added a UI to make it more user-friendly and visually accessible.
 
-### Historical Context
-This is an improved version of the original project from [a previous GitHub account](https://github.com/HanazonoFolder/Trailblaze-Power-Calculator). This version features enhanced UI/UX, better code organization, and Java 21+ module system support.
+**What is my role?**  
+Full-stack developer — I built everything from the ground up, including UI design, logic implementation, and deployment.
+
+**Challenges**  
+- As the project evolved from CLI to GUI, increasing complexity made it harder to maintain clean separation between calculation logic and UI updates  
+- Getting the application compiled into a standalone `.exe` file so it could run anywhere without requiring a Java installation was difficult  
+- Ensuring real-time updates as users adjusted input fields introduced more edge cases and potential calculation errors

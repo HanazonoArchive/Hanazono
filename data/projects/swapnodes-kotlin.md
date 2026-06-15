@@ -7,16 +7,16 @@ link: https://github.com/HanazonoArchive/SwapNodes-Kotlin
 image:
 summary: A Desktop Application that implements a binary tree node swapping algorithm with a JavaFX graphical user interface.
 ---
+## SwapNodes Kotlin
 
-## Overview
+**What it is?**  
+A desktop application that implements a binary tree node swapping algorithm with a JavaFX graphical user interface. The application demonstrates tree manipulation by swapping left and right children of nodes at specific depth intervals, supporting both file input and manual data entry. Users can execute multiple queries and view results instantly with built-in performance metrics.
 
-A desktop application that implements a binary tree node swapping algorithm with a JavaFX graphical user interface. Demonstrates the implementation of a tree manipulation algorithm that swaps left and right children of nodes at specific depth intervals. The application supports both file input and manual data entry, allowing users to visualize how the tree structure changes when nodes are swapped.
+**Why I built it?**  
+Same as the Java version — part of our final project in our major to visualize binary tree node swapping — but this time implemented in Kotlin to explore cross-language capabilities and compare performance.
 
-## Features
+**What is my role?**  
+Full-stack developer — handled everything from algorithm implementation to UI design and file parsing.
 
-- **Binary Tree Algorithm** - Implements efficient tree node swapping at specified depth intervals
-- **Dual Input Methods** - Load tree data from text files or enter manually
-- **Real-time Processing** - Execute multiple queries and view results instantly
-- **Performance Metrics** - Built-in timer to measure algorithm execution time
-- **Modern UI** - JavaFX-based desktop interface with custom styling
-- **File Support** - Read tree node data from text files in a simple format
+**Challenges**  
+- Honestly, none. The Kotlin version went as smoothly as the Java version without major roadblocks.

@@ -8,26 +8,16 @@ image:
 summary: A JavaFX desktop application that visualizes the binary tree node swapping algorithm.
 ---
 
-## Overview
+## SwapNodes Binary Tree Visualization
 
-A JavaFX desktop application that visualizes the binary tree node swapping algorithm. Allows users to input tree structures and perform depth-based node swaps while viewing animated visual representations of the results.
+**What it is?**  
+A JavaFX desktop application that visualizes the binary tree node swapping algorithm. Users can input tree structures and perform depth-based node swaps (K-Level Node Swapping) while watching animated visual representations of the results. Features include dual input methods (manual or file-based), algorithm execution timing with nanosecond precision, and multi-iteration display across multiple swap operations.
 
-## Features
+**Why I built it?**  
+This was part of our final project in our major — we needed to visualize how nodes are displayed and traversed during binary tree swapping operations.
 
-- **Interactive Binary Tree Visualization** - Real-time graphical rendering of tree structures
-- **Dual Input Methods** - Manual input or file-based batch processing
-- **Algorithm Execution Timing** - Nanosecond-precision performance metrics
-- **Custom UI Design** - Modern JavaFX interface with styled components
-- **Multi-Iteration Display** - View results across multiple swap operations
-- **State Management** - Comprehensive app-state tracking using singleton pattern
+**What is my role?**  
+Full-stack developer — I handled everything from UI design and animation to algorithm implementation and state management.
 
-## Algorithm Overview
-
-The core algorithm performs K-Level Node Swapping on a binary tree:
-- For each level (depth) in the tree divisible by K, swap the left and right children
-- Supports multiple queries on the same tree structure
-- Returns in-order traversals after each swap operation
-
-### Complexity
-- **Time:** O(N x Q) where N = number of nodes, Q = number of queries
-- **Space:** O(N) for tree storage + O(Q) for results
+**Challenges**  
+- Honestly, none. The project went smoothly without major roadblocks.

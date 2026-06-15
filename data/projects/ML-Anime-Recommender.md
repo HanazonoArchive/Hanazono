@@ -3,17 +3,23 @@ title: ML Anime Recommender
 date: 2025-12-18
 languages: [Python]
 tools: [VS Code, Google Colab]
-link: https://github.com/HanazonoArchive/SealedVault
+link: https://github.com/HanazonoArchive/ML-Anime-Recommender
 image: ../data/projects/resources/ML-Anime-Recommender.png
 summary: A content-based anime recommendation system built with Python and Streamlit. Given any anime, the system retrieves the most similar titles using k-Nearest Neighbors over a 2,601-dimensional feature space, with cosine similarity as the distance metric.
 ---
 
-## How It Works
+## ML Anime Recommender
 
-The system uses content-based filtering -- it recommends anime based on intrinsic features (genres, synopsis text, type, studios, source material) rather than collaborative user ratings patterns. Each anime is encoded as a sparse feature vector combining:
+**What it is?**  
+A content-based anime recommendation system built with Python and Streamlit. Given any anime, the system retrieves the most similar titles using k-Nearest Neighbors over a 2,601-dimensional feature space, with cosine similarity as the distance metric. Each anime is encoded as a sparse feature vector combining multi-label genre indicators, TF-IDF features from synopsis text, and one-hot encoded attributes (type, studio, source, status).
 
-- Multi-label genre indicators
-- TF-IDF features extracted from synopsis text
-- One-hot encoded attributes (type, studio, source, status)
+**Why I built it?**  
+This was our Machine Learning final project — we had to take a dataset and build a machine learning model from it. We chose anime recommendation because it gave us the best shot at creating something functional and meaningful.
 
-A NearestNeighbors model (brute-force, cosine similarity) is pre-trained on approximately 20,000 anime entries and loaded at runtime. When a user selects an anime, its feature vector is retrieved and the model finds the nearest neighbors. Results are deduplicated by normalizing title variants (e.g. "Attack on Titan" vs "Attack on Titan Season 2") before display.
+**What is my role?**  
+I handled data pre-processing, set up the Google Colab environment for training, and managed documentation for the project.
+
+**Challenges**  
+- As the feature space expanded to 2,601 dimensions, increasing complexity made it harder to avoid overfitting while keeping recommendations relevant  
+- Pre-processing the dataset required cleaning synopsis text, normalizing title variants (e.g., "Attack on Titan" vs "Attack on Titan Season 2"), and handling missing values without losing too many entries  
+- Balancing the feature weights between genres, text, and attributes was tricky — too much weight on synopsis led to thematically similar but unrelated recommendations

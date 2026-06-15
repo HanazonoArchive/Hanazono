@@ -1,7 +1,23 @@
 ---
-title: Game Development (Independent Project, Awarded)
+title: Game Development (Competition Winner)
 date: 2025-12-03
-tags: [Game Development, Independent, Awarded]
-summary: Built an independent game project recognized with an award.
+tags: [Game Development, RPG, Award-Winning, Published]
+image: ../data/explorations/resources/game-developement.jpg
+summary: Built and published an RPG for a Genshin Impact community competition. Won $200 USD.
 ---
-Focuses on prototyping, gameplay systems, and iterative design.
+
+## Context
+
+Released alongside Genshin Impact's "Milistra Wonderland" update. Entered into a community game development competition.
+
+## Game
+
+RPG designed to accommodate multiple play styles. Published and fully playable.
+
+## Result
+
+Won $200 USD. Recognized among community entries.
+
+## Process
+
+Prototyping, gameplay systems, iterative design, publication, competition submission.

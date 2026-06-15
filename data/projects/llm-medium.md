@@ -18,7 +18,7 @@ summary: A modular, zero-cost AI assistant with intelligent LLM routing, Live2D 
 
 **FreeLLMAPI** is one of the four parts of our AI assistant system. It acts as our unified API key, aggregating various free LLM APIs from around the internet.
 
-### System Components 🧩
+### System Components
 
 | Component | Role |
 |-----------|------|
@@ -27,7 +27,7 @@ summary: A modular, zero-cost AI assistant with intelligent LLM routing, Live2D 
 | **LLMKokoroTTS** | Lightweight text-to-speech engine with custom pitch/EQ tuning for character voice |
 | **LLMPixiLive2D** | Browser-based vtuber character with mouse-follow and lipsync integration |
 
-### Key Features ⚙️
+### Key Features
 
 - **Provider-agnostic LLM routing** — Works with any OpenAI-compatible API, auto-discovers available models
 - **Smart load balancing** — Latency-weighted ranking + last-tested fairness + cooldown tracking
@@ -38,7 +38,7 @@ summary: A modular, zero-cost AI assistant with intelligent LLM routing, Live2D 
 - **Content filtering** — Automatic substitution of inappropriate language with polite alternatives
 - **Modular architecture** — Clean separation of concerns (API, state, UI, logging, validation)
 
-### Technical Highlights 🔧
+### Technical Highlights
 
 - HTTP as universal glue — each component communicates via network, making the system language-agnostic
 - Weighted exponential moving average for response latency tracking
@@ -47,7 +47,7 @@ summary: A modular, zero-cost AI assistant with intelligent LLM routing, Live2D 
 - One-time guardrail injection carried via context memory
 - Async-ready design for future improvements
 
-### What I Learned 🧠
+### What I Learned
 
 - Orchestrating multiple independent systems into a cohesive experience
 - Designing for fault tolerance in a resource-constrained environment
@@ -55,7 +55,7 @@ summary: A modular, zero-cost AI assistant with intelligent LLM routing, Live2D 
 - The importance of documenting for your future self
 - Building with zero budget using free APIs and open-source tools
 
-### Next Steps 🚀
+### Next Steps
 
 - Sentence-level TTS chunking to reduce response latency
 - Summarized context memory for long conversations

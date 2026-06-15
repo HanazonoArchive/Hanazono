@@ -9,8 +9,13 @@
     "Node.js",
     "Vue",
     "Laravel",
-    "Cloudflare",
-    "Live2D Cubism"
+    ".NET",
+    "JavaFX",
+    "Ghidra",
+    "x64dbg",
+    "Hxd Hex Editor",
+    "Arduino IDE",
+    "Android Studio"
   ],
   "platforms": [
     "Windows",

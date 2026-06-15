@@ -7,4 +7,7 @@ link:
 image: ../data/certifications/resources/Database.pdf
 summary: Certification in database fundamentals and structured query skills.
 ---
-Validated knowledge of relational concepts, schema basics, and structured queries.
+
+## Overview
+
+Validated knowledge of relational concepts, schema basics, and structured queries through the Certiport Database certification.

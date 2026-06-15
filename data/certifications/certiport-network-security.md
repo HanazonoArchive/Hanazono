@@ -7,4 +7,7 @@ link:
 image: ../data/certifications/resources/NetworkSecurity.pdf
 summary: Certification in network security fundamentals and safe operations.
 ---
-Covers threat awareness, defense basics, and secure networking principles.
+
+## Overview
+
+Covers threat awareness, defense basics, and secure networking principles through the Certiport Network Security certification.

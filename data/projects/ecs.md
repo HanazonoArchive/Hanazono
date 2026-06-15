@@ -11,7 +11,7 @@ summary: A Desktop Application that helps players accurately calculate how long 
 
 The **Energy System Calculator** is a JavaFX-based desktop application that helps players accurately calculate how long their energy/power will take to regenerate to maximum. Simply input your current energy, maximum energy capacity, and regeneration rate to get instant results with precise time calculations.
 
-### Designed For 🎮
+### Designed For
 - **Honkai: Star Rail**
 - **Zenless Zone Zero**
 - Any other game with energy regeneration mechanics

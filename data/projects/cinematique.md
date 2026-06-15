@@ -7,37 +7,38 @@ link: https://github.com/HanazonoArchive/Cinematique
 image:
 summary: A Desktop Application for Managing Movie Rentals.
 ---
-A comprehensive desktop application for managing movie rentals, built with **Java 16**, **JavaFX**, and **MySQL**. This full-featured system includes user authentication, movie browsing, rental management, and a complete admin dashboard for system administration.
 
-## Project Overview
+## Overview
 
-Cinematique is a school project that demonstrates proficiency in:
-- **Desktop GUI Development** with JavaFX and FXML
-- **Database Management** with MySQL and JDBC
-- **MVC Architecture** and design patterns
-- **User Authentication** and role-based access control
-- **Modern UI/UX** with CSS styling
+Cinematique is a desktop application for managing movie rentals, built with **Java 16**, **JavaFX**, and **MySQL**. It includes user authentication, movie browsing, rental management, and a complete admin dashboard for system administration.
 
-### Key Features
+The project demonstrates proficiency in:
+- Desktop GUI Development with JavaFX and FXML
+- Database Management with MySQL and JDBC
+- MVC Architecture and design patterns
+- User Authentication and role-based access control
+- Modern UI/UX with CSS styling
 
-- **User System**
-  - User registration and authentication
-  - Profile management
-  - Rental history tracking
+## Features
 
-- **Movie Rental**
-  - Browse and search movies
-  - Add movies to cart
-  - Process rentals
-  - View rental details and status
+### User System
+- User registration and authentication
+- Profile management
+- Rental history tracking
 
-- **Admin Dashboard**
-  - User management (create, view, delete)
-  - Movie inventory management
-  - Rental management and tracking
-  - System logs and audit trail
-  - Statistics and reporting
+### Movie Rental
+- Browse and search movies
+- Add movies to cart
+- Process rentals
+- View rental details and status
 
-- **Social Features**
-  - Movie reviews and ratings
-  - User comments and feedback
+### Admin Dashboard
+- User management (create, view, delete)
+- Movie inventory management
+- Rental management and tracking
+- System logs and audit trail
+- Statistics and reporting
+
+### Social Features
+- Movie reviews and ratings
+- User comments and feedback

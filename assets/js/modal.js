@@ -104,7 +104,7 @@ export function openModal(item, typeLabel) {
   appendChips(modalChips, "Tools", item.tools);
   appendChips(modalChips, "Tags", item.tags, true);
 
-  const mediaPath = item.image || "";
+  const mediaPath = item.file || item.image || "";
   const isPdfFile = isPdf(mediaPath);
   const isImageFile = isImage(mediaPath);
   const isVideoFile = isVideo(mediaPath);
@@ -182,6 +182,90 @@ export function initModal() {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeModal();
+    }
+  });
+}
+
+// ── Full-screen media lightbox ──
+
+let _lightbox = null;
+
+function getLightbox() {
+  if (!_lightbox) {
+    _lightbox = document.createElement("div");
+    _lightbox.className = "media-lightbox";
+    _lightbox.setAttribute("aria-hidden", "true");
+    _lightbox.innerHTML = `
+      <div class="media-lightbox-overlay" data-lb-close></div>
+      <div class="media-lightbox-container">
+        <button class="media-lightbox-close" data-lb-close aria-label="Close lightbox">&times;</button>
+        <div class="media-lightbox-media" id="lightbox-media"></div>
+        <div class="media-lightbox-caption" id="lightbox-caption"></div>
+      </div>`;
+    document.body.appendChild(_lightbox);
+  }
+  return _lightbox;
+}
+
+function closeMediaLightbox() {
+  const lb = getLightbox();
+  lb.classList.remove("is-open");
+  lb.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  const video = lb.querySelector("video");
+  if (video) video.pause();
+}
+
+export function openMediaLightbox(item) {
+  const mediaPath = item.image || "";
+  if (!mediaPath) return;
+
+  const isImageFile = isImage(mediaPath);
+  const isVideoFile = isVideo(mediaPath);
+
+  const lb = getLightbox();
+  const mediaEl = lb.querySelector("#lightbox-media");
+  const captionEl = lb.querySelector("#lightbox-caption");
+
+  mediaEl.innerHTML = "";
+
+  if (isImageFile) {
+    const img = document.createElement("img");
+    img.src = mediaPath;
+    img.alt = `${item.title} image`;
+    mediaEl.appendChild(img);
+    captionEl.innerHTML = `<strong>${item.title}</strong>`;
+  } else if (isVideoFile) {
+    const video = document.createElement("video");
+    video.src = mediaPath;
+    video.controls = true;
+    video.autoplay = true;
+    video.setAttribute("playsinline", "");
+    mediaEl.appendChild(video);
+    captionEl.innerHTML = `<strong>${item.title}</strong>`;
+  } else {
+    return; // not an image or video — don't open lightbox
+  }
+
+  lb.classList.add("is-open");
+  lb.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+export function initMediaLightbox() {
+  const lb = getLightbox();
+
+  // Close on overlay click or close button
+  lb.addEventListener("click", (event) => {
+    if (event.target.matches("[data-lb-close]")) {
+      closeMediaLightbox();
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lb.classList.contains("is-open")) {
+      closeMediaLightbox();
     }
   });
 }

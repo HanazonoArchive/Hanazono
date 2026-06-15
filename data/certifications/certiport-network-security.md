@@ -4,7 +4,8 @@ certifier: Certiport
 date: 2026-03-09
 credential:
 link:
-image: ../data/certifications/resources/NetworkSecurity.pdf
+image: ../data/certifications/resources/NetworkSecurity.png
+file: ../data/certifications/resources/NetworkSecurity.pdf
 summary: Certification in network security fundamentals and safe operations.
 ---
 

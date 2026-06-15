@@ -1,6 +1,6 @@
 import { loadConfig, loadProfile, loadSkills, loadMarkdownItems } from "./data-loader.js";
 import { byId, extractSummary, formatDate, renderChips, getSkillIcon } from "./utils.js";
-import { initModal, openModal } from "./modal.js";
+import { initModal, openModal, openMediaLightbox, initMediaLightbox } from "./modal.js";
 
 const state = {
   projects: [],
@@ -144,6 +144,94 @@ function renderSkills(skills) {
 
 // ── Cards ──
 
+function buildCardImage(item) {
+  const wrap = document.createElement("div");
+  wrap.className = "card-image-wrap";
+
+  const path = item.image || "";
+
+  if (!path) {
+    // Placeholder for items without any media
+    const placeholder = document.createElement("div");
+    placeholder.className = "card-image-placeholder";
+    placeholder.innerHTML = `<i class="fas fa-folder-open"></i><span>No preview</span>`;
+    wrap.appendChild(placeholder);
+    return wrap;
+  }
+
+  const isPdfFile = path.toLowerCase().endsWith(".pdf");
+  const isVideoFile = [".mp4", ".webm", ".mov"].some((e) => path.toLowerCase().endsWith(e));
+  const isImageFile = [".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp", ".svg"].some((e) => path.toLowerCase().endsWith(e));
+
+  if (isPdfFile) {
+    // Render PDF in the thumbnail — visually uniform with image/video cards
+    wrap.classList.add("has-media", "is-pdf");
+    const base = path.split("#")[0];
+    const frame = document.createElement("iframe");
+    frame.src = `${base}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`;
+    frame.title = `${item.title} preview`;
+    frame.loading = "lazy";
+    frame.setAttribute("tabindex", "-1");
+    wrap.appendChild(frame);
+
+    // Hover overlay
+    const overlay = document.createElement("div");
+    overlay.className = "card-image-overlay";
+    overlay.innerHTML = `<i class="fas fa-expand"></i><span>Click to view PDF</span>`;
+    wrap.appendChild(overlay);
+
+    // No click handler — events fall through via pointer-events: none on the iframe
+    return wrap;
+  }
+
+  if (isVideoFile || isImageFile) {
+    wrap.classList.add("has-media");
+
+    if (isVideoFile) {
+      const vid = document.createElement("video");
+      vid.src = path;
+      vid.muted = true;
+      vid.loop = false;
+      vid.setAttribute("playsinline", "");
+      wrap.appendChild(vid);
+    } else {
+      const img = document.createElement("img");
+      img.src = path;
+      img.alt = `${item.title} thumbnail`;
+      img.loading = "lazy";
+      wrap.appendChild(img);
+    }
+
+    // Hover overlay
+    const overlay = document.createElement("div");
+    overlay.className = "card-image-overlay";
+
+    if (item.file) {
+      // Has a separate file (e.g., PDF) — let card click open the modal instead
+      overlay.innerHTML = `<i class="fas fa-expand"></i><span>Click to view document</span>`;
+    } else {
+      overlay.innerHTML = `<i class="fas fa-expand"></i><span>Click to see full image or video</span>`;
+      // Click opens lightbox — stop propagation so card modal doesn't fire
+      wrap.addEventListener("click", (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        openMediaLightbox(item);
+      });
+    }
+
+    wrap.appendChild(overlay);
+
+    return wrap;
+  }
+
+  // Fallback placeholder for unrecognised media types
+  const placeholder = document.createElement("div");
+  placeholder.className = "card-image-placeholder";
+  placeholder.innerHTML = `<i class="fas fa-file"></i><span>View details</span>`;
+  wrap.appendChild(placeholder);
+  return wrap;
+}
+
 function buildCard(item, typeLabel) {
   const card = document.createElement("button");
   card.type = "button";
@@ -200,6 +288,10 @@ function buildCard(item, typeLabel) {
       chips.appendChild(chip);
     });
   }
+
+  // Uniform image section — thumbnail or placeholder
+  const imgEl = buildCardImage(item);
+  card.appendChild(imgEl);
 
   card.appendChild(top);
   card.appendChild(title);
@@ -284,6 +376,7 @@ async function init() {
     if (wantsProjects || wantsCertifications || wantsExplorations) {
       attachCardHandlers();
       initModal();
+      initMediaLightbox();
     }
   } catch (error) {
     console.error("Failed to load content:", error);

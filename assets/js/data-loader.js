@@ -109,6 +109,7 @@ async function fetchMarkdownItem(entry) {
       summary: frontMatter.summary || "",
       link: frontMatter.link || "",
       image: frontMatter.image || "",
+      file: frontMatter.file || "",
       certifier: frontMatter.certifier || "",
       credential: frontMatter.credential || "",
       languages: frontMatter.languages || [],

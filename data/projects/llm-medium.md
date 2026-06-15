@@ -2,7 +2,7 @@
 title: Rei - Live 2D AI Assistant
 date: 2026-06-08
 languages: [HTML, CSS, JavaScript, Python]
-tools: [VS Code, Python Environment, Ollama, Kokoro TTS, Live2D Cubism]
+tools: [VS Code, Python Environment, Kokoro TTS, Live2D Cubism]
 link:
 image: ../data/projects/resources/demo.mp4
 summary: A modular, zero-cost AI assistant with intelligent LLM routing, Live2D character, and custom-tuned TTS voice.

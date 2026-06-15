@@ -1,7 +1,7 @@
 ---
 title: Reverse Engineering
 date: 2026-04-15
-tags: [Ghidra, x64dbg, Cheat Engine, HxD]
+tags: [Ghidra, x64dbg, Cheat Engine, Hxd Hex Editor]
 image: ../data/explorations/resources/reverse-engineering.png
 summary: Static and dynamic analysis using error tracing, magic signature verification, and memory scanning.
 ---

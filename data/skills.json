@@ -15,7 +15,14 @@
     "x64dbg",
     "Hxd Hex Editor",
     "Arduino IDE",
-    "Android Studio"
+    "Android Studio",
+    "Streamlit",
+    "Figma",
+    "Google Colab",
+    "Copilot",
+    "Claude Code",
+    "Node.js",
+    "Deepseek"
   ],
   "platforms": [
     "Windows",

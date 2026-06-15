@@ -1,5 +1,5 @@
 ---
-title: Game Development (Competition Winner)
+title: Game Development
 date: 2025-12-03
 tags: [Game Development, RPG, Award-Winning, Published]
 image: ../data/explorations/resources/game-developement.jpg

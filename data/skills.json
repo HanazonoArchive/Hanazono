@@ -1,32 +1,44 @@
 {
-  "languages": ["Python", "Java", "C/C++", "PHP", "Kotlin", "JavaScript", "CSS", "SQL", "HTML"],
+  "languages": [
+    "Java",
+    "Python",
+    "JavaScript",
+    "CSS",
+    "HTML",
+    "Kotlin",
+    "SQL",
+    "C/C++",
+    "PHP"
+  ],
   "tools": [
     "Git",
     "GitHub",
     "VS Code",
     "IntelliJ IDEA",
+    "JavaFX",
+    "SceneBuilder",
+    "Gradle",
+    "Google Colab",
+    "Streamlit",
     "MySQL",
     "Node.js",
-    "Vue",
-    "Laravel",
-    ".NET",
-    "JavaFX",
+    "Docker",
+    "Live2D Cubism",
+    "Kokoro TTS",
     "Ghidra",
     "x64dbg",
+    "Cheat Engine",
     "Hxd Hex Editor",
+    "Figma",
     "Arduino IDE",
     "Android Studio",
-    "Streamlit",
-    "Figma",
-    "Google Colab",
     "Copilot",
     "Claude Code",
-    "Node.js",
     "Deepseek"
   ],
   "platforms": [
     "Windows",
-    "Android",
-    "Linux"
+    "Linux",
+    "Android"
   ]
 }

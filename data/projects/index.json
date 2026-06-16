@@ -1,11 +1,9 @@
 {
   "items": [
     "cinematique.md",
-    "ecs.md",
-    "swapnodes-kotlin.md",
-    "swapnodes-binarytree-visualization.md",
-    "llm-medium.md",
     "SealedVault.md",
+    "llm-medium.md",
+    "ecs.md",
     "ML-IDS-Streamlit.md",
     "ML-Anime-Recommender.md",
     "IdoDecompiler.md",

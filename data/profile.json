@@ -1,10 +1,11 @@
 {
   "name": "Agsoy, Jay Mark V.",
   "major": "Bachelor of Science in Computer Science",
-  "summary": "Builds systems that work and stay working. Focuses on practical solutions, clear integration, and reversible design. Working code stays working.",
+  "summary": "Builds systems that work and stay working — from web apps to ML pipelines, from APIs to reverse engineering tools.",
   "focus": ["Web Development", "Systems Integration", "AI Orchestration", "Reverse Engineering"],
-  "tagline": "Simple, safe, reversible. Working code stays working.",
-  "bio": "Computer Science student at the University of Mindanao. I build things that work — web, AI, systems. Practical over perfect. Reversible over rigid. Certified in Database and Network Security.",
+  "tagline": "Simple, safe, reversible.",
+  "status": "Currently building. Open to work.",
+  "bio": "Computer Science student at the University of Mindanao. I don't chase hype — I build things that hold up. Web, AI, systems, whatever the stack demands. Certified in Database and Network Security.",
   "education": "University of Mindanao",
   "educationYears": "2023-2027",
   "certifications": "Certiport Database, Certiport Network Security",
@@ -13,5 +14,30 @@
       "label": "GitHub",
       "url": "https://github.com/HanazonoArchive"
     }
+  ],
+  "whatIDo": [
+    {
+      "title": "Web & Systems",
+      "description": "Full-stack development with modern frameworks. REST APIs, databases, authentication. I care about things staying up, not just going up."
+    },
+    {
+      "title": "AI & Orchestration",
+      "description": "LLM-powered applications, TTS pipelines, recommendation systems. I wire models together into things people can actually use."
+    },
+    {
+      "title": "Reverse Engineering",
+      "description": "Ghidra, x64dbg, decompilers. Understanding how things work from the inside out. Built tools for static analysis and binary inspection."
+    },
+    {
+      "title": "Creative Tech",
+      "description": "Live2D, game development, digital music production. Code that intersects with art and expression."
+    }
+  ],
+  "philosophy": [
+    "I believe working code beats perfect architecture.",
+    "Every decision should be reversible. Complexity is a liability until proven necessary.",
+    "Ship the smallest thing that solves the problem, then iterate.",
+    "I'm drawn to systems thinking — understanding how pieces fit together, where the failure points are, and what happens when things break.",
+    "I'd rather spend an hour preventing a bug than a day fixing one."
   ]
 }

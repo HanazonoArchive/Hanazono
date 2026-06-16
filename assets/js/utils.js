@@ -135,6 +135,44 @@ export function extractSummary(markdown, fallback = "") {
   return text.length > 160 ? `${text.slice(0, 157)}...` : text;
 }
 
+/**
+ * Lightweight client-side syntax highlighting for code blocks.
+ * Applies keyword/string/comment/function coloring via regex.
+ */
+export function syntaxHighlight(code, lang) {
+  if (!code) return code;
+
+  let escaped = code
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  // Comments
+  escaped = escaped.replace(/(\/\/.*$)/gm, '<span class="comment">$1</span>');
+  escaped = escaped.replace(/(\/\*[\s\S]*?\*\/)/g, '<span class="comment">$1</span>');
+
+  // Strings (double and single quotes)
+  escaped = escaped.replace(/("(?:[^"\\]|\\.)*")/g, '<span class="string">$1</span>');
+  escaped = escaped.replace(/('(?:[^'\\]|\\.)*')/g, '<span class="string">$1</span>');
+
+  // Template literals
+  escaped = escaped.replace(/(`(?:[^`\\]|\\.)*`)/g, '<span class="string">$1</span>');
+
+  // Keywords
+  escaped = escaped.replace(
+    /\b(function|const|let|var|return|import|export|from|if|else|for|while|class|new|this|async|await|try|catch|throw|default|switch|case|break|continue|typeof|instanceof|extends|super|static|get|set)\b/g,
+    '<span class="keyword">$1</span>'
+  );
+
+  // Numbers
+  escaped = escaped.replace(/\b(\d+\.?\d*)\b/g, '<span class="number">$1</span>');
+
+  // Function calls: word followed by (
+  escaped = escaped.replace(/\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(/g, '<span class="function-name">$1</span>(');
+
+  return escaped;
+}
+
 export function markdownToHtml(markdown) {
   if (!window.marked || !window.DOMPurify) {
     return markdown;
@@ -146,5 +184,11 @@ export function markdownToHtml(markdown) {
     headerIds: false,
   });
   const rawHtml = window.marked.parse(markdown);
-  return window.DOMPurify.sanitize(rawHtml);
+  // Post-process: apply syntax highlighting to code blocks
+  const temp = document.createElement("div");
+  temp.innerHTML = rawHtml;
+  temp.querySelectorAll("pre code").forEach((block) => {
+    block.innerHTML = syntaxHighlight(block.textContent || "");
+  });
+  return window.DOMPurify.sanitize(temp.innerHTML);
 }

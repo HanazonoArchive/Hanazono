@@ -8,46 +8,44 @@ const modalChips = byId("modal-chips");
 const modalLinks = byId("modal-links");
 const modalMarkdown = byId("modal-markdown");
 const modalMedia = byId("modal-media");
+const modalFilename = byId("modal-filename");
 
 function appendChips(container, label, items, accentFirst = false) {
   if (!items || items.length === 0) {
     return;
   }
-  
-  // Create a section for this category
+
   const section = document.createElement("div");
   section.className = "modal-chip-section";
-  
-  // Add label if provided
+
   if (label) {
     const labelEl = document.createElement("div");
     labelEl.className = "modal-chip-label";
     labelEl.textContent = label;
     section.appendChild(labelEl);
   }
-  
-  // Create chip list for items
+
   const chipList = document.createElement("div");
   chipList.className = "chip-list";
-  
+
   items.forEach((item, index) => {
     const chip = document.createElement("span");
     chip.className = "chip chip-with-icon";
     if (accentFirst && index === 0) {
       chip.classList.add("accent");
     }
-    
+
     const icon = document.createElement("i");
     icon.className = getSkillIcon(item);
-    
+
     const text = document.createElement("span");
     text.textContent = item;
-    
+
     chip.appendChild(icon);
     chip.appendChild(text);
     chipList.appendChild(chip);
   });
-  
+
   section.appendChild(chipList);
   container.appendChild(section);
 }
@@ -59,9 +57,7 @@ function closeModal() {
 }
 
 function buildPdfSrc(path) {
-  if (!path) {
-    return path;
-  }
+  if (!path) return path;
   const base = path.split("#")[0];
   return `${base}#toolbar=0&navpanes=0&scrollbar=0`;
 }
@@ -83,20 +79,42 @@ function isPdf(path) {
   return path.toLowerCase().endsWith(".pdf");
 }
 
+// Map type label to file extension for the modal tab
+function getTypeExtension(typeLabel) {
+  const map = {
+    "Project": ".project.tsx",
+    "Certification": ".cert.json",
+    "Explorations": ".exploration.md",
+  };
+  return map[typeLabel] || ".file";
+}
+
+// Generate a safe filename slug from the title
+function getFilename(item, typeLabel) {
+  if (item.title) {
+    const slug = item.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+    const ext = getTypeExtension(typeLabel);
+    return slug + ext;
+  }
+  return "file" + getTypeExtension(typeLabel);
+}
+
 export function openModal(item, typeLabel) {
   modalTitle.textContent = item.title;
   modalKicker.textContent = typeLabel;
 
+  // Set the modal tab filename
+  if (modalFilename) {
+    modalFilename.textContent = getFilename(item, typeLabel);
+  }
+
   const metaParts = [];
-  if (item.date) {
-    metaParts.push(formatDate(item.date));
-  }
-  if (item.certifier) {
-    metaParts.push(item.certifier);
-  }
-  if (item.credential) {
-    metaParts.push(item.credential);
-  }
+  if (item.date) metaParts.push(formatDate(item.date));
+  if (item.certifier) metaParts.push(item.certifier);
+  if (item.credential) metaParts.push(item.credential);
   modalMeta.textContent = metaParts.length ? metaParts.join(" | ") : "";
 
   modalChips.innerHTML = "";
@@ -244,7 +262,7 @@ export function openMediaLightbox(item) {
     mediaEl.appendChild(video);
     captionEl.innerHTML = `<strong>${item.title}</strong>`;
   } else {
-    return; // not an image or video — don't open lightbox
+    return;
   }
 
   lb.classList.add("is-open");
@@ -255,14 +273,12 @@ export function openMediaLightbox(item) {
 export function initMediaLightbox() {
   const lb = getLightbox();
 
-  // Close on overlay click or close button
   lb.addEventListener("click", (event) => {
     if (event.target.matches("[data-lb-close]")) {
       closeMediaLightbox();
     }
   });
 
-  // Close on Escape
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && lb.classList.contains("is-open")) {
       closeMediaLightbox();

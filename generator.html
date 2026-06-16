@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Markdown generator for portfolio content.">
   <meta name="color-scheme" content="dark">
-  <title>Portfolio Generator</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0C10 6 6 10 0 12C6 14 10 18 12 24C14 18 18 14 24 12C18 10 14 6 12 0Z' fill='%23ffb7c5' opacity='0.8'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%23ff9eb5'/%3E%3C/svg%3E">
+  <title>Generator — Hanazono</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
@@ -15,24 +16,34 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="generator-page">
-  <div class="page">
-    <header class="site-header">
-      <!--<div class="logo" aria-label="GitHub">
-      </div>-->
-      <nav class="site-nav">
-        <a href="./"><i class="fas fa-home"></i> Home</a>
-        <a href="about/"><i class="fas fa-user"></i> About</a>
-        <a href="projects/"><i class="fas fa-briefcase"></i> Projects</a>
-        <a href="certifications/"><i class="fas fa-certificate"></i> Certifications</a>
-        <a href="explorations/"><i class="fas fa-compass"></i> Explorations</a>
-        <a href="skills/"><i class="fas fa-code"></i> Skills</a>
-        <a href="contact/"><i class="fas fa-envelope"></i> Contact</a>
-      </nav>
-    </header>
 
+  <!-- Editor Header -->
+  <header class="editor-header">
+    <div class="title-bar">
+      <span class="title-bar-icon">
+        <svg viewBox="0 0 24 24" fill="#ffb7c5" width="16" height="16">
+          <path d="M12 0C10 6 6 10 0 12C6 14 10 18 12 24C14 18 18 14 24 12C18 10 14 6 12 0Z" opacity="0.8"/>
+          <circle cx="12" cy="12" r="2" fill="#ff9eb5"/>
+        </svg>
+      </span>
+      <span class="title-bar-text">Hanazono — Generator</span>
+    </div>
+    <nav class="tab-bar" role="tablist">
+      <a href="./" class="tab"><i class="fas fa-home"></i>_home</a>
+      <a href="about/" class="tab"><i class="fas fa-user"></i>_about</a>
+      <a href="projects/" class="tab"><i class="fas fa-briefcase"></i>_projects</a>
+      <a href="certifications/" class="tab"><i class="fas fa-certificate"></i>_certifications</a>
+      <a href="explorations/" class="tab"><i class="fas fa-compass"></i>_explorations</a>
+      <a href="skills/" class="tab"><i class="fas fa-code"></i>_skills</a>
+      <a href="contact/" class="tab"><i class="fas fa-envelope"></i>_contact</a>
+    </nav>
+  </header>
+
+  <div class="page">
     <main class="section fade-in">
-      <div class="section-head">
-        <h2><i class="fas fa-tools"></i> Markdown Generator</h2>
+      <div class="section-header">
+        <span class="comment-line">// Tools</span>
+        <h2 class="section-title"><span class="prompt-inline">$</span> ./generate.sh</h2>
         <p class="section-subtitle">Create project and certification files fast.</p>
       </div>
 
@@ -40,44 +51,17 @@
         <section class="generator-card">
           <h3>Project</h3>
           <form id="project-form" class="form-grid">
-            <label>
-              Title
-              <input type="text" name="title" placeholder="Project name">
-            </label>
-            <label>
-              Date
-              <input type="text" name="date" placeholder="2026-05-14">
-            </label>
-            <label>
-              Languages (comma separated)
-              <input type="text" name="languages" placeholder="Python, JavaScript">
-            </label>
-            <label>
-              Tools (comma separated)
-              <input type="text" name="tools" placeholder="Docker, PostgreSQL">
-            </label>
-            <label>
-              Link
-              <input type="text" name="link" placeholder="https://github.com/username/project">
-            </label>
-            <label>
-              Image path
-              <input type="text" name="image" placeholder="assets/images/project.jpg">
-            </label>
-            <label class="span-2">
-              Summary
-              <input type="text" name="summary" placeholder="Short description for cards.">
-            </label>
-            <label class="span-2">
-              Body
-              <textarea name="body" rows="6" placeholder="Write the project story here."></textarea>
-            </label>
+            <label>Title <input type="text" name="title" placeholder="Project name"></label>
+            <label>Date <input type="text" name="date" placeholder="2026-05-14"></label>
+            <label>Languages (comma separated) <input type="text" name="languages" placeholder="Python, JavaScript"></label>
+            <label>Tools (comma separated) <input type="text" name="tools" placeholder="Docker, PostgreSQL"></label>
+            <label>Link <input type="text" name="link" placeholder="https://github.com/username/project"></label>
+            <label>Image path <input type="text" name="image" placeholder="assets/images/project.jpg"></label>
+            <label class="span-2">Summary <input type="text" name="summary" placeholder="Short description for cards."></label>
+            <label class="span-2">Body <textarea name="body" rows="6" placeholder="Write the project story here."></textarea></label>
           </form>
           <div class="output-block">
-            <div class="output-head">
-              <span>Output</span>
-              <button type="button" class="button" id="project-copy">Copy</button>
-            </div>
+            <div class="output-head"><span>Output</span><button type="button" class="button" id="project-copy">Copy</button></div>
             <textarea id="project-output" rows="10" readonly></textarea>
             <p class="helper">Save as data/projects/your-project.md</p>
           </div>
@@ -86,44 +70,17 @@
         <section class="generator-card">
           <h3>Certification</h3>
           <form id="cert-form" class="form-grid">
-            <label>
-              Title
-              <input type="text" name="title" placeholder="Certification name">
-            </label>
-            <label>
-              Date
-              <input type="text" name="date" placeholder="2026-05-14">
-            </label>
-            <label>
-              Certifier
-              <input type="text" name="certifier" placeholder="Certiport">
-            </label>
-            <label>
-              Credential ID
-              <input type="text" name="credential" placeholder="Optional">
-            </label>
-            <label>
-              Link
-              <input type="text" name="link" placeholder="https://verify.example.com">
-            </label>
-            <label>
-              Image path
-              <input type="text" name="image" placeholder="assets/images/cert.jpg">
-            </label>
-            <label class="span-2">
-              Summary
-              <input type="text" name="summary" placeholder="Short description for cards.">
-            </label>
-            <label class="span-2">
-              Body
-              <textarea name="body" rows="6" placeholder="Coverage, outcomes, and notes."></textarea>
-            </label>
+            <label>Title <input type="text" name="title" placeholder="Certification name"></label>
+            <label>Date <input type="text" name="date" placeholder="2026-05-14"></label>
+            <label>Certifier <input type="text" name="certifier" placeholder="Certiport"></label>
+            <label>Credential ID <input type="text" name="credential" placeholder="Optional"></label>
+            <label>Link <input type="text" name="link" placeholder="https://verify.example.com"></label>
+            <label>Image path <input type="text" name="image" placeholder="assets/images/cert.jpg"></label>
+            <label class="span-2">Summary <input type="text" name="summary" placeholder="Short description for cards."></label>
+            <label class="span-2">Body <textarea name="body" rows="6" placeholder="Coverage, outcomes, and notes."></textarea></label>
           </form>
           <div class="output-block">
-            <div class="output-head">
-              <span>Output</span>
-              <button type="button" class="button" id="cert-copy">Copy</button>
-            </div>
+            <div class="output-head"><span>Output</span><button type="button" class="button" id="cert-copy">Copy</button></div>
             <textarea id="cert-output" rows="10" readonly></textarea>
             <p class="helper">Save as data/certifications/your-cert.md</p>
           </div>
@@ -132,32 +89,14 @@
         <section class="generator-card">
           <h3>Exploration</h3>
           <form id="explorations-form" class="form-grid">
-            <label>
-              Title
-              <input type="text" name="title" placeholder="Topic name">
-            </label>
-            <label>
-              Date
-              <input type="text" name="date" placeholder="2026-05-14">
-            </label>
-            <label class="span-2">
-              Tags (comma separated)
-              <input type="text" name="tags" placeholder="DAW, Composition">
-            </label>
-            <label class="span-2">
-              Summary
-              <input type="text" name="summary" placeholder="Short description for cards.">
-            </label>
-            <label class="span-2">
-              Body
-              <textarea name="body" rows="6" placeholder="Write the exploration notes here."></textarea>
-            </label>
+            <label>Title <input type="text" name="title" placeholder="Topic name"></label>
+            <label>Date <input type="text" name="date" placeholder="2026-05-14"></label>
+            <label class="span-2">Tags (comma separated) <input type="text" name="tags" placeholder="DAW, Composition"></label>
+            <label class="span-2">Summary <input type="text" name="summary" placeholder="Short description for cards."></label>
+            <label class="span-2">Body <textarea name="body" rows="6" placeholder="Write the exploration notes here."></textarea></label>
           </form>
           <div class="output-block">
-            <div class="output-head">
-              <span>Output</span>
-              <button type="button" class="button" id="explorations-copy">Copy</button>
-            </div>
+            <div class="output-head"><span>Output</span><button type="button" class="button" id="explorations-copy">Copy</button></div>
             <textarea id="explorations-output" rows="10" readonly></textarea>
             <p class="helper">Save as data/explorations/your-topic.md</p>
           </div>
@@ -166,38 +105,33 @@
         <section class="generator-card">
           <h3>Skills JSON</h3>
           <form id="skills-form" class="form-grid">
-            <label class="span-2">
-              Languages (comma separated)
-              <input type="text" name="languages" placeholder="Python, Java, C++">
-            </label>
-            <label class="span-2">
-              Tools (comma separated)
-              <input type="text" name="tools" placeholder="Git, Docker">
-            </label>
-            <label class="span-2">
-              Platforms (comma separated)
-              <input type="text" name="platforms" placeholder="Linux, AWS">
-            </label>
+            <label class="span-2">Languages (comma separated) <input type="text" name="languages" placeholder="Python, Java, C++"></label>
+            <label class="span-2">Tools (comma separated) <input type="text" name="tools" placeholder="Git, Docker"></label>
+            <label class="span-2">Platforms (comma separated) <input type="text" name="platforms" placeholder="Linux, AWS"></label>
           </form>
           <div class="output-block">
-            <div class="output-head">
-              <span>Output</span>
-              <button type="button" class="button" id="skills-copy">Copy</button>
-            </div>
+            <div class="output-head"><span>Output</span><button type="button" class="button" id="skills-copy">Copy</button></div>
             <textarea id="skills-output" rows="10" readonly></textarea>
             <p class="helper">Paste into data/skills.json</p>
           </div>
         </section>
       </div>
     </main>
-
-    <footer class="site-footer">
-      <div class="footer-content">
-        <span>Generator is intentionally not linked from the main site.</span>
-        <span class="footer-meta">Last updated: <span id="last-updated"></span> | Views: <span id="view-count">0</span></span>
-      </div>
-    </footer>
   </div>
+
+  <!-- Status Bar -->
+  <footer class="status-bar">
+    <div class="status-bar-left">
+      <span class="status-bar-item"><i class="fas fa-code-branch"></i> main</span>
+      <span class="status-bar-separator">|</span>
+      <span class="status-bar-item">generator</span>
+    </div>
+    <div class="status-bar-right">
+      <span class="status-bar-item">Last updated: <span id="last-updated"></span></span>
+      <span class="status-bar-separator">|</span>
+      <span class="status-bar-item">Views: <span id="view-count">0</span></span>
+    </div>
+  </footer>
 
   <script type="module" src="assets/js/generator.js"></script>
   <script src="assets/js/firebase-stats.js"></script>

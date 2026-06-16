@@ -380,15 +380,7 @@ async function createVisitorClock() {
     
     const clockSpan = document.createElement('span');
     clockSpan.id = 'visitor-clock';
-    clockSpan.style.cssText = `
-      display: inline;
-      margin: 0 8px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-weight: 500;
-      color: var(--text);
-    `;
+    clockSpan.style.cssText = 'display: inline; margin: 0; font-size: inherit; font-weight: 500;';
     
     // Find footer and append to it
     function appendToFooter() {

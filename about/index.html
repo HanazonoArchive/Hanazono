@@ -10,7 +10,8 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Hanazono">
   <meta name="twitter:card" content="summary">
-  <title>About</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0C10 6 6 10 0 12C6 14 10 18 12 24C14 18 18 14 24 12C18 10 14 6 12 0Z' fill='%23ffb7c5' opacity='0.8'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%23ff9eb5'/%3E%3C/svg%3E">
+  <title>About — Hanazono</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
@@ -20,76 +21,133 @@
   <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
-  <div class="page">
-    <header class="site-header">
-      <nav class="site-nav">
-        <a href="../"><i class="fas fa-home"></i>_home</a>
-        <a href="../about/" class="highlighted-nav"><i class="fas fa-user"></i>_about</a>
-        <a href="../projects/"><i class="fas fa-briefcase"></i>_projects</a>
-        <a href="../certifications/"><i class="fas fa-certificate"></i>_certifications</a>
-        <a href="../explorations/"><i class="fas fa-compass"></i>_explorations</a>
-        <a href="../skills/"><i class="fas fa-code"></i>_skills</a>
-        <a href="../contact/"><i class="fas fa-envelope"></i>_contact</a>
-      </nav>
-    </header>
 
+  <!-- Editor Header -->
+  <header class="editor-header">
+    <div class="title-bar">
+      <span class="title-bar-icon">
+        <svg viewBox="0 0 24 24" fill="#ffb7c5" width="16" height="16">
+          <path d="M12 0C10 6 6 10 0 12C6 14 10 18 12 24C14 18 18 14 24 12C18 10 14 6 12 0Z" opacity="0.8"/>
+          <circle cx="12" cy="12" r="2" fill="#ff9eb5"/>
+        </svg>
+      </span>
+      <span class="title-bar-text">Hanazono — Portfolio</span>
+    </div>
+    <nav class="tab-bar" role="tablist">
+      <a href="../" class="tab" role="tab"><i class="fas fa-home"></i>_home</a>
+      <a href="../about/" class="tab active" role="tab" aria-selected="true"><i class="fas fa-user"></i>_about</a>
+      <a href="../projects/" class="tab" role="tab"><i class="fas fa-briefcase"></i>_projects</a>
+      <a href="../certifications/" class="tab" role="tab"><i class="fas fa-certificate"></i>_certifications</a>
+      <a href="../explorations/" class="tab" role="tab"><i class="fas fa-compass"></i>_explorations</a>
+      <a href="../skills/" class="tab" role="tab"><i class="fas fa-code"></i>_skills</a>
+      <a href="../contact/" class="tab" role="tab"><i class="fas fa-envelope"></i>_contact</a>
+    </nav>
+  </header>
+
+  <div class="page">
     <main>
-      <section class="section hero fade-in">
-        <div class="hero-copy">
-          <p class="eyebrow">About</p>
-          <h1 id="profile-name">Agsoy, Jay Mark V.</h1>
-          <p class="subtitle" id="profile-major"></p>
-          <p class="summary" id="profile-summary"></p>
-          <div class="hero-tags" id="profile-focus"></div>
-          <div class="hero-links" id="profile-links"></div>
+
+      <!-- Identity -->
+      <section class="section fade-in">
+        <div class="section-header">
+          <span class="comment-line">// About</span>
+          <h2 class="section-title"><span class="prompt-inline">$</span> cat about.md</h2>
         </div>
-        <div class="hero-panel">
-          <div class="panel-item">
-            <span class="panel-label">Focus</span>
-            <p class="panel-value" id="profile-focus-panel"></p>
+        <div class="doc-card">
+          <div class="doc-card-tab">
+            <i class="fas fa-file-lines"></i>
+            <span class="doc-card-tab-filename">about.md</span>
           </div>
-          <div class="panel-item">
-            <span class="panel-label">Stack</span>
-            <p class="panel-value" id="profile-stack-panel"></p>
-          </div>
-          <div class="panel-item">
-            <span class="panel-label">Profile</span>
-            <p class="panel-value" id="profile-tagline"></p>
+          <div class="doc-card-content">
+            <h1 id="profile-name" style="margin-bottom:4px;">Agsoy, Jay Mark V.</h1>
+            <p class="subtitle" id="profile-major" style="margin-bottom:8px;"></p>
+            <p id="profile-bio" style="margin-bottom:16px; color: var(--muted);"></p>
+            <div class="chip-list" id="profile-focus" style="margin-bottom:12px;"></div>
+            <div class="hero-links" id="profile-links"></div>
           </div>
         </div>
       </section>
 
-      <section class="section fade-in">
-        <div class="section-head">
-          <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-          <p class="section-subtitle" id="profile-education"></p>
+      <!-- What I Do -->
+      <section class="section fade-in-delay">
+        <div class="section-header">
+          <span class="comment-line">// What I Do</span>
+          <h2 class="section-title"><span class="prompt-inline">$</span> cat what-i-do.md</h2>
+        </div>
+        <div class="doc-card">
+          <div class="doc-card-tab">
+            <i class="fas fa-code"></i>
+            <span class="doc-card-tab-filename">what-i-do.md</span>
+          </div>
+          <div class="doc-card-content">
+            <div id="what-i-do-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How I Work -->
+      <section class="section fade-in-delay-2">
+        <div class="section-header">
+          <span class="comment-line">// Philosophy</span>
+          <h2 class="section-title"><span class="prompt-inline">$</span> cat philosophy.txt</h2>
+        </div>
+        <div class="doc-card">
+          <div class="doc-card-tab">
+            <i class="fas fa-lightbulb"></i>
+            <span class="doc-card-tab-filename">philosophy.txt</span>
+          </div>
+          <div class="doc-card-content">
+            <p id="profile-tagline" style="font-size: var(--text-lg); color: var(--accent-3); margin-bottom: 16px;"></p>
+            <div id="philosophy-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="section fade-in-delay">
+        <div class="section-header">
+          <span class="comment-line">// Education</span>
+          <h2 class="section-title"><span class="prompt-inline">$</span> cat education.json</h2>
         </div>
         <div class="about-grid">
-          <div class="about-card about-image-card">
+          <div class="about-card">
             <div class="about-image">
               <img src="../assets/images/University_of_Mindanao_Logo.png" alt="University of Mindanao logo">
             </div>
           </div>
           <div class="about-card">
-            <p id="profile-bio"></p>
             <ul class="about-list">
-              <li><strong><i class="fas fa-graduation-cap"></i> Education:</strong> <span id="profile-education-name"></span> (<span id="profile-education-years"></span>)</li>
-              <li><strong><i class="fas fa-book"></i> Major:</strong> <span id="profile-edu-major"></span></li>
-              <li><strong><i class="fas fa-bullseye"></i> Focus:</strong> <span id="profile-edu-focus"></span></li>
+              <li><strong><i class="fas fa-graduation-cap"></i> Institution:</strong> <span id="profile-education-name"></span></li>
+              <li><strong><i class="fas fa-calendar"></i> Years:</strong> <span id="profile-education-years"></span></li>
+              <li><strong><i class="fas fa-book"></i> Degree:</strong> <span id="profile-edu-major"></span></li>
+              <li><strong><i class="fas fa-bullseye"></i> Focus Areas:</strong> <span id="profile-edu-focus"></span></li>
               <li><strong><i class="fas fa-award"></i> Certifications:</strong> <span id="profile-certifications"></span></li>
             </ul>
+            <p style="margin-top: 16px;" id="profile-summary"></p>
           </div>
         </div>
       </section>
-    </main>
 
-    <footer class="site-footer">
-      <div class="footer-content">
-        <span>Built by Hanazono</span>
-        <span class="footer-meta">Last updated: <span id="last-updated"></span> | Views: <span id="view-count">0</span></span>
-      </div>
-    </footer>
+    </main>
   </div>
+
+  <!-- Status Bar -->
+  <footer class="status-bar">
+    <div class="status-bar-left">
+      <span class="status-bar-item"><i class="fas fa-code-branch"></i> main</span>
+      <span class="status-bar-separator">|</span>
+      <span class="status-bar-item">about.md</span>
+      <span class="status-bar-separator">|</span>
+      <span class="status-bar-item">🌸</span>
+    </div>
+    <div class="status-bar-right">
+      <span class="status-bar-item">Last updated: <span id="last-updated"></span></span>
+      <span class="status-bar-separator">|</span>
+      <span class="status-bar-item">Views: <span id="view-count">0</span></span>
+      <span class="status-bar-separator">|</span>
+      <span class="status-bar-item" id="visitor-clock"></span>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>

@@ -1,7 +1,7 @@
 ---
 title: Cinematique
 date: 2024-02-27
-rarity: silver
+rarity: bronze
 languages: [Java, CSS]
 tools: [JavaFX, Scenebuilder, IntelliJ IDEA, Gradle]
 link: https://github.com/HanazonoArchive/Cinematique

@@ -1,7 +1,7 @@
 ---
 title: LLMAPIUI
 date: 2026-06-08
-rarity: gold
+rarity: diamond
 languages: [JavaScript, HTML, CSS]
 tools: [VS Code, LocalStorage API]
 link: https://github.com/HanazonoArchive/LLMAPIUI

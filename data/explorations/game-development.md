@@ -1,7 +1,7 @@
 ---
 title: Game Development
 date: 2025-12-03
-rarity: platinum
+rarity: diamond
 tags: [Game Development, RPG, Award-Winning, Published]
 image: ../data/explorations/resources/game-developement.jpg
 summary: Built and published an RPG for a Genshin Impact community competition. Won $200 USD.

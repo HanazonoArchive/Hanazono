@@ -1,14 +1,14 @@
 {
   "items": [
-    "cinematique.md",
-    "SealedVault.md",
-    "llm-medium.md",
-    "ecs.md",
-    "ML-IDS-Streamlit.md",
-    "ML-Anime-Recommender.md",
-    "IdoDecompiler.md",
+    "ReiProject.md",
     "LLMPixiLive2d.md",
     "LLMAPIUI.md",
-    "LLMKokoroTTS.md"
+    "LLMKokoroTTS.md",
+    "SealedVault.md",
+    "IdoDecompiler.md",
+    "cinematique.md",
+    "ECS.md",
+    "ML-IDS-Streamlit.md",
+    "ML-Anime-Recommender.md"
   ]
 }

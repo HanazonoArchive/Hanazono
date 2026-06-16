@@ -155,15 +155,14 @@ async function fetchLocalIndex(type) {
   }));
 }
 
-// ── Sort by date descending ──
-function sortByDate(items) {
+// ── Rarity ranking (highest → lowest) ──
+const RARITY_RANK = { diamond: 0, platinum: 1, gold: 2, silver: 3, bronze: 4 };
+
+function sortByRarity(items) {
   return items.sort((a, b) => {
-    const aTime = Date.parse(a.date || "");
-    const bTime = Date.parse(b.date || "");
-    if (Number.isNaN(aTime) || Number.isNaN(bTime)) {
-      return 0;
-    }
-    return bTime - aTime;
+    const ar = RARITY_RANK[a.rarity] ?? 5;
+    const br = RARITY_RANK[b.rarity] ?? 5;
+    return ar - br;
   });
 }
 
@@ -185,5 +184,5 @@ export async function loadMarkdownItems(type, config) {
   const results = await Promise.all(list.map((entry) => fetchMarkdownItem(entry)));
 
   const items = results.filter(Boolean);
-  return sortByDate(items);
+  return sortByRarity(items);
 }

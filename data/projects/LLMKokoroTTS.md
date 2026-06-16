@@ -1,7 +1,7 @@
 ---
 title: LLMKokoroTTS
 date: 2026-06-08
-rarity: silver
+rarity: diamond
 languages: [Python]
 tools: [VS Code, Python Environment, Kokoro TTS]
 link: https://github.com/HanazonoArchive/LLMKokoroTTS

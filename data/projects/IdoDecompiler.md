@@ -1,7 +1,7 @@
 ---
 title: .DDS and IDO Header Decompiler & Compiler
 date: 2025-12-11
-rarity: platinum
+rarity: gold
 languages: [JavaScript, HTML, Python, CSS]
 tools: [VS Code]
 link: https://github.com/HanazonoArchive/.DDS-Decompiler-Compiler

@@ -386,7 +386,7 @@ async function createVisitorClock() {
     function appendToFooter() {
       const footer = document.querySelector('footer') || document.querySelector('[id="footer"]');
       if (footer) {
-        footer.appendChild(document.createTextNode(' | '));
+        footer.appendChild(document.createTextNode(''));
         footer.appendChild(clockSpan);
       } else {
         // Fallback: append to body if no footer found

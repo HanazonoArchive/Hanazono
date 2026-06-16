@@ -1,6 +1,7 @@
 ---
 title: Sealed Vault
 date: 2026-02-09
+rarity: platinum
 languages: [JavaScript, HTML, Shell, CSS, Dockerfile]
 tools: [VS Code, Node.js, Express, SQLite, Docker]
 link: https://github.com/HanazonoArchive/SealedVault

@@ -1,6 +1,7 @@
 ---
 title: Rei - Live 2D AI Assistant
 date: 2026-06-08
+rarity: diamond
 languages: [HTML, CSS, JavaScript, Python]
 tools: [VS Code, Python Environment, Kokoro TTS, Live2D Cubism]
 link:

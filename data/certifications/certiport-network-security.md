@@ -2,6 +2,7 @@
 title: Certiport Network Security
 certifier: Certiport
 date: 2026-03-09
+rarity: gold
 credential:
 link:
 image: ../data/certifications/resources/NetworkSecurity.png

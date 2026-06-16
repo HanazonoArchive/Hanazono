@@ -1,6 +1,7 @@
 ---
 title: ML IDS Streamlit
 date: 2026-03-10
+rarity: gold
 languages: [Python]
 tools: [VS Code, Google Colab]
 link: https://github.com/HanazonoArchive/SealedVault

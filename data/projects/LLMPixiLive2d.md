@@ -1,6 +1,7 @@
 ---
 title: LLMPixiLive2D
 date: 2026-06-08
+rarity: gold
 languages: [TypeScript, HTML, CSS]
 tools: [VS Code, Live2D Cubism]
 link: https://github.com/HanazonoArchive/LLMPixiLive2D

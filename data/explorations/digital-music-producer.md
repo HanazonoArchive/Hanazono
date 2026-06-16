@@ -1,6 +1,7 @@
 ---
 title: Digital Music Producer / Composer
 date: 2025-05-17
+rarity: gold
 tags: [DAW, Composition, Sound Design, Music Production]
 image: ../data/explorations/resources/digital-music-producer.png
 summary: 21 published tracks in 1 year. Semi-professional producer building toward professional level.

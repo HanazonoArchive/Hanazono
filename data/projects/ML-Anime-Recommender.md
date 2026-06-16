@@ -1,6 +1,7 @@
 ---
 title: ML Anime Recommender
 date: 2025-12-18
+rarity: gold
 languages: [Python]
 tools: [VS Code, Google Colab]
 link: https://github.com/HanazonoArchive/ML-Anime-Recommender

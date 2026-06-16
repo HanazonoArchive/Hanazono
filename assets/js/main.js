@@ -236,6 +236,7 @@ function buildCard(item, typeLabel) {
   const card = document.createElement("button");
   card.type = "button";
   card.className = "card";
+  if (item.rarity) card.classList.add(`rarity-${item.rarity}`);
   card.setAttribute("aria-label", `${item.title} — ${typeLabel}`);
 
   const top = document.createElement("div");

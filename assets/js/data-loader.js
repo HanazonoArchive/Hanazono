@@ -90,6 +90,13 @@ function parseFrontMatter(raw) {
     frontMatter[key] = value;
   });
 
+  // Validate rarity if present
+  if (frontMatter.rarity) {
+    const valid = ["gold", "silver", "bronze", "platinum", "diamond"];
+    const r = String(frontMatter.rarity).toLowerCase().trim();
+    frontMatter.rarity = valid.includes(r) ? r : undefined;
+  }
+
   return { frontMatter, body };
 }
 
@@ -112,6 +119,7 @@ async function fetchMarkdownItem(entry) {
       file: frontMatter.file || "",
       certifier: frontMatter.certifier || "",
       credential: frontMatter.credential || "",
+      rarity: frontMatter.rarity || "",
       languages: frontMatter.languages || [],
       tools: frontMatter.tools || [],
       tags: frontMatter.tags || [],

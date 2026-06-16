@@ -1,6 +1,7 @@
 ---
 title: ECS
 date: 2024-07-29
+rarity: bronze
 languages: [Java, CSS]
 tools: [JavaFX, Scenebuilder, IntelliJ IDEA, Gradle]
 link: https://github.com/HanazonoArchive/ECS

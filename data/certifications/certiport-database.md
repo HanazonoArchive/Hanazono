@@ -2,6 +2,7 @@
 title: Certiport Database
 certifier: Certiport
 date: 2025-03-10
+rarity: silver
 credential:
 link:
 image: ../data/certifications/resources/Database.png

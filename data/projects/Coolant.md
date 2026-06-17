@@ -4,7 +4,7 @@ date: 2025-03-03
 rarity: Silver
 languages: [JavaScript, HTML, CSS, SQL, PHP]
 tools: [VS Code, XAMPP]
-link: https://github.com/HanazonoArchive/Coolant
+link: https://github.com/HanazonoArchive/Coolant.png
 image: ../data/projects/resources/Coolant.png
 summary: A full-featured, browser-based business management system for air conditioning and refrigeration service companies. Manage appointments, employees, quotations, service reports, billing, and collections — all from a single-page-style dark-themed dashboard.
 ---

@@ -4,7 +4,7 @@ date: 2026-03-10
 rarity: platinum
 languages: [Python]
 tools: [VS Code, Google Colab]
-link: https://github.com/HanazonoArchive/SealedVault
+link: https://github.com/HanazonoArchive/ML-IDS-Streamlit
 image: ../data/projects/resources/ML-IDS-Streamlit.png
 summary: An interactive Intrusion Detection System (IDS) research dashboard that evaluates CatBoost's native categorical handling against six baseline ML algorithms across traditional (UNSW-NB15) and modern IoT (CICIoT 2023) network traffic datasets.
 ---

@@ -144,6 +144,8 @@ function renderProfile(profile, skills) {
       philosophyContainer.appendChild(p);
     });
   }
+
+  document.dispatchEvent(new CustomEvent("profile-ready"));
 }
 
 // ── Skills rendering (code block style) ──

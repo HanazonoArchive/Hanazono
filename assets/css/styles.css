@@ -20,6 +20,12 @@
   --accent-2sub1: #92e5fc;    /* lighter cyan */
   --accent-3: #9cff6a;        /* green → strings, success */
   --accent-4: #ffb86c;        /* orange → functions, tags */
+  --accent-sakura: #ffb7c5;   /* pink → "Hanazono" signature accent */
+
+  /* Font families */
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Google Sans Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
   /* Syntax highlighting palette */
   --syntax-keyword: #ff6b6b;
@@ -95,8 +101,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  font-family: "Google Sans Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  font-family: var(--font-mono);
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -126,7 +131,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: inherit;
+  font-family: var(--font-display);
   margin: 0 0 0.4rem 0;
   letter-spacing: -0.02em;
 }
@@ -134,6 +139,17 @@ h1, h2, h3, h4 {
 p {
   margin: 0 0 1rem 0;
   color: var(--muted);
+}
+
+/* ── Sakura signature (selection, focus) ── */
+::selection {
+  background: rgba(255, 183, 197, 0.25);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-sakura);
+  outline-offset: 2px;
 }
 
 a {
@@ -151,6 +167,9 @@ a:hover {
   margin: 0 auto;
   padding: 16px 24px 0;
   flex: 1;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
 }
 
 
@@ -418,6 +437,9 @@ a:hover {
 
 .command {
   color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .output {
@@ -428,10 +450,33 @@ a:hover {
   display: inline-block;
   width: 10px;
   height: 1.2em;
-  background: var(--text);
+  background: var(--accent-sakura);
+  box-shadow: 0 0 6px rgba(255, 183, 197, 0.3);
   animation: blink 1s step-end infinite;
   vertical-align: text-bottom;
   margin-left: 2px;
+}
+
+/* ── Terminal typing animation ── */
+.terminal-line.typing-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.terminal-line.typing-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.15s ease;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--accent-sakura);
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  animation: blink 0.7s step-end infinite;
 }
 
 @keyframes blink {
@@ -1490,58 +1535,32 @@ body.modal-open {
   pointer-events: none;
   z-index: 0;
   opacity: 0;
-  /* Petal shape via border-radius trick */
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: #ffb7c5;
   border-radius: 50% 0 50% 0;
   animation: sakuraFall linear infinite;
 }
 
-.sakura-petal:nth-child(1) {
-  left: 8%;
-  animation-duration: 14s;
-  animation-delay: -2s;
-  width: 10px;
-  height: 10px;
-  opacity: 0.04;
-}
-
-.sakura-petal:nth-child(2) {
-  left: 45%;
-  animation-duration: 18s;
-  animation-delay: -8s;
-  width: 13px;
-  height: 13px;
-  opacity: 0.03;
-}
-
-.sakura-petal:nth-child(3) {
-  left: 78%;
-  animation-duration: 16s;
-  animation-delay: -5s;
-  width: 8px;
-  height: 8px;
-  opacity: 0.035;
-}
-
 @keyframes sakuraFall {
   0% {
     transform: translateY(-10vh) rotate(0deg) translateX(0);
-    opacity: 0.04;
+    opacity: 0;
   }
   25% {
-    transform: translateY(25vh) rotate(90deg) translateX(25px);
+    transform: translateY(20vh) rotate(120deg) translateX(30px);
+    opacity: 0.1;
   }
   50% {
-    transform: translateY(50vh) rotate(180deg) translateX(-15px);
-    opacity: 0.06;
+    transform: translateY(50vh) rotate(240deg) translateX(-20px);
+    opacity: 0.1;
   }
   75% {
-    transform: translateY(75vh) rotate(270deg) translateX(20px);
+    transform: translateY(75vh) rotate(360deg) translateX(25px);
+    opacity: 0.07;
   }
   100% {
-    transform: translateY(105vh) rotate(360deg) translateX(-25px);
+    transform: translateY(105vh) rotate(480deg) translateX(-15px);
     opacity: 0;
   }
 }
@@ -1836,7 +1855,16 @@ body.modal-open {
 
   .terminal-cursor {
     animation: none;
-    opacity: 0;
+    opacity: 0.6;
+  }
+
+  .terminal-line.typing-hidden {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .typing-cursor {
+    display: none !important;
   }
 }
 

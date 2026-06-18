@@ -22,7 +22,6 @@
     ".NET",
     "JavaFX",
     "SceneBuilder",
-    "Gradle",
     "Ghidra",
     "x64dbg",
     "Hxd Hex Editor",
@@ -34,10 +33,9 @@
     "Copilot",
     "Claude Code",
     "Deepseek",
-    "Live2D Cubism",
-    "Kokoro TTS",
-    "Cheat Engine",
-    "Docker"
+    "Docker",
+    "Tailwind CSS",
+    "Firebase"
   ],
   "platforms": [
     "Windows",

@@ -82,9 +82,9 @@ function isPdf(path) {
 // Map type label to file extension for the modal tab
 function getTypeExtension(typeLabel) {
   const map = {
-    "Project": ".project.tsx",
-    "Certification": ".cert.json",
-    "Explorations": ".exploration.md",
+    "Project": ".tsx",
+    "Certification": ".json",
+    "Explorations": ".md",
   };
   return map[typeLabel] || ".file";
 }

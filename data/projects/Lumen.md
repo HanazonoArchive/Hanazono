@@ -5,6 +5,7 @@ rarity: diamond
 languages: [Rust, HTML, CSS, JavaScript]
 tools: [VS Code]
 profiles: [generalist, security-re]
+category: Reverse Engineering
 link: https://github.com/HanazonoArchive/Lumen
 image: ../data/projects/resources/Lumen.png
 summary: Lumen - Hex Magic Signature Identifier

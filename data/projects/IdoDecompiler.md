@@ -1,13 +1,14 @@
 ---
 title: .DDS and IDO Header Decompiler & Compiler
 date: 2025-12-11
-rarity: gold
+rarity: bronze
 languages: [JavaScript, HTML, Python, CSS]
 tools: [VS Code]
 profiles: [generalist, security-re]
+category: Reverse Engineering
 link: https://github.com/HanazonoArchive/.DDS-Decompiler-Compiler
-image:
-summary: A cross-platform desktop GUI tool for working with proprietary `.ido` game asset files and `.dds` textures. The application provides decompilation, compilation, and format conversion capabilities through an intuitive dark-themed Electron interface backed by Python processing scripts.
+image: ../data/projects/resources/idoDecompiler.png
+summary: .ido and .dds Decompiler
 ---
 
 ## .DDS and IDO Header Decompiler & Compiler

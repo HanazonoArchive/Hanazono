@@ -3,7 +3,8 @@ title: Certiport Network Security
 certifier: Certiport
 date: 2026-03-09
 rarity: diamond
-profiles: [generalist, security-re]
+profiles: [generalist, web-dev, security-re, ai-ml]
+category: Network Security
 credential:
 link:
 image: ../data/certifications/resources/NetworkSecurity.png

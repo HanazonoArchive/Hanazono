@@ -373,30 +373,7 @@ function buildCard(item, typeLabel) {
   var filename = titleToSlug(item.title || "file");
   var ext = getFileExtension(typeLabel);
 
-  // Rarity icon — leftmost
-  var rarityHtml = '';
-  if (item.rarity) {
-    var rarityIcons = {
-      diamond: 'fa-gem',
-      platinum: 'fa-crown',
-      gold: 'fa-star',
-      silver: 'fa-medal',
-      bronze: 'fa-medal'
-    };
-    var rarityColors = {
-      diamond: '#b9f2ff',
-      platinum: '#e5e4e2',
-      gold: '#ffd700',
-      silver: '#c0c0c0',
-      bronze: '#cd7f32'
-    };
-    var iconClass = rarityIcons[item.rarity] || 'fa-star';
-    var iconColor = rarityColors[item.rarity] || 'var(--muted)';
-    var rarityTitle = item.rarity.charAt(0).toUpperCase() + item.rarity.slice(1);
-    rarityHtml = '<span class="code-card-tab-rarity" title="' + rarityTitle + '" style="color:' + iconColor + ';font-size:0.75rem;opacity:0.9;flex-shrink:0;"><i class="fas ' + iconClass + '"></i></span>';
-  }
-
-  tab.innerHTML = rarityHtml +
+  tab.innerHTML =
     '<span class="code-card-tab-icon"><i class="fas fa-file-code"></i></span>' +
     '<span class="code-card-tab-filename">' + filename + ext + '</span>' +
     '<span class="code-card-tab-lang">' + typeLabel + '</span>';
@@ -457,8 +434,12 @@ function buildCard(item, typeLabel) {
     codeLines.push('  <span class="comment">// </span>');
   }
 
-  // Line 5: empty
-  codeLines.push('');
+  // Line 5: category badge
+  if (item.category && item.category !== "generalist") {
+    codeLines.push('  <span class="keyword">' + item.category + '</span>');
+  } else {
+    codeLines.push('');
+  }
 
   // Render lines into the container
   var linesHtml = '';
@@ -529,12 +510,21 @@ async function init() {
 
   try {
     const config = await loadConfig();
-    const activeProfile = config?.profile || "generalist";
+    const VALID_PROFILES = ["generalist", "web-dev", "security-re", "ai-ml"];
+    let activeProfile = config?.profile || "generalist";
+    // localStorage override takes precedence over config default
+    const storedProfile = localStorage.getItem("profile");
+    if (storedProfile && VALID_PROFILES.includes(storedProfile)) {
+      activeProfile = storedProfile;
+    }
     state.activeProfile = activeProfile;
 
+    // Setup custom profile switcher dropdown
+    setupProfileSwitcher(activeProfile);
+
     const [profile, skills, projects, certifications, explorations] = await Promise.all([
-      wantsProfile ? loadActiveProfile(config) : Promise.resolve(null),
-      wantsSkills || wantsProfile ? loadActiveProfileSkills(config) : Promise.resolve(null),
+      wantsProfile ? loadActiveProfile(config, activeProfile) : Promise.resolve(null),
+      wantsSkills || wantsProfile ? loadActiveProfileSkills(config, activeProfile) : Promise.resolve(null),
       wantsProjects ? loadMarkdownItems("projects", config, activeProfile) : Promise.resolve([]),
       wantsCertifications ? loadMarkdownItems("certifications", config, activeProfile) : Promise.resolve([]),
       wantsExplorations ? loadMarkdownItems("explorations", config, activeProfile) : Promise.resolve([]),
@@ -562,6 +552,88 @@ async function init() {
     if (wantsCertifications) showError("certifications-grid", "Failed to load certifications.", retry);
     if (wantsExplorations) showError("explorations-grid", "Failed to load explorations.", retry);
   }
+}
+
+// ── Custom profile switcher dropdown ──
+
+function setupProfileSwitcher(activeProfile) {
+  const wrap = byId("profile-switcher");
+  if (!wrap) return;
+
+  const trigger = wrap.querySelector(".profile-switcher-trigger");
+  const valueEl = wrap.querySelector(".profile-switcher-value");
+  const menu = wrap.querySelector(".profile-switcher-menu");
+  const options = menu.querySelectorAll("[role='option']");
+
+  const LABELS = {
+    "generalist": "Generalist",
+    "web-dev": "Web Developer",
+    "security-re": "Security & RE",
+    "ai-ml": "AI & ML",
+  };
+
+  // Set current value
+  function setValue(val) {
+    valueEl.textContent = LABELS[val] || val;
+    options.forEach((opt) => {
+      const selected = opt.dataset.value === val;
+      opt.setAttribute("aria-selected", selected ? "true" : "false");
+    });
+  }
+
+  setValue(activeProfile);
+
+  // Toggle menu
+  function open() {
+    // Use fixed positioning to escape overflow:hidden on .editor-header
+    const rect = trigger.getBoundingClientRect();
+    menu.style.position = "fixed";
+    menu.style.top = (rect.bottom + 4) + "px";
+    menu.style.right = (window.innerWidth - rect.right) + "px";
+    menu.style.left = "auto";
+    menu.removeAttribute("hidden");
+    trigger.setAttribute("aria-expanded", "true");
+  }
+
+  function close() {
+    menu.style.position = "";
+    menu.style.top = "";
+    menu.style.right = "";
+    menu.style.left = "";
+    menu.setAttribute("hidden", "");
+    trigger.setAttribute("aria-expanded", "false");
+  }
+
+  trigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = trigger.getAttribute("aria-expanded") === "true";
+    isOpen ? close() : open();
+  });
+
+  // Select option
+  options.forEach((opt) => {
+    opt.addEventListener("click", () => {
+      const val = opt.dataset.value;
+      if (val && val !== activeProfile) {
+        localStorage.setItem("profile", val);
+        window.location.reload();
+      }
+      close();
+    });
+  });
+
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    if (!wrap.contains(e.target)) close();
+  });
+
+  // Close on Escape
+  trigger.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+  menu.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
 }
 
 document.addEventListener("DOMContentLoaded", init);

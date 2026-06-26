@@ -4,10 +4,11 @@ date: 2026-02-09
 rarity: gold
 languages: [JavaScript, HTML, Shell, CSS, Dockerfile]
 tools: [VS Code, Node.js, Express, SQLite, Docker]
-profiles: [generalist, security-re, web-dev]
+profiles: [generalist, web-dev]
+category: Website Application
 link: https://github.com/HanazonoArchive/SealedVault
 image: ../data/projects/resources/SealedVault.png
-summary: A self-hosted, zero-knowledge file vault with military-grade encryption and 3-tier access control. Built for freelancers, small teams, and privacy-conscious users who need to share files securely without relying on third-party cloud services.
+summary: Encrypted File Sharing Website
 ---
 
 ## Sealed Vault

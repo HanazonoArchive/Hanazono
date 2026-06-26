@@ -267,6 +267,105 @@ a:hover {
 .title-bar-dot.yellow { background: #dcdcaa; }
 .title-bar-dot.red    { background: #f44747; }
 
+/* ── Profile Switcher Dropdown ── */
+.profile-switcher {
+  position: relative;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.profile-switcher-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  color: var(--accent-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  padding: 2px 8px;
+  opacity: 0.8;
+  transition: opacity 0.15s, border-color 0.15s, background 0.15s;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.profile-switcher-trigger:hover {
+  opacity: 1;
+  border-color: var(--accent-border);
+  background: rgba(74, 217, 255, 0.06);
+}
+
+.profile-switcher-trigger[aria-expanded="true"] {
+  opacity: 1;
+  border-color: var(--accent-border);
+  background: rgba(74, 217, 255, 0.08);
+}
+
+.profile-switcher-value {
+  min-width: 40px;
+  text-align: left;
+}
+
+.profile-switcher-arrow {
+  flex-shrink: 0;
+  display: block;
+  transition: transform 0.2s;
+}
+
+.profile-switcher-trigger[aria-expanded="true"] .profile-switcher-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.profile-switcher-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 160px;
+  background: var(--panel-strong);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.profile-switcher-menu[hidden] {
+  display: none;
+}
+
+.profile-switcher-menu li {
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text);
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+
+.profile-switcher-menu li:hover {
+  background: rgba(74, 217, 255, 0.1);
+  color: var(--accent-2);
+}
+
+.profile-switcher-menu li[aria-selected="true"] {
+  color: var(--accent-2);
+  background: rgba(74, 217, 255, 0.08);
+}
+
+.profile-switcher-menu li:active {
+  background: rgba(74, 217, 255, 0.15);
+}
+
 /* ── Tab Bar ── */
 .tab-bar {
   display: flex;
@@ -609,7 +708,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-1);
   font-size: var(--text-xs);
   color: var(--muted);
   user-select: none;

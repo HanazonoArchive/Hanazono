@@ -32,6 +32,18 @@
         </svg>
       </span>
       <span class="title-bar-text">HanazonoArchive — Portfolio</span>
+      <div class="profile-switcher" id="profile-switcher">
+        <button type="button" class="profile-switcher-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Switch profile">
+          <span class="profile-switcher-value"></span>
+          <svg class="profile-switcher-arrow" viewBox="0 0 8 6" width="8" height="6" aria-hidden="true"><path d="M1 1.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+        </button>
+        <ul class="profile-switcher-menu" role="listbox" hidden>
+          <li role="option" tabindex="-1" data-value="generalist">Generalist</li>
+          <li role="option" tabindex="-1" data-value="web-dev">Web Developer</li>
+          <li role="option" tabindex="-1" data-value="security-re">Security &amp; RE</li>
+          <li role="option" tabindex="-1" data-value="ai-ml">AI &amp; ML</li>
+        </ul>
+      </div>
     </div>
     <nav class="tab-bar" role="tablist">
       <a href="./" class="tab active" role="tab" aria-selected="true">

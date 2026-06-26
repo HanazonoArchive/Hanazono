@@ -1,13 +1,14 @@
 ---
 title: ML IDS Streamlit
 date: 2026-03-10
-rarity: platinum
+rarity: gold
 languages: [Python]
 tools: [VS Code, Google Colab]
-profiles: [generalist, ai-ml, security-re]
+profiles: [generalist, ai-ml]
+category: Machine Learning
 link: https://github.com/HanazonoArchive/ML-IDS-Streamlit
 image: ../data/projects/resources/ML-IDS-Streamlit.png
-summary: An interactive Intrusion Detection System (IDS) research dashboard that evaluates CatBoost's native categorical handling against six baseline ML algorithms across traditional (UNSW-NB15) and modern IoT (CICIoT 2023) network traffic datasets.
+summary: Intrusion Detection System with Machine Learning
 ---
 
 ## ML IDS Streamlit

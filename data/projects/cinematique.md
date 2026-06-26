@@ -1,13 +1,14 @@
 ---
 title: Cinematique
 date: 2024-02-27
-rarity: bronze
+rarity: gold
 languages: [Java, CSS]
 tools: [JavaFX, Scenebuilder, IntelliJ IDEA, Gradle]
 profiles: [generalist, web-dev]
+category: Software Application
 link: https://github.com/HanazonoArchive/Cinematique
 image: ../data/projects/resources/cinematique.png
-summary: A Desktop Application for Managing Movie Rentals.
+summary: Movie Software Application
 ---
 ## Cinematique
 

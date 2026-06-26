@@ -1,16 +1,17 @@
 ---
-title: LLMPixiLive2D
+title: REI Live2D Medium
 date: 2026-06-08
-rarity: diamond
+rarity: gold
 languages: [TypeScript, HTML, CSS]
 tools: [VS Code, Live2D Cubism]
 profiles: [generalist, ai-ml]
+category: Artificial Intelligence
 link: https://github.com/HanazonoArchive/LLMPixiLive2D
 image: ../data/projects/resources/LLMPixiLive2D.png
-summary: Browser-based Live2D character holder with mouse-follow and lipsync integration for AI assistant system. Part of the Rei AI Assistant system.
+summary: Live2D Medium of REI
 ---
 
-## LLMPixiLive2D
+## REI Live2D Medium
 
 **What it is?**  
 A browser-based Live2D character holder that acts as the visual medium for our AI assistant system. Forked from pixi-live2d-display, it enables a reactive vtuber-style character with mouse-follow interaction, facial expressions, and lipsync animation integration when receiving TTS audio — all running in the browser without external software.

@@ -3,7 +3,8 @@ title: Reverse Engineering
 date: 2026-04-15
 rarity: diamond
 tags: [Ghidra, x64dbg, Cheat Engine, Hxd Hex Editor]
-profiles: [generalist, security-re]
+profiles: [generalist, web-dev, security-re, ai-ml]
+category: Reverse Engineering
 image: ../data/explorations/resources/reverse-engineering.png
 summary: Static and dynamic analysis using error tracing, magic signature verification, and memory scanning.
 ---

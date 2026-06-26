@@ -3,7 +3,8 @@ title: Certiport Database
 certifier: Certiport
 date: 2025-03-10
 rarity: diamond
-profiles: [generalist, web-dev]
+profiles: [generalist, web-dev, security-re, ai-ml]
+category: Database Fundamentals
 credential:
 link:
 image: ../data/certifications/resources/Database.png

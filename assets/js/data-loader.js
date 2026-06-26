@@ -57,8 +57,8 @@ export async function loadSkills() {
 // ── Profile switcher: load active persona from profiles.json ──
 let _profilesPromise = null;
 
-export async function loadActiveProfile(config) {
-  const profileName = config?.profile || "generalist";
+export async function loadActiveProfile(config, profileName) {
+  profileName = profileName || config?.profile || "generalist";
   if (!_profilesPromise) {
     const root = getRoot();
     _profilesPromise = loadJson(`${root}/data/profiles.json`);
@@ -72,8 +72,8 @@ export async function loadActiveProfile(config) {
   return fallback || {};
 }
 
-export async function loadActiveProfileSkills(config) {
-  const profileName = config?.profile || "generalist";
+export async function loadActiveProfileSkills(config, profileName) {
+  profileName = profileName || config?.profile || "generalist";
   if (!_profilesPromise) {
     const root = getRoot();
     _profilesPromise = loadJson(`${root}/data/profiles.json`);
@@ -154,6 +154,7 @@ async function fetchMarkdownItem(entry) {
       credential: frontMatter.credential || "",
       rarity: frontMatter.rarity || "",
       profiles: frontMatter.profiles || [],
+      category: frontMatter.category || "",
       languages: frontMatter.languages || [],
       tools: frontMatter.tools || [],
       tags: frontMatter.tags || [],

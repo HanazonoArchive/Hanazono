@@ -3,7 +3,8 @@ title: JavaScript Workshop
 certifier: College of Computing Education
 date: 2026-06-22
 rarity: gold
-profiles: [generalist, web-dev]
+profiles: [generalist, web-dev, security-re, ai-ml]
+category: JavaScript
 credential:
 link:
 image: ../data/certifications/resources/CCE_Certificate.png

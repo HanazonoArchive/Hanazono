@@ -1,13 +1,14 @@
 ---
-title: Rei - Live 2D AI Assistant
+title: REI
 date: 2026-06-08
 rarity: diamond
 languages: [HTML, CSS, JavaScript, Python]
 tools: [VS Code, Python Environment, Kokoro TTS, Live2D Cubism]
-profiles: [generalist, ai-ml, security-re]
+profiles: [generalist, ai-ml]
+category: Artificial Intelligence
 link:
 image: ../data/projects/resources/demo.mp4
-summary: A modular, zero-cost AI assistant with intelligent LLM routing, Live2D character, and custom-tuned TTS voice. Flagship project — includes LLMAPIUI, LLMKokoroTTS, and LLMPixiLive2D as components.
+summary: Rei - Live 2D AI Assistant 
 ---
 
 ## Rei - Live 2D AI Assistant

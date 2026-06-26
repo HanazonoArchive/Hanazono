@@ -1,13 +1,15 @@
 ---
-title: Game Development
+title: Eclipse Night (Beta)
 date: 2025-12-03
 rarity: diamond
+profiles: [generalist, web-dev, security-re, ai-ml]
 tags: [Game Development, RPG, Award-Winning, Published]
 image: ../data/explorations/resources/game-developement.jpg
 summary: Built and published an RPG for a Genshin Impact community competition. Won $200 USD.
+category: Game Developement
 ---
 
-## Game Development
+## Eclipse Night (Beta)
 
 **What it is?**  
 An RPG built and published for a Genshin Impact community competition, released alongside the "Milistra Wonderland" update. The RPG was designed to accommodate multiple play styles, fully published and playable, and entered into a community game development competition.

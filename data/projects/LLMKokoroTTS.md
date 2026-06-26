@@ -1,13 +1,14 @@
 ---
-title: LLMKokoroTTS
+title: REI TTS
 date: 2026-06-08
-rarity: diamond
+rarity: silver
 languages: [Python]
 tools: [VS Code, Python Environment, Kokoro TTS]
 profiles: [generalist, ai-ml]
+category: Artificial Intelligence
 link: https://github.com/HanazonoArchive/LLMKokoroTTS
 image: ../data/projects/resources/LLMKokoroTTS.png
-summary: Custom-tuned TTS engine that gives our AI character a unique, fitting voice. Part of the Rei AI Assistant system.
+summary: TTS Voice of REI
 ---
 
 ## LLMKokoroTTS

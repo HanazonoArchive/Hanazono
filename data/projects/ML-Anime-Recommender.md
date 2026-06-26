@@ -1,13 +1,14 @@
 ---
 title: ML Anime Recommender
 date: 2025-12-18
-rarity: platinum
+rarity: gold
 languages: [Python]
 tools: [VS Code, Google Colab]
 profiles: [generalist, ai-ml]
+category: Machine Learning
 link: https://github.com/HanazonoArchive/ML-Anime-Recommender
 image: ../data/projects/resources/ML-Anime-Recommender.png
-summary: A content-based anime recommendation system built with Python and Streamlit. Given any anime, the system retrieves the most similar titles using k-Nearest Neighbors over a 2,601-dimensional feature space, with cosine similarity as the distance metric.
+summary: Recommendation System with Machine Learning
 ---
 
 ## ML Anime Recommender

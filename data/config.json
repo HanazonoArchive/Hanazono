@@ -5,7 +5,7 @@
   },
   "profile": "web-dev",
   "github": {
-    "enabled": true,
+    "enabled": false,
     "user": "HanazonoArchive",
     "repo": "Hanazono",
     "branch": "main",

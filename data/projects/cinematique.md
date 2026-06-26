@@ -6,7 +6,7 @@ languages: [Java, CSS]
 tools: [JavaFX, Scenebuilder, IntelliJ IDEA, Gradle]
 profiles: [generalist, web-dev]
 link: https://github.com/HanazonoArchive/Cinematique
-image:
+image: ../data/projects/resources/cinematique.png
 summary: A Desktop Application for Managing Movie Rentals.
 ---
 ## Cinematique

@@ -180,7 +180,15 @@ async function fetchGitHubList(type, github) {
 }
 
 // ── Local index.json fallback ──
-async function fetchLocalIndex(type) {
+async function fetchLocalIndex(type, useLocal = false) {
+  if (useLocal) {
+    const root = getRoot();
+    const index = await loadJson(`${root}/data/${type}/index.json`);
+    return (index.items || []).map((name) => ({
+      name,
+      url: `${root}/data/${type}/${name}`,
+    }));
+  }
   const base = await getCdnBase();
   const index = await loadJson(`${base}/data/${type}/index.json`);
   return (index.items || []).map((name) => ({
@@ -207,11 +215,11 @@ export async function loadMarkdownItems(type, config, activeProfile) {
     try {
       list = await fetchGitHubList(type, config.github);
     } catch (error) {
-      console.warn("GitHub listing failed, falling back to local index.", error);
-      list = await fetchLocalIndex(type);
+      console.warn("GitHub listing failed, falling back to local files.", error);
+      list = await fetchLocalIndex(type, true);
     }
   } else {
-    list = await fetchLocalIndex(type);
+    list = await fetchLocalIndex(type, true);
   }
 
   // Fetch all markdown files in parallel

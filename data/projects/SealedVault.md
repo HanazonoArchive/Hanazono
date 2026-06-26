@@ -6,7 +6,7 @@ languages: [JavaScript, HTML, Shell, CSS, Dockerfile]
 tools: [VS Code, Node.js, Express, SQLite, Docker]
 profiles: [generalist, security-re, web-dev]
 link: https://github.com/HanazonoArchive/SealedVault
-image:
+image: ../data/projects/resources/SealedVault.png
 summary: A self-hosted, zero-knowledge file vault with military-grade encryption and 3-tier access control. Built for freelancers, small teams, and privacy-conscious users who need to share files securely without relying on third-party cloud services.
 ---
 

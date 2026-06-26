@@ -4,6 +4,7 @@ date: 2025-12-11
 rarity: gold
 languages: [JavaScript, HTML, Python, CSS]
 tools: [VS Code]
+profiles: [generalist, security-re]
 link: https://github.com/HanazonoArchive/.DDS-Decompiler-Compiler
 image:
 summary: A cross-platform desktop GUI tool for working with proprietary `.ido` game asset files and `.dds` textures. The application provides decompilation, compilation, and format conversion capabilities through an intuitive dark-themed Electron interface backed by Python processing scripts.

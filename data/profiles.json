@@ -1,0 +1,214 @@
+{
+  "generalist": {
+    "name": "Agsoy, Jay Mark V.",
+    "major": "Bachelor of Science in Computer Science",
+    "education": "University of Mindanao",
+    "educationYears": "2023-2027",
+    "certifications": "Certiport Database, Certiport Network Security",
+    "links": [
+      { "label": "Email", "url": "mailto:jagsoy.sanhs@gmail.com" },
+      { "label": "GitHub", "url": "https://github.com/HanazonoArchive" },
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/jay-mark-agsoy-792b07295" },
+      { "label": "Resume", "url": "/data/updated-resume.pdf" }
+    ],
+    "display": "Full Spectrum Developer",
+    "summary": "Builds systems that work and stay working — from web apps to ML pipelines, from APIs to reverse engineering tools.",
+    "tagline": "Simple, safe, reversible.",
+    "status": "Currently building. Open to work.",
+    "bio": "Computer Science student at the University of Mindanao. I don't chase hype — I build things that hold up. Web, AI, systems, whatever the stack demands. Certified in Database and Network Security.",
+    "focus": ["Web Development", "Systems Integration", "AI Orchestration", "Reverse Engineering"],
+    "homeCommands": {
+      "whoami": "who-am-i",
+      "philosophy": "cat philosophy.txt",
+      "focus": "ls ./focus/",
+      "status": "cat status.txt",
+      "current": "echo $CURRENT"
+    },
+    "whatIDo": [
+      {
+        "title": "Web & Systems",
+        "description": "Full-stack development with modern frameworks. REST APIs, databases, authentication. I care about things staying up, not just going up."
+      },
+      {
+        "title": "AI & Orchestration",
+        "description": "LLM-powered applications, TTS pipelines, recommendation systems. I wire models together into things people can actually use."
+      },
+      {
+        "title": "Reverse Engineering",
+        "description": "Ghidra, x64dbg, decompilers. Understanding how things work from the inside out. Built tools for static analysis and binary inspection."
+      },
+      {
+        "title": "Creative Tech",
+        "description": "Live2D, game development, digital music production. Code that intersects with art and expression."
+      }
+    ],
+    "philosophy": [
+      "I believe working code beats perfect architecture.",
+      "Every decision should be reversible. Complexity is a liability until proven necessary.",
+      "Ship the smallest thing that solves the problem, then iterate.",
+      "I'm drawn to systems thinking — understanding how pieces fit together, where the failure points are, and what happens when things break.",
+      "I'd rather spend an hour preventing a bug than a day fixing one."
+    ],
+    "skills": {
+      "languages": ["Java", "Python", "JavaScript", "CSS", "HTML", "Kotlin", "SQL", "C/C++", "PHP", "Rust", "TypeScript"],
+      "tools": ["Git", "GitHub", "VS Code", "IntelliJ IDEA", "MySQL", "Node.js", "Vue", "Laravel", ".NET", "JavaFX", "SceneBuilder", "Ghidra", "x64dbg", "Hxd Hex Editor", "Arduino IDE", "Android Studio", "Streamlit", "Figma", "Google Colab", "Docker", "Tailwind CSS", "Firebase", "Kokoro TTS", "Live2D Cubism"],
+      "platforms": ["Windows", "Android", "Linux"]
+    }
+  },
+
+  "web-dev": {
+    "name": "Agsoy, Jay Mark V.",
+    "major": "Bachelor of Science in Computer Science",
+    "education": "University of Mindanao",
+    "educationYears": "2023-2027",
+    "certifications": "Certiport Database",
+    "links": [
+      { "label": "Email", "url": "mailto:jagsoy.sanhs@gmail.com" },
+      { "label": "GitHub", "url": "https://github.com/HanazonoArchive" },
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/jay-mark-agsoy-792b07295" },
+      { "label": "Resume", "url": "/data/updated-resume.pdf" }
+    ],
+    "display": "Web Developer — Full-Stack",
+    "summary": "Builds full-stack web applications with clean architecture, REST APIs, and responsive frontends. From database schemas to deployment.",
+    "tagline": "Ship clean, ship working, ship often.",
+    "status": "Currently building. Open to work.",
+    "bio": "Computer Science student at the University of Mindanao. I build full-stack web apps — from database schemas to responsive UIs. I care about maintainability, security, and code that stays up. Certified in Database fundamentals.",
+    "focus": ["Full-Stack Development", "REST API Design", "Database Architecture", "Frontend Engineering"],
+    "homeCommands": {
+      "whoami": "who-am-i",
+      "philosophy": "cat stack.txt",
+      "focus": "npm list --depth=0",
+      "status": "cat status.txt",
+      "current": "echo $PORT"
+    },
+    "whatIDo": [
+      {
+        "title": "Full-Stack Applications",
+        "description": "End-to-end web applications built with Node.js, PHP, and modern JavaScript. REST APIs with Express and Laravel, databases with MySQL and SQLite. I wire the frontend to the backend and make sure data flows cleanly."
+      },
+      {
+        "title": "Frontend & UI",
+        "description": "Responsive interfaces with HTML, CSS, JavaScript, Vue, and Tailwind. I care about the user experience, not just the component tree. Dark mode, accessibility, and sensible defaults."
+      },
+      {
+        "title": "Backend & Infrastructure",
+        "description": "Server-side logic, authentication, file handling, and deployment. Docker containers, SQL schemas, and API design. I build backends that don't fall over when someone actually uses them."
+      }
+    ],
+    "philosophy": [
+      "Working code beats perfect architecture. You can refactor a shipped feature, you can't refactor a vaporware spec.",
+      "A REST API is a contract. Once someone depends on it, changing it breaks their trust. Design carefully, version honestly.",
+      "The best code is the code you don't write. Use the framework, don't fight it.",
+      "Security is not a feature. It's how you write code. Input validation, parameterized queries, least privilege — every time."
+    ],
+    "skills": {
+      "languages": ["JavaScript", "HTML", "CSS", "PHP", "SQL", "Java", "Python", "TypeScript"],
+      "tools": ["Node.js", "Express", "Laravel", "Vue", "MySQL", "SQLite", "Docker", "Git", "GitHub", "Tailwind CSS", "Firebase", "Figma", "VS Code"],
+      "platforms": ["Linux", "Windows"]
+    }
+  },
+
+  "security-re": {
+    "name": "Agsoy, Jay Mark V.",
+    "major": "Bachelor of Science in Computer Science",
+    "education": "University of Mindanao",
+    "educationYears": "2023-2027",
+    "certifications": "Certiport Network Security",
+    "links": [
+      { "label": "Email", "url": "mailto:jagsoy.sanhs@gmail.com" },
+      { "label": "GitHub", "url": "https://github.com/HanazonoArchive" },
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/jay-mark-agsoy-792b07295" },
+      { "label": "Resume", "url": "/data/updated-resume.pdf" }
+    ],
+    "display": "Security & Reverse Engineering",
+    "summary": "Breaks things down to understand how they work. Static analysis, dynamic analysis, encryption, and low-level tooling. From hex signatures to network traffic.",
+    "tagline": "Trust nothing, verify everything.",
+    "status": "Currently building. Open to work.",
+    "bio": "Computer Science student at the University of Mindanao. I analyze systems from the binary up — reverse engineering game assets, building file identification tools, and securing data with zero-knowledge encryption. Certified in Network Security.",
+    "focus": ["Reverse Engineering", "Binary Analysis", "Network Security", "Security Tooling"],
+    "homeCommands": {
+      "whoami": "who-am-i",
+      "philosophy": "cat /tmp/notes.txt",
+      "focus": "ls -la ./targets/",
+      "status": "cat status.txt",
+      "current": "echo $SHELL"
+    },
+    "whatIDo": [
+      {
+        "title": "Reverse Engineering",
+        "description": "Static and dynamic analysis with Ghidra, x64dbg, and IDA. I trace error strings, map call trees, and understand how binaries work from the inside out. Built tools for .ido game asset decompilation and hex signature identification."
+      },
+      {
+        "title": "Security Tooling",
+        "description": "Self-hosted encrypted file vaults with zero-knowledge architectures. AES-256-CBC, 3-tier access control, circuit breaker patterns for fault tolerance. I build things that stay secure even when the server is compromised."
+      },
+      {
+        "title": "Network & Systems",
+        "description": "Intrusion detection with ML, network traffic analysis, and protocol understanding. I work with Wireshark, evaluate IDS models across legacy and IoT datasets, and understand how data moves between systems."
+      }
+    ],
+    "philosophy": [
+      "Trust nothing, verify everything. Every input is an attack until proven otherwise.",
+      "Understanding how things break is how you make them unbreakable. I don't just use tools — I take them apart.",
+      "Encryption is not magic. It's math with operational constraints. Zero-knowledge means designing a system where the server doesn't need to be trusted, not just saying it.",
+      "A security tool nobody can use is useless. The best defense is the one that gets deployed."
+    ],
+    "skills": {
+      "languages": ["Python", "JavaScript", "Rust", "C/C++", "Java", "HTML", "CSS", "SQL"],
+      "tools": ["Ghidra", "x64dbg", "Hxd Hex Editor", "Cheat Engine", "Wireshark", "Docker", "Node.js", "Express", "SQLite", "Git", "VS Code"],
+      "platforms": ["Windows", "Linux"]
+    }
+  },
+
+  "ai-ml": {
+    "name": "Agsoy, Jay Mark V.",
+    "major": "Bachelor of Science in Computer Science",
+    "education": "University of Mindanao",
+    "educationYears": "2023-2027",
+    "certifications": "Certiport Database, Certiport Network Security",
+    "links": [
+      { "label": "Email", "url": "mailto:jagsoy.sanhs@gmail.com" },
+      { "label": "GitHub", "url": "https://github.com/HanazonoArchive" },
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/jay-mark-agsoy-792b07295" },
+      { "label": "Resume", "url": "/data/updated-resume.pdf" }
+    ],
+    "display": "AI & Machine Learning",
+    "summary": "Builds ML pipelines, LLM-powered applications, and recommendation systems. Models are tools — the system around them matters more.",
+    "tagline": "Models are tools. Systems are the product.",
+    "status": "Currently building. Open to work.",
+    "bio": "Computer Science student at the University of Mindanao. I work at the intersection of ML and systems engineering — building recommendation engines, intrusion detection models, and LLM-powered assistants. I care about models that ship, not just models that score well on a test set.",
+    "focus": ["Machine Learning", "LLM Orchestration", "Data Processing", "ML Systems"],
+    "homeCommands": {
+      "whoami": "who-am-i",
+      "philosophy": "cat model_card.txt",
+      "focus": "ls ./datasets/",
+      "status": "cat status.txt",
+      "current": "nvidia-smi"
+    },
+    "whatIDo": [
+      {
+        "title": "ML Systems",
+        "description": "End-to-end ML pipelines from data preprocessing to model evaluation. k-NN recommendation over 2,600-dim feature spaces, cross-dataset evaluation for IDS models, and CatBoost for categorical feature engineering."
+      },
+      {
+        "title": "LLM Applications",
+        "description": "Multi-provider LLM orchestration with intelligent routing, circuit breaker fault tolerance, and persistent memory. Built a four-component AI assistant system connecting LLM APIs, TTS, and Live2D character rendering."
+      },
+      {
+        "title": "Data Engineering",
+        "description": "Feature engineering, TF-IDF vectorization, one-hot encoding, and handling real-world data issues — missing values, label inconsistencies, and distribution shift across datasets."
+      }
+    ],
+    "philosophy": [
+      "Models are tools. The system around the model matters more than the model itself. A 70% accurate model in production beats 95% in a notebook.",
+      "Data quality > model architecture. Clean data with a simple model outperforms dirty data with SOTA every time.",
+      "Distribution shift is the silent killer. A model that works on your training set but fails in production isn't a model — it's a demo.",
+      "LLMs are powerful but unreliable. Design your system to assume the model will fail sometimes, and handle it gracefully."
+    ],
+    "skills": {
+      "languages": ["Python", "JavaScript", "SQL", "TypeScript", "HTML", "CSS"],
+      "tools": ["Google Colab", "Jupyter", "Streamlit", "Kokoro TTS", "Live2D Cubism", "Node.js", "Git", "VS Code", "Docker", "LocalStorage API"],
+      "platforms": ["Windows", "Linux"]
+    }
+  }
+}

@@ -3,6 +3,7 @@
     "title": "Portfolio of Hanazono",
     "description": "A collection of my works and projects."
   },
+  "profile": "web-dev",
   "github": {
     "enabled": true,
     "user": "HanazonoArchive",

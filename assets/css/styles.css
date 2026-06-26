@@ -1527,7 +1527,30 @@ body.modal-open {
 
 
 /* ===========================================================
-   15. SAKURA PETALS (Decorative)
+   15. PROFILE LINKS (Contact page)
+   =========================================================== */
+
+#profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+#profile-links .chip {
+  padding: 10px 20px;
+  font-size: var(--text-base);
+  gap: 10px;
+  border-radius: var(--radius);
+}
+
+#profile-links .chip i {
+  font-size: 1.1rem;
+}
+
+
+/* ===========================================================
+   16. SAKURA PETALS (Decorative)
    =========================================================== */
 
 .sakura-petal {
@@ -1567,7 +1590,7 @@ body.modal-open {
 
 
 /* ===========================================================
-   16. ANIMATIONS
+   18. ANIMATIONS
    =========================================================== */
 
 @keyframes fadeIn {
@@ -1648,7 +1671,7 @@ body.modal-open {
 
 
 /* ===========================================================
-   17. RESPONSIVE (Mobile-First overrides)
+   19. RESPONSIVE (Mobile-First overrides)
    =========================================================== */
 
 /* ── ≤ 480px: Mobile ── */

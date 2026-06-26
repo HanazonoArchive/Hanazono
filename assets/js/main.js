@@ -1,4 +1,4 @@
-import { loadConfig, loadProfile, loadSkills, loadMarkdownItems } from "./data-loader.js";
+import { loadConfig, loadProfile, loadSkills, loadMarkdownItems, loadActiveProfile, loadActiveProfileSkills } from "./data-loader.js";
 import { byId, extractSummary, formatDate, renderChips, getSkillIcon } from "./utils.js";
 import { initModal, openModal, openMediaLightbox, initMediaLightbox } from "./modal.js";
 
@@ -6,6 +6,7 @@ const state = {
   projects: [],
   certifications: [],
   explorations: [],
+  activeProfile: "generalist",
 };
 
 function setText(id, value) {
@@ -70,6 +71,16 @@ function renderProfile(profile, skills) {
   setText("profile-summary", profile.summary || "");
   setText("profile-tagline", profile.tagline || "");
 
+  // Set terminal commands from profile homeCommands
+  const cmds = profile.homeCommands;
+  if (cmds) {
+    setText("cmd-whoami", cmds.whoami || "");
+    setText("cmd-philosophy", cmds.philosophy || "");
+    setText("cmd-focus", cmds.focus || "");
+    setText("cmd-status", cmds.status || "");
+    setText("cmd-current", cmds.current || "");
+  }
+
   // Homepage terminal hero: focus output
   setText("profile-focus-output", profile.focus && profile.focus.length ? profile.focus.join(" / ") : "");
 
@@ -93,10 +104,22 @@ function renderProfile(profile, skills) {
   if (linksContainer) {
     linksContainer.innerHTML = "";
     if (profile.links && profile.links.length) {
+      const linkIcons = {
+        "GitHub": "fab fa-github",
+        "LinkedIn": "fab fa-linkedin",
+        "Resume": "fas fa-file-pdf",
+        "Email": "fas fa-envelope"
+      };
       profile.links.forEach((link) => {
         const anchor = document.createElement("a");
         anchor.href = link.url;
-        anchor.textContent = link.label;
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+        anchor.className = "chip";
+        const icon = document.createElement("i");
+        icon.className = linkIcons[link.label] || "fas fa-link";
+        anchor.appendChild(icon);
+        anchor.appendChild(document.createTextNode(link.label));
         anchor.target = "_blank";
         anchor.rel = "noopener noreferrer";
         anchor.className = "chip";
@@ -493,7 +516,7 @@ function attachCardHandlers() {
 // ── Init ──
 
 async function init() {
-  const wantsProfile = Boolean(byId("profile-name") || byId("profile-major"));
+  const wantsProfile = Boolean(byId("profile-name") || byId("profile-major") || byId("profile-links"));
   const wantsSkills = Boolean(byId("skills-languages") || byId("skills-tools") || byId("skills-platforms") || byId("skills-code-lines"));
   const wantsProjects = Boolean(byId("projects-grid"));
   const wantsCertifications = Boolean(byId("certifications-grid"));
@@ -506,13 +529,15 @@ async function init() {
 
   try {
     const config = await loadConfig();
+    const activeProfile = config?.profile || "generalist";
+    state.activeProfile = activeProfile;
 
     const [profile, skills, projects, certifications, explorations] = await Promise.all([
-      wantsProfile ? loadProfile() : Promise.resolve(null),
-      wantsSkills || wantsProfile ? loadSkills() : Promise.resolve(null),
-      wantsProjects ? loadMarkdownItems("projects", config) : Promise.resolve([]),
-      wantsCertifications ? loadMarkdownItems("certifications", config) : Promise.resolve([]),
-      wantsExplorations ? loadMarkdownItems("explorations", config) : Promise.resolve([]),
+      wantsProfile ? loadActiveProfile(config) : Promise.resolve(null),
+      wantsSkills || wantsProfile ? loadActiveProfileSkills(config) : Promise.resolve(null),
+      wantsProjects ? loadMarkdownItems("projects", config, activeProfile) : Promise.resolve([]),
+      wantsCertifications ? loadMarkdownItems("certifications", config, activeProfile) : Promise.resolve([]),
+      wantsExplorations ? loadMarkdownItems("explorations", config, activeProfile) : Promise.resolve([]),
     ]);
 
     state.projects = projects;

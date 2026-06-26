@@ -1,4 +1,4 @@
-const LIST_KEYS = new Set(["languages", "tools", "tags", "platforms"]);
+const LIST_KEYS = new Set(["languages", "tools", "tags", "platforms", "profiles"]);
 
 // Compute the relative path to the site root based on the current page depth.
 // Root page "/" or "/index.html" → "."; "/about/" → ".."; etc.
@@ -52,6 +52,39 @@ export async function loadSkills() {
     _skillsPromise = loadJson(`${root}/data/skills.json`);
   }
   return _skillsPromise;
+}
+
+// ── Profile switcher: load active persona from profiles.json ──
+let _profilesPromise = null;
+
+export async function loadActiveProfile(config) {
+  const profileName = config?.profile || "generalist";
+  if (!_profilesPromise) {
+    const root = getRoot();
+    _profilesPromise = loadJson(`${root}/data/profiles.json`);
+  }
+  const profiles = await _profilesPromise;
+  if (profiles && profiles[profileName]) {
+    return profiles[profileName];
+  }
+  // Fallback: load old single profile.json
+  const fallback = await loadProfile();
+  return fallback || {};
+}
+
+export async function loadActiveProfileSkills(config) {
+  const profileName = config?.profile || "generalist";
+  if (!_profilesPromise) {
+    const root = getRoot();
+    _profilesPromise = loadJson(`${root}/data/profiles.json`);
+  }
+  const profiles = await _profilesPromise;
+  if (profiles && profiles[profileName] && profiles[profileName].skills) {
+    return profiles[profileName].skills;
+  }
+  // Fallback: load old skills.json
+  const fallback = await loadSkills();
+  return fallback || {};
 }
 
 // ── Frontmatter parser ──
@@ -120,6 +153,7 @@ async function fetchMarkdownItem(entry) {
       certifier: frontMatter.certifier || "",
       credential: frontMatter.credential || "",
       rarity: frontMatter.rarity || "",
+      profiles: frontMatter.profiles || [],
       languages: frontMatter.languages || [],
       tools: frontMatter.tools || [],
       tags: frontMatter.tags || [],
@@ -167,7 +201,7 @@ function sortByRarity(items) {
 }
 
 // ── Main entry: load all markdown items for a content type ──
-export async function loadMarkdownItems(type, config) {
+export async function loadMarkdownItems(type, config, activeProfile) {
   let list = [];
   if (config?.github?.enabled) {
     try {
@@ -183,6 +217,15 @@ export async function loadMarkdownItems(type, config) {
   // Fetch all markdown files in parallel
   const results = await Promise.all(list.map((entry) => fetchMarkdownItem(entry)));
 
-  const items = results.filter(Boolean);
+  let items = results.filter(Boolean);
+
+  // Filter by active profile if set
+  if (activeProfile) {
+    items = items.filter((item) => {
+      if (!item.profiles || item.profiles.length === 0) return true;
+      return item.profiles.includes(activeProfile);
+    });
+  }
+
   return sortByRarity(items);
 }

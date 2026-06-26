@@ -4,9 +4,10 @@ date: 2026-06-08
 rarity: diamond
 languages: [JavaScript, HTML, CSS]
 tools: [VS Code, LocalStorage API]
+profiles: [generalist, ai-ml, security-re]
 link: https://github.com/HanazonoArchive/LLMAPIUI
 image: ../data/projects/resources/LLMAPIUI.png
-summary: Intelligent LLM orchestrator with routing, cooldowns, memory, and fault tolerance.
+summary: Intelligent LLM orchestrator with routing, cooldowns, memory, and fault tolerance. Part of the Rei AI Assistant system.
 ---
 
 ## LLMAPIUI

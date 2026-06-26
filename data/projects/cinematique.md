@@ -4,6 +4,7 @@ date: 2024-02-27
 rarity: bronze
 languages: [Java, CSS]
 tools: [JavaFX, Scenebuilder, IntelliJ IDEA, Gradle]
+profiles: [generalist, web-dev]
 link: https://github.com/HanazonoArchive/Cinematique
 image:
 summary: A Desktop Application for Managing Movie Rentals.

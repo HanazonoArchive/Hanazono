@@ -4,9 +4,10 @@ date: 2026-06-08
 rarity: diamond
 languages: [Python]
 tools: [VS Code, Python Environment, Kokoro TTS]
+profiles: [generalist, ai-ml]
 link: https://github.com/HanazonoArchive/LLMKokoroTTS
 image: ../data/projects/resources/LLMKokoroTTS.png
-summary: Custom-tuned TTS engine that gives our AI character a unique, fitting voice.
+summary: Custom-tuned TTS engine that gives our AI character a unique, fitting voice. Part of the Rei AI Assistant system.
 ---
 
 ## LLMKokoroTTS

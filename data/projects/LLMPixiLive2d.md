@@ -4,9 +4,10 @@ date: 2026-06-08
 rarity: diamond
 languages: [TypeScript, HTML, CSS]
 tools: [VS Code, Live2D Cubism]
+profiles: [generalist, ai-ml]
 link: https://github.com/HanazonoArchive/LLMPixiLive2D
 image: ../data/projects/resources/LLMPixiLive2D.png
-summary: Browser-based Live2D character holder with mouse-follow and lipsync integration for AI assistant system.
+summary: Browser-based Live2D character holder with mouse-follow and lipsync integration for AI assistant system. Part of the Rei AI Assistant system.
 ---
 
 ## LLMPixiLive2D

@@ -79,6 +79,8 @@
     data.commandLine.classList.remove('typing-hidden');
     data.commandLine.classList.add('typing-visible');
 
+    // Read live text in case renderProfile updated it after blockData was built
+    const liveText = data.commandEl.textContent || '';
     data.commandEl.textContent = '';
     let charIdx = 0;
     const typingSpeed = 22; // ms per character
@@ -89,8 +91,8 @@
     data.commandEl.after(typeCursor);
 
     function typeChar() {
-      if (charIdx < data.cmdText.length) {
-        data.commandEl.textContent += data.cmdText[charIdx];
+      if (charIdx < liveText.length) {
+        data.commandEl.textContent += liveText[charIdx];
         charIdx++;
         setTimeout(typeChar, typingSpeed);
       } else {

@@ -1,4 +1,4 @@
-import { loadConfig, loadProfile, loadSkills, loadMarkdownItems, loadActiveProfile, loadActiveProfileSkills } from "./data-loader.js";
+import { loadConfig, loadProfile, loadSkills, loadMarkdownItems, loadActiveProfile, loadActiveProfileSkills, loadProfilesMap } from "./data-loader.js";
 import { byId, extractSummary, formatDate, renderChips, getSkillIcon } from "./utils.js";
 import { initModal, openModal, openMediaLightbox, initMediaLightbox } from "./modal.js";
 
@@ -68,7 +68,6 @@ function updateOGTags(profile) {
   const summary = profile?.summary || "Portfolio of Agsoy, Jay Mark V.";
   const title = display + " — HanazonoArchive";
 
-  document.title = title;
   setMeta("description", summary);
   setMeta("og:title", title);
   setMeta("og:description", summary);
@@ -539,19 +538,23 @@ async function init() {
 
   try {
     const config = await loadConfig();
-    const VALID_PROFILES = ["generalist", "web-dev", "security-re", "ai-ml"];
+
+    // Load profiles map for validation + dropdown
+    const profilesMap = await loadProfilesMap();
+    const profileKeys = Object.keys(profilesMap || {});
+
     let activeProfile;
     // Priority: URL param > localStorage > config default
     const urlParams = new URLSearchParams(window.location.search);
     const urlProfile = urlParams.get("profile");
-    if (urlProfile && VALID_PROFILES.includes(urlProfile)) {
+    if (urlProfile && profileKeys.includes(urlProfile)) {
       activeProfile = urlProfile;
     } else {
       const storedProfile = localStorage.getItem("profile");
-      if (storedProfile && VALID_PROFILES.includes(storedProfile)) {
+      if (storedProfile && profileKeys.includes(storedProfile)) {
         activeProfile = storedProfile;
       } else {
-        activeProfile = config?.profile || "generalist";
+        activeProfile = config?.profile || profileKeys[0] || "generalist";
       }
     }
     localStorage.setItem("profile", activeProfile);
@@ -564,7 +567,7 @@ async function init() {
     state.activeProfile = activeProfile;
 
     // Setup custom profile switcher dropdown
-    setupProfileSwitcher(activeProfile);
+    setupProfileSwitcher(activeProfile, profilesMap);
 
     const [profile, skills, projects, certifications, explorations] = await Promise.all([
       wantsProfile ? loadActiveProfile(config, activeProfile) : Promise.resolve(null),
@@ -601,25 +604,27 @@ async function init() {
 
 // ── Custom profile switcher dropdown ──
 
-function setupProfileSwitcher(activeProfile) {
+function setupProfileSwitcher(activeProfile, profilesMap) {
   const wrap = byId("profile-switcher");
   if (!wrap) return;
 
   const trigger = wrap.querySelector(".profile-switcher-trigger");
   const valueEl = wrap.querySelector(".profile-switcher-value");
   const menu = wrap.querySelector(".profile-switcher-menu");
-  const options = menu.querySelectorAll("[role='option']");
 
-  const LABELS = {
-    "generalist": "Generalist",
-    "web-dev": "Web Developer",
-    "security-re": "Security & RE",
-    "ai-ml": "AI & ML",
-  };
+  // Build options from profilesMap
+  const entries = Object.entries(profilesMap || {});
+  menu.innerHTML = entries.map(([key, data]) =>
+    '<li role="option" tabindex="-1" data-value="' + key + '">' +
+      (data.label || key) +
+    '</li>'
+  ).join("");
+  const options = menu.querySelectorAll("[role='option']");
 
   // Set current value
   function setValue(val) {
-    valueEl.textContent = LABELS[val] || val;
+    const entry = profilesMap?.[val];
+    valueEl.textContent = entry?.label || val;
     options.forEach((opt) => {
       const selected = opt.dataset.value === val;
       opt.setAttribute("aria-selected", selected ? "true" : "false");

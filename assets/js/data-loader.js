@@ -87,6 +87,15 @@ export async function loadActiveProfileSkills(config, profileName) {
   return fallback || {};
 }
 
+// Load full profiles map for dropdown generation
+export async function loadProfilesMap() {
+  if (!_profilesPromise) {
+    const root = getRoot();
+    _profilesPromise = loadJson(`${root}/data/profiles.json`);
+  }
+  return _profilesPromise;
+}
+
 // ── Frontmatter parser ──
 function parseFrontMatter(raw) {
   if (!raw.startsWith("---")) {

@@ -1,5 +1,6 @@
 {
   "generalist": {
+    "label": "Generalist",
     "name": "Agsoy, Jay Mark V.",
     "major": "Bachelor of Science in Computer Science",
     "education": "University of Mindanao",
@@ -57,6 +58,7 @@
   },
 
   "web-dev": {
+    "label": "Web Developer",
     "name": "Agsoy, Jay Mark V.",
     "major": "Bachelor of Science in Computer Science",
     "education": "University of Mindanao",
@@ -109,6 +111,7 @@
   },
 
   "security-re": {
+    "label": "Security & RE",
     "name": "Agsoy, Jay Mark V.",
     "major": "Bachelor of Science in Computer Science",
     "education": "University of Mindanao",
@@ -161,6 +164,7 @@
   },
 
   "ai-ml": {
+    "label": "AI & ML",
     "name": "Agsoy, Jay Mark V.",
     "major": "Bachelor of Science in Computer Science",
     "education": "University of Mindanao",

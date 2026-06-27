@@ -61,6 +61,35 @@ function showError(containerId, message, retryFn) {
   err.querySelector(".retry-btn").addEventListener("click", retryFn);
 }
 
+// ── OG meta tags for social sharing ──
+
+function updateOGTags(profile) {
+  const display = profile?.display || profile?.name || "HanazonoArchive";
+  const summary = profile?.summary || "Portfolio of Agsoy, Jay Mark V.";
+  const title = display + " — HanazonoArchive";
+
+  document.title = title;
+  setMeta("description", summary);
+  setMeta("og:title", title);
+  setMeta("og:description", summary);
+  setMeta("twitter:title", title);
+  setMeta("twitter:description", summary);
+}
+
+function setMeta(property, content) {
+  let el = document.querySelector(`meta[property="${property}"], meta[name="${property}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    if (property.startsWith("og:") || property.startsWith("twitter:")) {
+      el.setAttribute("property", property);
+    } else {
+      el.setAttribute("name", property);
+    }
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+}
+
 // ── Profile rendering ──
 
 function renderProfile(profile, skills) {
@@ -511,12 +540,27 @@ async function init() {
   try {
     const config = await loadConfig();
     const VALID_PROFILES = ["generalist", "web-dev", "security-re", "ai-ml"];
-    let activeProfile = config?.profile || "generalist";
-    // localStorage override takes precedence over config default
-    const storedProfile = localStorage.getItem("profile");
-    if (storedProfile && VALID_PROFILES.includes(storedProfile)) {
-      activeProfile = storedProfile;
+    let activeProfile;
+    // Priority: URL param > localStorage > config default
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlProfile = urlParams.get("profile");
+    if (urlProfile && VALID_PROFILES.includes(urlProfile)) {
+      activeProfile = urlProfile;
+    } else {
+      const storedProfile = localStorage.getItem("profile");
+      if (storedProfile && VALID_PROFILES.includes(storedProfile)) {
+        activeProfile = storedProfile;
+      } else {
+        activeProfile = config?.profile || "generalist";
+      }
     }
+    localStorage.setItem("profile", activeProfile);
+
+    // Sync URL bar so it's always shareable
+    const url = new URL(window.location);
+    url.searchParams.set("profile", activeProfile);
+    window.history.replaceState({}, "", url);
+
     state.activeProfile = activeProfile;
 
     // Setup custom profile switcher dropdown
@@ -535,6 +579,7 @@ async function init() {
     state.explorations = explorations;
 
     renderProfile(profile, skills);
+    updateOGTags(profile);
     renderSkills(skills);
     renderCardGrid("projects-grid", projects, "Project");
     renderCardGrid("certifications-grid", certifications, "Certification");
@@ -616,7 +661,9 @@ function setupProfileSwitcher(activeProfile) {
       const val = opt.dataset.value;
       if (val && val !== activeProfile) {
         localStorage.setItem("profile", val);
-        window.location.reload();
+        const url = new URL(window.location);
+        url.searchParams.set("profile", val);
+        window.location.href = url.toString();
       }
       close();
     });

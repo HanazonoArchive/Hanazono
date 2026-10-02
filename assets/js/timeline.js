@@ -20,28 +20,47 @@ export async function initHomepage() {
     renderHero(profile);
     renderTimeline({ timeline, projects, certs, explorations, skills, profile });
 
-    // Restore scroll position if returning from a project or credential view
+    // Restore scroll position or target chapter if returning from a project or credential view
     const savedScroll = sessionStorage.getItem('timeline_scroll_pos');
-    if (savedScroll !== null) {
-      const targetPos = parseInt(savedScroll, 10);
-      window.scrollTo({ top: targetPos, behavior: 'instant' });
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: targetPos, behavior: 'instant' });
-      });
-      setTimeout(() => {
-        window.scrollTo({ top: targetPos, behavior: 'instant' });
-      }, 50);
-      sessionStorage.removeItem('timeline_scroll_pos');
-    } else if (window.location.hash) {
-      setTimeout(() => {
-        const hashEl = document.querySelector(window.location.hash);
-        if (hashEl) {
-          hashEl.scrollIntoView({ behavior: 'instant' });
-        }
-      }, 50);
-    }
+    const savedChapter = sessionStorage.getItem('timeline_active_chapter');
+    const hash = window.location.hash;
 
+    const restoreTarget = () => {
+      let targetEl = null;
+      if (hash) {
+        targetEl = document.querySelector(hash);
+      } else if (savedChapter) {
+        targetEl = document.getElementById(savedChapter);
+      }
+
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'instant', block: 'start' });
+        return true;
+      } else if (savedScroll !== null) {
+        const targetPos = parseInt(savedScroll, 10);
+        if (!isNaN(targetPos) && targetPos > 0) {
+          window.scrollTo({ top: targetPos, behavior: 'instant' });
+          return true;
+        }
+      }
+      return false;
+    };
+
+    restoreTarget();
     initTimelineInteractions();
+
+    // Re-verify position and re-sync timeline components after layout/fonts settle
+    [40, 120, 250, 450].forEach(delay => {
+      setTimeout(() => {
+        restoreTarget();
+        if (typeof window.__updateTimeline === 'function') {
+          window.__updateTimeline();
+        }
+      }, delay);
+    });
+
+    sessionStorage.removeItem('timeline_scroll_pos');
+    sessionStorage.removeItem('timeline_active_chapter');
 
     // Trigger reverse circular collapse on arrival
     playIncomingTransition();
@@ -320,7 +339,7 @@ function initTimelineInteractions() {
     }
   });
 
-  let lastActiveIndex = -1;
+  let lastActiveIndex = -999;
 
   function updateTimeline() {
     if (!line || !spineFill) return;
@@ -443,7 +462,19 @@ function initTimelineInteractions() {
 
   // Use requestAnimationFrame for smooth 60/120fps sync without jank
   let ticking = false;
+  let scrollSaveTimer = null;
   function onScroll() {
+    if (!scrollSaveTimer) {
+      scrollSaveTimer = setTimeout(() => {
+        sessionStorage.setItem('timeline_scroll_pos', window.scrollY.toString());
+        const activeEntry = document.querySelector('.story-entry.active') || document.querySelector('.story-entry');
+        if (activeEntry && activeEntry.id) {
+          sessionStorage.setItem('timeline_active_chapter', activeEntry.id);
+        }
+        scrollSaveTimer = null;
+      }, 100);
+    }
+
     if (!ticking) {
       requestAnimationFrame(() => {
         updateTimeline();
@@ -455,6 +486,18 @@ function initTimelineInteractions() {
 
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', updateTimeline);
+  window.addEventListener('pageshow', () => {
+    updateTimeline();
+  });
+  window.addEventListener('beforeunload', () => {
+    sessionStorage.setItem('timeline_scroll_pos', window.scrollY.toString());
+    const activeEntry = document.querySelector('.story-entry.active') || document.querySelector('.story-entry');
+    if (activeEntry && activeEntry.id) {
+      sessionStorage.setItem('timeline_active_chapter', activeEntry.id);
+    }
+  });
+
+  window.__updateTimeline = updateTimeline;
 
   // Initial calculation
   updateTimeline();

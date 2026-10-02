@@ -85,13 +85,21 @@ function getCoverRadius(x, y) {
   return Math.ceil(Math.max(...corners)) + 120;
 }
 
+let isTransitioning = false;
+
 /**
  * Outgoing transition: circle expands from click locus until it fills the screen
  */
 export function navigateWithRadialTransition(x, y, targetHref) {
+  if (isTransitioning) return;
+  isTransitioning = true;
+
   const { bg, accent } = getPageThemeColors();
   const maxRadius = getCoverRadius(x, y);
-  const isTimeline = !window.location.pathname.includes('project.html') && !window.location.pathname.includes('credentials.html');
+
+  const isProject = !!document.querySelector('.project-page') || window.location.pathname.includes('project');
+  const isCredentials = !!document.querySelector('.credentials-page') || window.location.pathname.includes('credential');
+  const isTimeline = !isProject && !isCredentials && !!document.querySelector('.stream-col, .story-entry');
 
   // Save transition state to sessionStorage
   const state = {
@@ -99,12 +107,16 @@ export function navigateWithRadialTransition(x, y, targetHref) {
     y,
     bg,
     accent,
-    from: isTimeline ? 'timeline' : (window.location.pathname.includes('credentials.html') ? 'credentials' : 'project'),
+    from: isTimeline ? 'timeline' : (isCredentials ? 'credentials' : 'project'),
     timestamp: Date.now()
   };
 
   if (isTimeline) {
     sessionStorage.setItem('timeline_scroll_pos', window.scrollY.toString());
+    const activeEntry = document.querySelector('.story-entry.active') || document.querySelector('.story-entry');
+    if (activeEntry && activeEntry.id) {
+      sessionStorage.setItem('timeline_active_chapter', activeEntry.id);
+    }
   }
   sessionStorage.setItem('page_transition_state', JSON.stringify(state));
 
@@ -225,7 +237,7 @@ export function playIncomingTransition(onComplete) {
  * Setup global auto-cache on hover and click listener for eligible links
  */
 export function initPageTransitions() {
-  const eligibleSelector = 'a[href*="project.html"], a[href*="credentials.html"], a.back-link, a[href*="index.html"], .project-switcher-link';
+  const eligibleSelector = 'a[href*="project"], a[href*="credential"], a.back-link, a[href*="index.html"], a[href="./"], .project-switcher-link';
 
   // 1. Auto Cache on Hover / Touch
   document.addEventListener('mouseover', (e) => {

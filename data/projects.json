@@ -1,0 +1,349 @@
+[
+  {
+    "id": "chromatic-menu",
+    "title": "Chromatic-Menu",
+    "kicker": "Flagship Project",
+    "summary": "A fast, locked-down desktop launcher for internet cafés, gaming lounges, and coin-operated PC rentals, with an optional web dashboard that shows which PCs are on, what they are used for, and an estimate of what they earn.",
+    "featured": true,
+    "githubRepo": "HanazonoArchive/Chromatic-Menu",
+    "githubUrl": "https://github.com/HanazonoArchive/Chromatic-Menu",
+    "technologies": [
+      "C#",
+      "Batchfile",
+      "PowerShell",
+      "Python"
+    ],
+    "tags": [
+      "WPF / .NET",
+      "Kiosk Mode",
+      "Deep Freeze",
+      "Hardware Telemetry",
+      "Desktop Tooling"
+    ],
+    "image": "/data/projects/resources/chromatic-menu.png",
+    "story": [
+      {
+        "heading": "Launcher",
+        "items": [
+          "Tabs of programs: group games and apps into tabs with icons; add .exe, .lnk, .bat, .cmd, websites, and folders.",
+          "Drag and drop: reorder items, move them between tabs, or drop files from Explorer to add them.",
+          "Broken shortcut detection: missing targets are flagged on the card and blocked from launching with a clear message.",
+          "Right-click menu: Run, Run as administrator, Open file location, Properties.",
+          "Search across all tabs."
+        ]
+      },
+      {
+        "heading": "Header Panels",
+        "items": [
+          "Live hardware info: computer name, CPU, RAM, disks (SSD / HDD / NVMe), OS build, cores and threads, network up/down speed, GPU and VRAM (refreshes every 3 seconds).",
+          "Technical tools: Control Panel, Uninstall Programs, File Explorer, Network Connections, Device Manager, Disk Management, Services, Task Manager, Command Prompt, Windows Settings, System Information, and Request a Game."
+        ]
+      },
+      {
+        "heading": "Admin & Kiosk Behavior",
+        "items": [
+          "Password-protected Settings and Edit Mode: with a forced password change on first use.",
+          "Session lock toggle: with a visible Locked / Unlocked indicator.",
+          "Kiosk windowing: borderless and maximized, respects the taskbar; the X button and Alt+F4 only minimize."
+        ]
+      },
+      {
+        "heading": "Deep Freeze Awareness & Updates",
+        "items": [
+          "Deep Freeze detection: detects whether the PC is Boot Frozen or Thawed.",
+          "Check for Updates (Settings › About): downloads the latest MSI from GitHub Releases and installs it, but only when the PC is Thawed, so an update is never lost on reboot."
+        ]
+      },
+      {
+        "heading": "Appearance",
+        "items": [
+          "Customization: flat dark and light themes, accent colors, custom colors, fonts with 0.8x to 1.4x scaling, and a custom wallpaper."
+        ]
+      },
+      {
+        "heading": "Backup & Portability",
+        "items": [
+          "Configuration: saved atomically in data\\config.json with a .bak copy.",
+          "Export / Import: a ZIP of the config and assets to copy a setup across other PCs."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rbx-server-manager",
+    "title": "RBX Server Manager",
+    "kicker": "Universal Explorer & Launcher Hub",
+    "summary": "A 100% client-side, zero-dependency static web application designed to track, resolve, and 1-click launch Roblox game servers across any game with instant short-code resolution and a direct session bridge.",
+    "featured": true,
+    "githubRepo": "HanazonoArchive/RBX-Server-Manager",
+    "githubUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager",
+    "technologies": [
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ],
+    "tags": [
+      "Zero-Dependency",
+      "Roblox API",
+      "Bento Grid UI",
+      "Session Bridge",
+      "Server Launcher"
+    ],
+    "image": "/data/projects/resources/rbx-server-manager.png",
+    "story": [
+      {
+        "heading": "100% Game-Agnostic Server Discovery",
+        "items": [
+          "Zero hardcoded locks: universal design allows entering any custom Roblox Place ID or saving custom game profiles with a single click.",
+          "Live instance scanning: dynamically scans active public servers, real-time player counts, capacity, and network ping (ms).",
+          "Smart filtering: sort instances by lowest players, lowest ping, smart match, or highest player density."
+        ]
+      },
+      {
+        "heading": "Instant Server Joiner & Short-Code Auto-Resolution",
+        "items": [
+          "Short-code auto-resolution: paste 8-character server codes (e.g. 27eb-4606 or 27eb4606) or full 36-character UUIDs.",
+          "Direct 1-click launch: resolves target instances and launches the client without reloading or navigating away from the dashboard.",
+          "Instance bookmarks: pin and label persistent instances for quick return access."
+        ]
+      },
+      {
+        "heading": "Direct Session Bridge",
+        "items": [
+          "Client-side bridge: connects through a lightweight browser userscript (Tampermonkey / Violentmonkey) directly into authenticated Roblox sessions.",
+          "Zero CORS & rate-limit bypass: bypasses external Cloudflare restrictions with 0ms local latency and zero proxy overhead."
+        ]
+      },
+      {
+        "heading": "Multi-Theme Glassmorphism Bento UI",
+        "items": [
+          "Modular Bento layout: clean, glassmorphic card architecture displaying player meters, ping indicators, and copyable server codes.",
+          "Curated themes: native support for Dark Void, Cyber Neon, Emerald, and Clean Light aesthetic profiles."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sapphire-plus",
+    "title": "Sapphire+",
+    "kicker": "Game Modification & QoL Overhaul",
+    "summary": "A comprehensive, modular SuperBLT modification for PAYDAY 2 that modernizes loot carry mechanics, expands solo stealth capabilities, eliminates pre-planning budget constraints, and provides a customizable in-game menu.",
+    "featured": true,
+    "githubRepo": "HanazonoArchive/SapphirePlus",
+    "githubUrl": "https://github.com/HanazonoArchive/SapphirePlus",
+    "technologies": [
+      "Lua",
+      "SuperBLT",
+      "JavaScript",
+      "CSS"
+    ],
+    "tags": [
+      "Game Modding",
+      "SuperBLT",
+      "Engine Hooks",
+      "Lua Scripting",
+      "Gameplay Overhaul"
+    ],
+    "image": "/data/projects/resources/sapphire-plus.png",
+    "story": [
+      {
+        "heading": "Stealth & Infiltration Enhancements",
+        "items": [
+          "Multi-pickup keycards & consumables: enables stacking mission items (Keycards, Planks, C4, Thermite) in inventory without vanilla limitations, allowing solo completion of multi-keycard objectives like the Shadow Raid vault.",
+          "Infinite camera loops: extends tape loop duration to 99,999 seconds, fully synchronized with HUD timer overlays and Extra Heist Info (EHI).",
+          "Minimum detection risk: forces detection risk to the engine minimum (3 Detection Risk / 0.0 suspicion offset) regardless of equipped ICTV armor or heavy weapons, granting maximum Sneaky Bastard and Low Blow bonuses.",
+          "Pager & alarm controls: includes AI alarm prevention, configurable random pager removal sliders (1% to 100%), and automatic instant pager answering."
+        ]
+      },
+      {
+        "heading": "Carry Weight & Mobility Mechanics",
+        "items": [
+          "Sprint & carry overhaul: sprint freely at full speed while carrying gold, artifacts, or nuclear warheads, eliminating vanilla bag movement and jump penalties.",
+          "Bag throw distance multiplier: configurable slider (1.0x to 5.0x) to toss loot bags over security fences, across rooftops, or directly into extraction vehicles.",
+          "Full jump height: retains complete jumping elevation while carrying heavy loot bags for effortless vaulting over obstacles.",
+          "Bag damage absorption: configurable shield reduction absorbing incoming damage while actively hauling loot."
+        ]
+      },
+      {
+        "heading": "Combat Hardening & Weapon Handling",
+        "items": [
+          "Zero recoil & pin-point accuracy: completely eliminates vertical/horizontal recoil kick and zeroes bullet cone deviation for laser-precise firing.",
+          "Instant full-charge melee: delivers 100% full charged damage and maximum knockdown impulse on quick-tap melee attacks without holding the charge key.",
+          "Anti-flashbang shield: complete immunity against flashbang whiteout blinding screens, camera shake, and ear-ringing audio disorientation.",
+          "Full auto conversion: enables automatic fire mode toggling across semi-auto pistols, DMRs, and shotguns."
+        ]
+      },
+      {
+        "heading": "Multiplayer Safe Mode & In-Game UI",
+        "items": [
+          "Intelligent multiplayer Safe Mode: automatically disables cheat-tier toggles when joining public multiplayer lobbies as a client to ensure fair, safe co-op play.",
+          "Custom in-game menu: fully modular SuperBLT in-game menu and keybind configuration with atomic disk persistence."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "philnits-lab",
+    "title": "PhilNITS Lab",
+    "kicker": "Enterprise Exam Prep & OMR Portal",
+    "summary": "An enterprise-grade exam preparation platform for the Philippine National Information Technology Standards (PhilNITS / ITPEC) FE and IP examinations featuring automated computer vision OMR paper grading, interactive mock exams, and analytics.",
+    "featured": true,
+    "githubRepo": "HanazonoArchive/PhilNITSLab",
+    "githubUrl": "https://github.com/HanazonoArchive/PhilNITSLab",
+    "technologies": [
+      "TypeScript",
+      "Vue",
+      "Tailwind CSS",
+      "C++",
+      "Supabase"
+    ],
+    "tags": [
+      "Nuxt 4 / Vue 3",
+      "Computer Vision",
+      "OMR Grading",
+      "Supabase & Auth",
+      "Serverless Engine"
+    ],
+    "image": "/data/projects/resources/philnits-lab.png",
+    "story": [
+      {
+        "heading": "Computer Vision OMR Paper Grading",
+        "items": [
+          "Perspective homography deskewing: automatically aligns and un-warps smartphone photos of printed A4 answer sheets.",
+          "BFS corner registration detection: scans fiduciary orientation markers to anchor coordinate grids with millimeter precision.",
+          "Bubble darkness evaluation: evaluates optical pixel fill density across answer matrices to score 80-question exams in sub-second runtimes."
+        ]
+      },
+      {
+        "heading": "Interactive Mock Exam Simulation",
+        "items": [
+          "Timed mock environment: replicates authentic PhilNITS FE/IP examination pressure with countdown timers and pacing monitors.",
+          "Topic calibration & filtering: drill into specific ITPEC domains including algorithms, databases, networking, and system architecture.",
+          "Immediate rationale feedback: reveals comprehensive step-by-step explanations and confidence scoring post-submission."
+        ]
+      },
+      {
+        "heading": "Performance Analytics & Weakness Detection",
+        "items": [
+          "Domain breakdown radar: visualizes mastery distributions across discrete technical syllabus categories.",
+          "Historical performance tracking: maintains progression timelines, accuracy drift, and targeted review recommendations."
+        ]
+      },
+      {
+        "heading": "Serverless Production Architecture & Offline Mode",
+        "items": [
+          "Production-hardened Netlify Functions: serverless execution pipeline with zero local filesystem dependencies and fallback credentials.",
+          "Dual auth with guest mode: features GitHub OAuth backed by Supabase alongside a zero-friction guest mode for offline evaluation."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lumen",
+    "title": "Lumen",
+    "kicker": "Binary Magic Byte & Container Scanner",
+    "summary": "A fast, memory-safe desktop tool built with Rust and Tauri that identifies file types by scanning magic bytes, matches against 700+ signatures via SQLite, extracts containers, and inspects raw hex on demand.",
+    "featured": true,
+    "githubRepo": "HanazonoArchive/Lumen",
+    "githubUrl": "https://github.com/HanazonoArchive/Lumen",
+    "technologies": [
+      "Rust",
+      "Tauri",
+      "SQLite",
+      "JavaScript",
+      "HTML"
+    ],
+    "tags": [
+      "Binary Analysis",
+      "Rust Core",
+      "Tauri v2",
+      "Hex Inspection",
+      "File Signatures"
+    ],
+    "image": "/data/projects/resources/lumen.png",
+    "story": [
+      {
+        "heading": "Binary Signature Engine & Offset Scanning",
+        "items": [
+          "700+ signature database: matches byte patterns against the Gary Kessler (GCK) File Signature Table indexed inside an embedded SQLite database.",
+          "Dual scanning modes: Quick Mode reads the initial 8KB targeting standard offsets (0, 4, 8, 16, 32, 64, 128, etc.), while Segmented Mode handles files >16MB in memory-safe overlapping chunks."
+        ]
+      },
+      {
+        "heading": "Recursive Container Extraction & Disambiguation",
+        "items": [
+          "Deep archive unpacking: unpacks ZIP, TAR, 7z (via native Rust crates), and RAR/CAB/ISO archives on demand.",
+          "Content-aware disambiguation: peeks into entry metadata for shared PK zip signatures (0x504B0304) to distinguish APK, EPUB, DOCX, and JAR formats."
+        ]
+      },
+      {
+        "heading": "Interactive Hex Inspector & 5-Tab GUI",
+        "items": [
+          "Hex visualization: dynamic byte viewer with arbitrary offset jumping, byte searching, and color-coded ASCII mapping.",
+          "5-tab modular workspace: dedicated views for single-file analysis, batch folder scanning, hex inspection, signature DB browser, and an embedded CLI terminal."
+        ]
+      },
+      {
+        "heading": "Cross-Platform Tauri Architecture",
+        "items": [
+          "Memory safety & native performance: core engine compiles to a headless Rust crate (lumen-engine) with zero GUI dependencies for fast CLI test execution.",
+          "Lightweight desktop packaging: ships as a compact MSI/EXE bundle powered by Tauri v2 and WebView2 with low idle memory overhead."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "yogurting-os-launcher",
+    "title": "Yogurting OS Server & Launcher",
+    "kicker": "Reverse Engineering & Distributed MMORPG Server",
+    "summary": "An open-source, asynchronous distributed game server engine for Yogurting Online built with .NET 8 and C#, replacing legacy Delphi systems with modern System.IO.Pipelines networking, reverse-engineered protocol handlers, and real-time AI.",
+    "featured": true,
+    "githubRepo": "HanazonoArchive/Yogurting-OS-Launcher",
+    "githubUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher",
+    "technologies": [
+      "C#",
+      ".NET 8",
+      "Asynchronous I/O",
+      "Reverse Engineering",
+      "TCP Sockets"
+    ],
+    "tags": [
+      "Distributed Systems",
+      "Reverse Engineering",
+      ".NET 8",
+      "Game Server",
+      "Binary Protocol"
+    ],
+    "image": "/data/projects/resources/yogurting-os-launcher.png",
+    "story": [
+      {
+        "heading": "Distributed Multi-Daemon Topology",
+        "items": [
+          "Decoupled daemon architecture: orchestrates LoginServer (10000), FieldServer (10002), EpisodeServer (10003), and CommServer (10004) concurrently across independent asynchronous event loops.",
+          "Zero-allocation packet processing: leverages System.IO.Pipelines to parse binary network packets and stream raw opcodes with minimal memory footprint."
+        ]
+      },
+      {
+        "heading": "Protocol Reverse Engineering & Formula Parity",
+        "items": [
+          "Binary disassembly & verification: reverse-engineered against original client PE binaries (LuGameEngineDX9.dll, Yogurting.exe) and DMS network grammars.",
+          "Accurate game formulas: achieves exact mathematical parity with legacy combat, weapon DEX scaling (Blade, Glove, Blunt, Spirit), critical hit calculations, and EXP tables."
+        ]
+      },
+      {
+        "heading": "Spatial World & 4Hz Monster AI Loop",
+        "items": [
+          "Campus map management: manages spatial instances across Estiva Academy, Soyul Middle School, and exterior hunting zones with warp gate portals.",
+          "Real-time AI state machine: dedicated 4Hz (250ms tick) loop handling aggro propagation, pursuit pathing, and field mob behaviors."
+        ]
+      },
+      {
+        "heading": "Data-Driven Game Database",
+        "items": [
+          "Automated tabular dataset parsing: dynamically deserializes 14,000+ items, 8,000+ reinforcement stones, 450+ fields, and 150+ episodes from 31 database tables.",
+          "Live interactive CLI: integrated administrative console with interactive commands for runtime inspecting, account creation, and world synchronization."
+        ]
+      }
+    ]
+  }
+]

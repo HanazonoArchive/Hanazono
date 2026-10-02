@@ -1,0 +1,110 @@
+[
+  {
+    "id": "sec-about",
+    "navLabel": "About",
+    "phase": "About",
+    "bg": "#060b16",
+    "accent": "#38bdf8",
+    "soft": "rgba(56, 189, 248, 0.12)",
+    "glow": "rgba(56, 189, 248, 0.28)",
+    "thought": "I don't chase hype — I pick the right tool for the job, make sure it holds up, and keep decisions reversible.",
+    "title": "Building Systems That Hold Up",
+    "paragraphs": [
+      "I'm a <strong>Computer Science Major</strong> focused on building dependable, practical software across the stack. I don't chase hype or over-engineer solutions, I focus on picking the right tool for the job and making sure it holds up under real usage.",
+      "My work spans web applications, AI orchestration pipelines, and low-level reverse engineering tools. I'm drawn to systems thinking: understanding how different pieces integrate, where the single points of failure lie, and what happens when software breaks in production.",
+      "I value simplicity, reliability, and reversibility. Whether building zero-dependency web interfaces, wiring multi-model speech pipelines, or analyzing compiled binaries at the systems level, my goal is always the same: software that solves concrete problems without unnecessary complexity."
+    ],
+    "quote": "Complexity is a liability until proven necessary. Every decision should be simple, safe, and reversible.",
+    "subsections": [
+      {
+        "kicker": "Core Pillar 01",
+        "title": "Web & Systems",
+        "description": "Full-stack development with modern frameworks. REST APIs, databases, and authentication. I care about systems staying up, not just going up."
+      },
+      {
+        "kicker": "Core Pillar 02",
+        "title": "AI & Orchestration",
+        "description": "LLM routing, custom Kokoro TTS speech pipelines, and Live2D interactive avatars. Wiring models together into tools people can actually use."
+      },
+      {
+        "kicker": "Core Pillar 03",
+        "title": "Reverse Engineering",
+        "description": "Static and dynamic binary analysis, inspecting memory layouts, and understanding systems from the inside out."
+      },
+      {
+        "kicker": "Core Pillar 04",
+        "title": "Creative Tech",
+        "description": "Live2D Cubism, game development, and digital music production. Code that intersects with art, sound design, and interactive media."
+      }
+    ],
+    "dataSource": "static"
+  },
+  {
+    "id": "sec-projects",
+    "navLabel": "Projects",
+    "phase": "Projects",
+    "bg": "#161220",
+    "accent": "#f59e0b",
+    "soft": "rgba(245, 158, 11, 0.14)",
+    "glow": "rgba(245, 158, 11, 0.3)",
+    "thought": "From zero-dependency mathematical UI to AI orchestration and encrypted storage, building software that solves concrete problems.",
+    "title": "Featured Projects",
+    "paragraphs": [
+      "A collection of software systems, developer utilities, and interactive applications I've engineered. Each project represents an effort to solve real-world friction — whether that means eliminating bloated framework dependencies, orchestrating multi-model AI pipelines, or writing zero-knowledge cryptographic layers.",
+      "I focus on writing software that holds up under real usage, respects system memory, and stays maintainable over time."
+    ],
+    "quote": "Working code beats perfect architecture every time. Build the smallest thing that solves the problem, then refine it.",
+    "dataSource": "projects"
+  },
+  {
+    "id": "sec-certs",
+    "navLabel": "Certifications",
+    "phase": "Certifications",
+    "bg": "#081e3a",
+    "accent": "#00e5ff",
+    "soft": "rgba(0, 229, 255, 0.14)",
+    "glow": "rgba(0, 229, 255, 0.32)",
+    "thought": "Hands-on projects teach you how to build; solid fundamentals teach you how things work under the hood.",
+    "title": "Foundations & Certifications",
+    "paragraphs": [
+      "While self-directed projects teach you how to build, formal certifications and coursework ensure the underlying principles are solid. I use structured curricula to validate core knowledge in data management, network security, and web standards.",
+      "Understanding how relational databases organize schemas and ensure data integrity, how network protocols guard against vulnerabilities, and how runtimes manage asynchronous events gives practical development a dependable backbone."
+    ],
+    "quote": "Understanding core fundamentals makes every layer of software above them easier to design, build, and debug.",
+    "dataSource": "certifications"
+  },
+  {
+    "id": "sec-explorations",
+    "navLabel": "Explorations",
+    "phase": "Explorations",
+    "bg": "#1c0f26",
+    "accent": "#fb7185",
+    "soft": "rgba(251, 113, 133, 0.15)",
+    "glow": "rgba(251, 113, 133, 0.3)",
+    "thought": "Exploring diverse interests outside the main track keeps curiosity sharp and brings fresh perspective to software engineering.",
+    "title": "Explorations & Other Interests",
+    "paragraphs": [
+      "Software engineering doesn't happen in a silo. Beyond web systems and formal coursework, I spend time exploring other creative and technical domains that keep me curious and challenge how I think about problems.",
+      "From experimenting with digital music and sound design to prototyping interactive mechanics and exploring low-level system behavior, these side pursuits provide space to build, experiment, and learn freely.",
+      "Tinkering across different mediums reinforces fundamentals and keeps the craft engaging. Exploring outside high-level abstractions brings a broader perspective back to day-to-day software design."
+    ],
+    "quote": "The best insights often come from outside your primary domain. Creative tinkering teaches you how to learn anything from first principles.",
+    "dataSource": "explorations"
+  },
+  {
+    "id": "sec-skills",
+    "navLabel": "Skills",
+    "phase": "Skills",
+    "bg": "#02050d",
+    "accent": "#10b981",
+    "soft": "rgba(16, 185, 129, 0.14)",
+    "glow": "rgba(16, 185, 129, 0.28)",
+    "thought": "Simple, safe, reversible. Working code beats perfect architecture every time. Ship the smallest thing that solves the problem.",
+    "title": "The Toolkit",
+    "paragraphs": [
+      "I don't chase hype cycles. I pick tools that hold up in production, and I work by three words: <strong>Simple, Safe, Reversible</strong>."
+    ],
+    "quote": "I'd rather spend an hour preventing a bug than a day debugging one in production. Complexity is a liability until proven necessary.",
+    "dataSource": "skills"
+  }
+]

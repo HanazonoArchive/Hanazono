@@ -1,0 +1,440 @@
+/* ========================================================
+   HANAZONO PORTFOLIO — DEDICATED PROJECT CASE STUDY
+   Split Sticky Desk Layout (Clean & Telemetry-Driven)
+   ======================================================== */
+
+:root {
+  --sky-bg: #161220;
+  --sky-accent: #f59e0b;
+  --sky-accent-soft: rgba(245, 158, 11, 0.14);
+  --sky-glow: rgba(245, 158, 11, 0.3);
+}
+
+.project-page {
+  padding: 40px 0 60px;
+}
+
+.project-nav-bar {
+  margin-bottom: 20px;
+}
+
+.back-link {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s, transform 0.2s;
+}
+.back-link:hover {
+  color: var(--sky-accent);
+  transform: translateX(-4px);
+}
+
+.split-grid-project {
+  display: grid;
+  grid-template-columns: 1fr 270px;
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .split-grid-project {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Story Column */
+.story-col {
+  min-width: 0;
+}
+.project-header {
+  margin-bottom: 24px;
+}
+.project-kicker {
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--sky-accent);
+  margin-bottom: 12px;
+}
+.project-header h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.project-summary {
+  font-size: 1.12rem;
+  line-height: 1.85;
+  color: var(--text-body);
+  text-align: justify;
+  margin: 0;
+}
+
+/* Main Project Image (Square / box with small radius, borderless, fill-not-stretch) */
+.project-image-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 440px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 28px 0 36px;
+  background: #080f1a;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.project-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  border: none !important;
+  outline: none !important;
+}
+
+.story-section {
+  margin-bottom: 40px;
+}
+.story-section h2 {
+  font-size: 1.45rem;
+  color: var(--text-white);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.story-section p {
+  color: var(--text-body);
+  line-height: 1.85;
+  margin-bottom: 16px;
+  font-size: 15px;
+  text-align: justify;
+}
+.story-section p:last-child {
+  margin-bottom: 0;
+}
+.story-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.story-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.story-list li::before {
+  content: "•";
+  position: absolute;
+  left: 4px;
+  color: var(--sky-accent);
+  font-size: 16px;
+  line-height: 1.4;
+}
+.story-list li strong {
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+/* ================= GITHUB REPOSITORY DIRECTORY TREE ================= */
+.file-tree-section {
+  margin-top: 48px;
+}
+.file-tree-card {
+  background: var(--subtle-box);
+  border: var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.file-tree-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.025);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.file-tree-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-white);
+}
+.file-tree-header-left svg {
+  color: var(--sky-accent);
+}
+.file-tree-badge {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  background: var(--sky-accent-soft);
+  color: var(--sky-accent);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.file-tree-link {
+  font-size: 12px;
+  color: var(--sky-accent);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.file-tree-link:hover {
+  color: var(--text-white);
+}
+.file-tree-list {
+  display: flex;
+  flex-direction: column;
+}
+.file-tree-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+  color: var(--text-body);
+}
+.file-tree-row:last-child {
+  border-bottom: none;
+}
+.file-tree-row:hover {
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--text-white);
+}
+.file-tree-item-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+}
+.file-tree-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.file-tree-icon.dir {
+  color: var(--sky-accent);
+}
+.file-tree-icon.file {
+  color: var(--text-muted);
+}
+.file-tree-size {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+.file-tree-loading {
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Sidebar (Static page position, scrolls naturally with content) */
+.sticky-sidebar {
+  position: static;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-card {
+  background: var(--card-bg);
+  border: var(--card-border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: var(--card-shadow);
+}
+.info-card h3 {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sky-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+  font-size: 12.5px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.info-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.info-label {
+  color: var(--text-muted);
+}
+.info-val {
+  color: var(--text-white);
+  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+}
+
+/* Branches row with pills */
+.info-row.branches-row {
+  align-items: flex-start;
+}
+.branch-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+  max-width: 65%;
+}
+.branch-pill {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-white);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.3;
+}
+.branch-pill svg {
+  opacity: 0.7;
+}
+.branch-pill.default {
+  border-color: rgba(245, 158, 11, 0.35);
+  color: var(--sky-accent);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.live-commit-box {
+  background: var(--subtle-box);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-top: 10px;
+  font-size: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.live-commit-box .commit-sha {
+  font-family: var(--font-mono);
+  color: var(--sky-accent);
+  font-weight: 600;
+  margin-right: 6px;
+  font-size: 10.5px;
+}
+.live-commit-box .commit-msg {
+  color: var(--text-body);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 3px;
+  font-size: 11px;
+}
+.live-commit-box .commit-time {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.btn-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  background: var(--sky-accent);
+  color: #02050d;
+  padding: 9px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.2s;
+  margin-top: 12px;
+}
+.btn-github:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+}
+
+/* GitHub-Style Language Progress Bar & List */
+.lang-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 6px 0 12px;
+  width: 100%;
+}
+.lang-segment {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+.lang-segment:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.lang-segment:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.lang-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  font-size: 11.5px;
+}
+.lang-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.lang-dot {
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.lang-name {
+  font-weight: 500;
+  color: var(--text-white);
+}
+.lang-percent {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+}
+.lang-empty {
+  color: var(--text-muted);
+  font-size: 11.5px;
+  font-style: italic;
+}

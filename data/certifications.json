@@ -1,0 +1,35 @@
+[
+  {
+    "id": "certiport-database",
+    "kicker": "Database Systems",
+    "title": "IT Specialist: Databases",
+    "issuer": "Certiport",
+    "date": "2025-03-10",
+    "description": "Demonstrated core competency in relational database concepts, schema design, SQL data definition and manipulation, and data integrity constraints.",
+    "tags": ["Relational Databases", "SQL", "Schema Design", "Data Integrity", "Certiport"],
+    "pdf": "/data/certifications/resources/Database.pdf",
+    "image": "/data/certifications/resources/Database.png"
+  },
+  {
+    "id": "certiport-network-security",
+    "kicker": "Network Security",
+    "title": "IT Specialist: Network Security",
+    "issuer": "Certiport",
+    "date": "2026-03-09",
+    "description": "Covered foundational security principles, network defense layers, threat identification, authentication concepts, and secure network infrastructure.",
+    "tags": ["Network Security", "Defense Principles", "Authentication", "Threat Awareness", "Certiport"],
+    "pdf": "/data/certifications/resources/NetworkSecurity.pdf",
+    "image": "/data/certifications/resources/NetworkSecurity.png"
+  },
+  {
+    "id": "cce-jsworkshop",
+    "kicker": "Web Development",
+    "title": "CCE JavaScript Workshop",
+    "issuer": "College of Computing Education",
+    "date": "2026-06-22",
+    "description": "Hands-on workshop covering core JavaScript concepts, asynchronous programming, DOM event handling, and modern client-side scripting techniques.",
+    "tags": ["JavaScript", "DOM Events", "Asynchronous Programming", "CCE"],
+    "pdf": "/data/certifications/resources/CCE_Certificate.pdf",
+    "image": "/data/certifications/resources/CCE_Certificate.png"
+  }
+]

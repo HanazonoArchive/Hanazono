@@ -1,45 +1,36 @@
 {
-  "languages": [
-    "Java",
-    "Python",
-    "JavaScript",
-    "CSS",
-    "HTML",
-    "Kotlin",
-    "SQL",
-    "C/C++",
-    "PHP"
-  ],
-  "tools": [
-    "Git",
-    "GitHub",
-    "VS Code",
-    "IntelliJ IDEA",
-    "MySQL",
+  "Backend": [
+    "Hono",
+    "TypeScript",
     "Node.js",
-    "Vue",
-    "Laravel",
-    ".NET",
-    "JavaFX",
-    "SceneBuilder",
+    "Python",
+    "Cloudflare Workers",
+    "Workers AI",
+    "Laravel"
+  ],
+  "Frontend": [
+    "React",
+    "Vanilla JavaScript",
+    "SVG Trigonometry",
+    "CSS3",
+    "HTML5",
+    "Tailwind CSS"
+  ],
+  "Systems & RE": [
+    "Rust",
+    "C/C++",
+    "C# / .NET",
     "Ghidra",
     "x64dbg",
-    "Hxd Hex Editor",
-    "Arduino IDE",
-    "Android Studio",
-    "Streamlit",
-    "Figma",
-    "Google Colab",
-    "Copilot",
-    "Claude Code",
-    "Deepseek",
-    "Docker",
-    "Tailwind CSS",
-    "Firebase"
+    "HxD Hex Editor",
+    "Binary Forensics"
   ],
-  "platforms": [
-    "Windows",
-    "Android",
-    "Linux"
+  "Mobile & Data": [
+    "Flutter",
+    "Firebase",
+    "SQL & Schema Design",
+    "MySQL",
+    "Docker",
+    "Streamlit"
   ]
 }

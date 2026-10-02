@@ -1,0 +1,38 @@
+[
+  {
+    "id": "music-sound-design",
+    "kicker": "Creative Sound",
+    "title": "Music & Sound Design",
+    "description": "Composing digital music, crafting synthesizer textures, and exploring audio production. Treating soundscapes and composition as a creative, intuitive counterpart to structured programming.",
+    "tags": ["Music Production", "Sound Design", "Audio Composition", "Creative Tech"],
+    "githubRepo": "",
+    "caseStudyId": ""
+  },
+  {
+    "id": "game-prototyping",
+    "kicker": "Interactive Media",
+    "title": "Game Prototyping & Mechanics",
+    "description": "Designing and prototyping interactive game concepts. Exploring player mechanics, real-time logic loops, and state flow to understand how systems and pacing shape user engagement.",
+    "tags": ["Game Prototyping", "Interactive Mechanics", "Gameplay Logic", "State Flow"],
+    "githubRepo": "",
+    "caseStudyId": ""
+  },
+  {
+    "id": "systems-exploration",
+    "kicker": "Technical Curiosity",
+    "title": "Low-Level & Systems Exploration",
+    "description": "Investigating compiled software, binary structures, and runtime memory layouts. Peeking beneath high-level abstractions out of curiosity for how computers and operating systems execute instructions under the hood.",
+    "tags": ["Systems Exploration", "Binary Internals", "Memory Layouts", "Static Analysis"],
+    "githubRepo": "",
+    "caseStudyId": ""
+  },
+  {
+    "id": "experimental-tooling",
+    "kicker": "Workflow & Tooling",
+    "title": "Custom Tooling & Experimentation",
+    "description": "Building focused scripts, utilities, and interface experiments to solve workflow friction, test technical ideas, and explore new development concepts freely.",
+    "tags": ["Custom Utilities", "Workflow Automation", "Developer Tools", "Experimentation"],
+    "githubRepo": "",
+    "caseStudyId": ""
+  }
+]

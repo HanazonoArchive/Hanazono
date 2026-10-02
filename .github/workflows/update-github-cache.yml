@@ -1,0 +1,50 @@
+name: Update GitHub Cache & Rate Limit Bypass
+
+on:
+  schedule:
+    # Runs twice daily (00:00 and 12:00 UTC) to refresh commit telemetry, releases, and star counts
+    - cron: '0 0,12 * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/projects.json'
+      - 'scripts/update-github-cache.mjs'
+      - '.github/workflows/update-github-cache.yml'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab anytime
+
+concurrency:
+  group: github-cache-sync
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  update-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Pre-fetch GitHub Repository Telemetry
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/update-github-cache.mjs
+
+      - name: Commit and Push Updated Cache
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/github-cache.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(telemetry): update GitHub API cache [skip ci]"
+            git push
+          else
+            echo "No telemetry changes detected. Cache is up to date."
+          fi

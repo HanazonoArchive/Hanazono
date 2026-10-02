@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Case Study — Jay Mark V. Agsoy</title>
+  <meta name="description" content="Technical architecture and engineering deep dive for projects built by Jay Mark V. Agsoy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+  <link rel="stylesheet" href="assets/css/project.css">
+  <script>
+    (function() {
+      try {
+        var s = sessionStorage.getItem('page_transition_state');
+        if (s) {
+          var state = JSON.parse(s);
+          if (Date.now() - state.timestamp < 10000 && state.bg) {
+            document.documentElement.style.backgroundColor = state.bg;
+            document.documentElement.style.setProperty('--transition-incoming-bg', state.bg);
+            document.documentElement.classList.add('transitioning');
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Seamless Page Transition Overlay (Zero-gap curtain) -->
+  <div id="page-transition-overlay" class="page-transition-overlay" aria-hidden="true"></div>
+
+  <div class="container project-page" id="top">
+    <div class="project-nav-bar">
+      <a href="index.html#sec-projects" class="back-link">&larr; Back to timeline</a>
+    </div>
+
+    <div class="split-grid-project">
+      <!-- Story Column -->
+      <main class="story-col">
+        <header class="project-header">
+          <div class="project-kicker" id="project-kicker">Project Case Study</div>
+          <h1 id="project-title">Loading project...</h1>
+          <p class="project-summary" id="project-summary">
+            Fetching project architecture telemetry and engineering notes...
+          </p>
+        </header>
+
+        <!-- Main Project Image (fills the box, borderless, small radius) -->
+        <div id="project-image-container"></div>
+
+        <!-- Dynamic narrative sections (rest of descriptions) -->
+        <div id="story-content"></div>
+
+        <!-- Live GitHub Repository Directory Structure -->
+        <div id="github-tree-container"></div>
+      </main>
+
+      <!-- Sticky Telemetry Sidebar -->
+      <aside class="sticky-sidebar">
+        <!-- Static / Baseline Telemetry -->
+        <div class="info-card">
+          <h3>Repository Telemetry</h3>
+          <div class="info-row">
+            <span class="info-label">Version</span>
+            <span class="info-val" id="telem-version">—</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">License</span>
+            <span class="info-val" id="telem-license">—</span>
+          </div>
+          <a href="https://github.com/HanazonoArchive" target="_blank" rel="noopener" class="btn-github" id="btn-github">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-1.96c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+
+        <!-- GitHub Stats (dynamically populated & cached) -->
+        <div class="info-card" id="live-github-card" style="display: none;">
+          <h3>GitHub Stats</h3>
+          <div class="info-row">
+            <span class="info-label">Stars</span>
+            <span class="info-val" id="gh-stars">—</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Forks</span>
+            <span class="info-val" id="gh-forks">—</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Primary Stack</span>
+            <span class="info-val" id="gh-lang">—</span>
+          </div>
+          <div class="info-row branches-row">
+            <span class="info-label">Branches</span>
+            <div class="branch-pills" id="gh-branches">
+              <span class="info-val">—</span>
+            </div>
+          </div>
+          <div class="live-commit-box" id="gh-commit-box" style="display: none;">
+            <!-- Latest commit populated by JS -->
+          </div>
+        </div>
+
+        <!-- Languages Card -->
+        <div class="info-card" id="languages-card">
+          <h3>Languages</h3>
+          <div class="lang-bar" id="lang-bar">
+            <!-- Proportional contribution line bar -->
+          </div>
+          <div class="lang-list" id="lang-list">
+            <!-- Language percentages with color dots -->
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>&copy; 2026 Jay Mark V. Agsoy &bull; <a href="credentials.html" style="color: var(--text-muted); text-decoration: none;">Certifications &amp; Credentials</a></p>
+      <p style="font-family: var(--font-mono); font-size: 12px;">
+        <a href="#top">&uarr; Return to the top</a>
+      </p>
+    </footer>
+  </div>
+
+  <script type="module">
+    import { initProjectPage } from './assets/js/project.js';
+    import { setGitHubToken } from './assets/js/github.js';
+    window.setGitHubToken = setGitHubToken;
+    initProjectPage();
+  </script>
+</body>
+</html>

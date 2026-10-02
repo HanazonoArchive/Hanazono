@@ -1,0 +1,914 @@
+{
+  "generatedAt": "2026-10-01T23:47:51.323Z",
+  "repos": {
+    "HanazonoArchive/Chromatic-Menu": {
+      "telemetry": {
+        "name": "Chromatic-Menu",
+        "fullName": "HanazonoArchive/Chromatic-Menu",
+        "description": "A modern, customizable desktop launcher and kiosk menu for cybercafes and PisoNet terminals. Built with C# & WPF, featuring live hardware telemetry, admin lockouts, Deep Freeze state awareness, and WiX MSI auto-updates.",
+        "stars": 0,
+        "forks": 0,
+        "openIssues": 0,
+        "language": "C#",
+        "defaultBranch": "main",
+        "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu",
+        "updatedAt": "2026-09-26T05:31:20Z",
+        "pushedAt": "2026-09-26T05:31:17Z",
+        "license": null,
+        "latestCommit": {
+          "sha": "e17ecd6",
+          "message": "removal of zip file",
+          "date": "2026-09-26T05:31:11Z",
+          "author": "Hanazono Archive"
+        },
+        "latestRelease": {
+          "tagName": "v1.0.7",
+          "name": "v1.0.7",
+          "publishedAt": "2026-09-24T11:30:43Z"
+        }
+      },
+      "branches": [
+        "main"
+      ],
+      "languages": [
+        {
+          "name": "C#",
+          "bytes": 430056,
+          "percent": 92.2,
+          "percentDisplay": "92.2%",
+          "color": "#178600"
+        },
+        {
+          "name": "Batchfile",
+          "bytes": 16064,
+          "percent": 3.4,
+          "percentDisplay": "3.4%",
+          "color": "#C1F12E"
+        },
+        {
+          "name": "PowerShell",
+          "bytes": 15428,
+          "percent": 3.3,
+          "percentDisplay": "3.3%",
+          "color": "#255ab0"
+        },
+        {
+          "name": "Python",
+          "bytes": 4784,
+          "percent": 1,
+          "percentDisplay": "1%",
+          "color": "#3572A5"
+        }
+      ],
+      "contents": [
+        {
+          "name": ".agents",
+          "path": ".agents",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/tree/main/.agents"
+        },
+        {
+          "name": ".claude",
+          "path": ".claude",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/tree/main/.claude"
+        },
+        {
+          "name": "bin",
+          "path": "bin",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/tree/main/bin"
+        },
+        {
+          "name": "docs",
+          "path": "docs",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/tree/main/docs"
+        },
+        {
+          "name": "documentation",
+          "path": "documentation",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/tree/main/documentation"
+        },
+        {
+          "name": "installer",
+          "path": "installer",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/tree/main/installer"
+        },
+        {
+          "name": "src",
+          "path": "src",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/tree/main/src"
+        },
+        {
+          "name": "tools",
+          "path": "tools",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/tree/main/tools"
+        },
+        {
+          "name": "build-msi.ps1",
+          "path": "build-msi.ps1",
+          "type": "file",
+          "size": 2626,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/blob/main/build-msi.ps1"
+        },
+        {
+          "name": "Chromatic Menu.sln",
+          "path": "Chromatic Menu.sln",
+          "type": "file",
+          "size": 3121,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/blob/main/Chromatic%20Menu.sln"
+        },
+        {
+          "name": "chromatic-menu-antigravity-prompts.md",
+          "path": "chromatic-menu-antigravity-prompts.md",
+          "type": "file",
+          "size": 36372,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/blob/main/chromatic-menu-antigravity-prompts.md"
+        },
+        {
+          "name": "program-ui.png",
+          "path": "program-ui.png",
+          "type": "file",
+          "size": 84499,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/blob/main/program-ui.png"
+        },
+        {
+          "name": "README.md",
+          "path": "README.md",
+          "type": "file",
+          "size": 12551,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/blob/main/README.md"
+        },
+        {
+          "name": "SPEC.md",
+          "path": "SPEC.md",
+          "type": "file",
+          "size": 26780,
+          "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/blob/main/SPEC.md"
+        }
+      ],
+      "cachedAt": "2026-10-01T23:47:42.588Z"
+    },
+    "HanazonoArchive/RBX-Server-Manager": {
+      "telemetry": {
+        "name": "RBX-Server-Manager",
+        "fullName": "HanazonoArchive/RBX-Server-Manager",
+        "description": "Modern Roblox server explorer & 1-click joiner. Live low-ping scanning, friend radar, instance bookmarks, multi-device cloud sync, and 10 customizable themes.",
+        "stars": 0,
+        "forks": 0,
+        "openIssues": 0,
+        "language": "JavaScript",
+        "defaultBranch": "main",
+        "htmlUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager",
+        "updatedAt": "2026-08-21T05:02:14Z",
+        "pushedAt": "2026-08-18T08:08:40Z",
+        "license": null,
+        "latestCommit": {
+          "sha": "22b989b",
+          "message": "first commit",
+          "date": "2026-08-18T08:08:35Z",
+          "author": "Hanazono Archive"
+        },
+        "latestRelease": null
+      },
+      "branches": [
+        "main"
+      ],
+      "languages": [
+        {
+          "name": "JavaScript",
+          "bytes": 165489,
+          "percent": 74.9,
+          "percentDisplay": "74.9%",
+          "color": "#f1e05a"
+        },
+        {
+          "name": "CSS",
+          "bytes": 33609,
+          "percent": 15.2,
+          "percentDisplay": "15.2%",
+          "color": "#563d7c"
+        },
+        {
+          "name": "HTML",
+          "bytes": 21376,
+          "percent": 9.7,
+          "percentDisplay": "9.7%",
+          "color": "#e34c26"
+        },
+        {
+          "name": "Batchfile",
+          "bytes": 426,
+          "percent": 0.2,
+          "percentDisplay": "0.2%",
+          "color": "#C1F12E"
+        }
+      ],
+      "contents": [
+        {
+          "name": "css",
+          "path": "css",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager/tree/main/css"
+        },
+        {
+          "name": "js",
+          "path": "js",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager/tree/main/js"
+        },
+        {
+          "name": "index.html",
+          "path": "index.html",
+          "type": "file",
+          "size": 15919,
+          "htmlUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager/blob/main/index.html"
+        },
+        {
+          "name": "launch.html",
+          "path": "launch.html",
+          "type": "file",
+          "size": 5457,
+          "htmlUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager/blob/main/launch.html"
+        },
+        {
+          "name": "rbx-bridge.user.js",
+          "path": "rbx-bridge.user.js",
+          "type": "file",
+          "size": 7028,
+          "htmlUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager/blob/main/rbx-bridge.user.js"
+        },
+        {
+          "name": "README.md",
+          "path": "README.md",
+          "type": "file",
+          "size": 2998,
+          "htmlUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager/blob/main/README.md"
+        },
+        {
+          "name": "serve.js",
+          "path": "serve.js",
+          "type": "file",
+          "size": 6266,
+          "htmlUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager/blob/main/serve.js"
+        },
+        {
+          "name": "start.bat",
+          "path": "start.bat",
+          "type": "file",
+          "size": 426,
+          "htmlUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager/blob/main/start.bat"
+        }
+      ],
+      "cachedAt": "2026-10-01T23:47:44.653Z"
+    },
+    "HanazonoArchive/SapphirePlus": {
+      "telemetry": {
+        "name": "SapphirePlus",
+        "fullName": "HanazonoArchive/SapphirePlus",
+        "description": "Modular gameplay, carry, and stealth overhaul for PAYDAY 2 powered by SuperBLT. Features multi-keycard pickup, infinite camera loops, minimum detection risk, unlimited favors, and carry mobility with an automatic multiplayer Safe Mode.",
+        "stars": 0,
+        "forks": 0,
+        "openIssues": 0,
+        "language": "Lua",
+        "defaultBranch": "main",
+        "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus",
+        "updatedAt": "2026-09-01T09:36:22Z",
+        "pushedAt": "2026-08-14T22:28:08Z",
+        "license": "MIT",
+        "latestCommit": {
+          "sha": "6b1964b",
+          "message": "feat: implement comprehensive overhaul system adding modular combat hooks and utility functions for gameplay modifications",
+          "date": "2026-08-14T22:27:58Z",
+          "author": "Hanazono Archive"
+        },
+        "latestRelease": null
+      },
+      "branches": [
+        "claude/eloquent-carson-6fcbb3",
+        "main"
+      ],
+      "languages": [
+        {
+          "name": "Lua",
+          "bytes": 393921,
+          "percent": 100,
+          "percentDisplay": "100%",
+          "color": "#000080"
+        }
+      ],
+      "contents": [
+        {
+          "name": "docs",
+          "path": "docs",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/tree/main/docs"
+        },
+        {
+          "name": "hooks",
+          "path": "hooks",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/tree/main/hooks"
+        },
+        {
+          "name": "keybinds",
+          "path": "keybinds",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/tree/main/keybinds"
+        },
+        {
+          "name": "libs",
+          "path": "libs",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/tree/main/libs"
+        },
+        {
+          "name": "logs",
+          "path": "logs",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/tree/main/logs"
+        },
+        {
+          "name": ".gitignore",
+          "path": ".gitignore",
+          "type": "file",
+          "size": 20,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/.gitignore"
+        },
+        {
+          "name": "ADDING_FEATURES.md",
+          "path": "ADDING_FEATURES.md",
+          "type": "file",
+          "size": 21516,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/ADDING_FEATURES.md"
+        },
+        {
+          "name": "AUDIT_REPORT.md",
+          "path": "AUDIT_REPORT.md",
+          "type": "file",
+          "size": 18272,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/AUDIT_REPORT.md"
+        },
+        {
+          "name": "core.lua",
+          "path": "core.lua",
+          "type": "file",
+          "size": 858,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/core.lua"
+        },
+        {
+          "name": "dlcs-to-unlock.txt",
+          "path": "dlcs-to-unlock.txt",
+          "type": "file",
+          "size": 157,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/dlcs-to-unlock.txt"
+        },
+        {
+          "name": "FEATURE_MEMORY_BANK.md",
+          "path": "FEATURE_MEMORY_BANK.md",
+          "type": "file",
+          "size": 31697,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/FEATURE_MEMORY_BANK.md"
+        },
+        {
+          "name": "LICENSE",
+          "path": "LICENSE",
+          "type": "file",
+          "size": 1079,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/LICENSE"
+        },
+        {
+          "name": "mod.txt",
+          "path": "mod.txt",
+          "type": "file",
+          "size": 6123,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/mod.txt"
+        },
+        {
+          "name": "README.md",
+          "path": "README.md",
+          "type": "file",
+          "size": 9916,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/README.md"
+        },
+        {
+          "name": "REPORT.md",
+          "path": "REPORT.md",
+          "type": "file",
+          "size": 17768,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/REPORT.md"
+        },
+        {
+          "name": "SafeMode_Restrictions.md",
+          "path": "SafeMode_Restrictions.md",
+          "type": "file",
+          "size": 4119,
+          "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/SafeMode_Restrictions.md"
+        }
+      ],
+      "cachedAt": "2026-10-01T23:47:46.710Z"
+    },
+    "HanazonoArchive/PhilNITSLab": {
+      "telemetry": {
+        "name": "PhilNITSLab",
+        "fullName": "HanazonoArchive/PhilNITSLab",
+        "description": "PhilNITSLab - is unofficial simulated test for people who are taking PhilNITS Exam, it support both OMR Exam and On Screen Exam. It used the Official PhilNITS Exam Previous Paper",
+        "stars": 0,
+        "forks": 0,
+        "openIssues": 0,
+        "language": "Vue",
+        "defaultBranch": "main",
+        "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab",
+        "updatedAt": "2026-08-07T02:29:29Z",
+        "pushedAt": "2026-08-07T02:29:15Z",
+        "license": null,
+        "latestCommit": {
+          "sha": "0e6390e",
+          "message": "Refactor README formatting and content",
+          "date": "2026-08-07T02:29:15Z",
+          "author": "Jay Mark Agsoy"
+        },
+        "latestRelease": null
+      },
+      "branches": [
+        "main"
+      ],
+      "languages": [
+        {
+          "name": "Vue",
+          "bytes": 187593,
+          "percent": 63.3,
+          "percentDisplay": "63.3%",
+          "color": "#41b883"
+        },
+        {
+          "name": "TypeScript",
+          "bytes": 65797,
+          "percent": 22.2,
+          "percentDisplay": "22.2%",
+          "color": "#3178c6"
+        },
+        {
+          "name": "Shell",
+          "bytes": 17696,
+          "percent": 6,
+          "percentDisplay": "6%",
+          "color": "#89e051"
+        },
+        {
+          "name": "Python",
+          "bytes": 14816,
+          "percent": 5,
+          "percentDisplay": "5%",
+          "color": "#3572A5"
+        },
+        {
+          "name": "CSS",
+          "bytes": 7291,
+          "percent": 2.5,
+          "percentDisplay": "2.5%",
+          "color": "#563d7c"
+        },
+        {
+          "name": "PLpgSQL",
+          "bytes": 3216,
+          "percent": 1.1,
+          "percentDisplay": "1.1%",
+          "color": "#38bdf8"
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 120,
+          "percent": 0.2,
+          "percentDisplay": "< 0.1%",
+          "color": "#f1e05a"
+        },
+        {
+          "name": "HTML",
+          "bytes": 53,
+          "percent": 0.2,
+          "percentDisplay": "< 0.1%",
+          "color": "#e34c26"
+        }
+      ],
+      "contents": [
+        {
+          "name": ".claude",
+          "path": ".claude",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/tree/main/.claude"
+        },
+        {
+          "name": "app",
+          "path": "app",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/tree/main/app"
+        },
+        {
+          "name": "data",
+          "path": "data",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/tree/main/data"
+        },
+        {
+          "name": "public",
+          "path": "public",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/tree/main/public"
+        },
+        {
+          "name": "scripts",
+          "path": "scripts",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/tree/main/scripts"
+        },
+        {
+          "name": "server",
+          "path": "server",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/tree/main/server"
+        },
+        {
+          "name": "supabase",
+          "path": "supabase",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/tree/main/supabase"
+        },
+        {
+          "name": ".env.example",
+          "path": ".env.example",
+          "type": "file",
+          "size": 177,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/.env.example"
+        },
+        {
+          "name": ".gitignore",
+          "path": ".gitignore",
+          "type": "file",
+          "size": 662,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/.gitignore"
+        },
+        {
+          "name": "AGENTS.md",
+          "path": "AGENTS.md",
+          "type": "file",
+          "size": 9938,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/AGENTS.md"
+        },
+        {
+          "name": "app.config.ts",
+          "path": "app.config.ts",
+          "type": "file",
+          "size": 89,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/app.config.ts"
+        },
+        {
+          "name": "combined-mega-prompt.md",
+          "path": "combined-mega-prompt.md",
+          "type": "file",
+          "size": 114427,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/combined-mega-prompt.md"
+        },
+        {
+          "name": "eslint.config.mjs",
+          "path": "eslint.config.mjs",
+          "type": "file",
+          "size": 120,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/eslint.config.mjs"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "path": "nuxt.config.ts",
+          "type": "file",
+          "size": 3922,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/nuxt.config.ts"
+        },
+        {
+          "name": "package-lock.json",
+          "path": "package-lock.json",
+          "type": "file",
+          "size": 781037,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "path": "package.json",
+          "type": "file",
+          "size": 1843,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/package.json"
+        },
+        {
+          "name": "README.md",
+          "path": "README.md",
+          "type": "file",
+          "size": 4048,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/README.md"
+        },
+        {
+          "name": "tsconfig.json",
+          "path": "tsconfig.json",
+          "type": "file",
+          "size": 320,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/tsconfig.json"
+        },
+        {
+          "name": "vercel.json",
+          "path": "vercel.json",
+          "type": "file",
+          "size": 121,
+          "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/vercel.json"
+        }
+      ],
+      "cachedAt": "2026-10-01T23:47:48.852Z"
+    },
+    "HanazonoArchive/Lumen": {
+      "telemetry": {
+        "name": "Lumen",
+        "fullName": "HanazonoArchive/Lumen",
+        "description": "Lumen - Its a file Hex Identifier, it will identify a file type just by looking at their Hex Signatures. The main idea of this is we have a file that has obscure extension and we don't know what file type is it, using this tool it will give you the information on what File Type is it.",
+        "stars": 0,
+        "forks": 0,
+        "openIssues": 0,
+        "language": "Rust",
+        "defaultBranch": "main",
+        "htmlUrl": "https://github.com/HanazonoArchive/Lumen",
+        "updatedAt": "2026-08-07T02:38:37Z",
+        "pushedAt": "2026-06-25T22:45:12Z",
+        "license": null,
+        "latestCommit": {
+          "sha": "8a3f982",
+          "message": "addition: CLI integration and Msi and Exe Release",
+          "date": "2026-06-25T22:40:52Z",
+          "author": "Hanazono Archive"
+        },
+        "latestRelease": {
+          "tagName": "Lumen-v0.1.2",
+          "name": "Lumen v0.1.2 [Release]",
+          "publishedAt": "2026-06-25T22:45:12Z"
+        }
+      },
+      "branches": [
+        "main"
+      ],
+      "languages": [
+        {
+          "name": "Rust",
+          "bytes": 74683,
+          "percent": 51.7,
+          "percentDisplay": "51.7%",
+          "color": "#dea584"
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 35837,
+          "percent": 24.8,
+          "percentDisplay": "24.8%",
+          "color": "#f1e05a"
+        },
+        {
+          "name": "CSS",
+          "bytes": 16239,
+          "percent": 11.2,
+          "percentDisplay": "11.2%",
+          "color": "#563d7c"
+        },
+        {
+          "name": "HTML",
+          "bytes": 12404,
+          "percent": 8.6,
+          "percentDisplay": "8.6%",
+          "color": "#e34c26"
+        },
+        {
+          "name": "PowerShell",
+          "bytes": 5334,
+          "percent": 3.7,
+          "percentDisplay": "3.7%",
+          "color": "#255ab0"
+        }
+      ],
+      "contents": [
+        {
+          "name": "lumen-engine",
+          "path": "lumen-engine",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Lumen/tree/main/lumen-engine"
+        },
+        {
+          "name": "lumen-gui",
+          "path": "lumen-gui",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Lumen/tree/main/lumen-gui"
+        },
+        {
+          "name": ".gitignore",
+          "path": ".gitignore",
+          "type": "file",
+          "size": 157,
+          "htmlUrl": "https://github.com/HanazonoArchive/Lumen/blob/main/.gitignore"
+        },
+        {
+          "name": "Cargo.lock",
+          "path": "Cargo.lock",
+          "type": "file",
+          "size": 143882,
+          "htmlUrl": "https://github.com/HanazonoArchive/Lumen/blob/main/Cargo.lock"
+        },
+        {
+          "name": "Cargo.toml",
+          "path": "Cargo.toml",
+          "type": "file",
+          "size": 77,
+          "htmlUrl": "https://github.com/HanazonoArchive/Lumen/blob/main/Cargo.toml"
+        },
+        {
+          "name": "README.md",
+          "path": "README.md",
+          "type": "file",
+          "size": 4637,
+          "htmlUrl": "https://github.com/HanazonoArchive/Lumen/blob/main/README.md"
+        },
+        {
+          "name": "skills-lock.json",
+          "path": "skills-lock.json",
+          "type": "file",
+          "size": 858,
+          "htmlUrl": "https://github.com/HanazonoArchive/Lumen/blob/main/skills-lock.json"
+        }
+      ],
+      "cachedAt": "2026-10-01T23:47:50.962Z"
+    },
+    "HanazonoArchive/Yogurting-OS-Launcher": {
+      "telemetry": {
+        "name": "Yogurting-OS-Launcher",
+        "fullName": "HanazonoArchive/Yogurting-OS-Launcher",
+        "description": "Reverse-engineered, data-driven .NET 8 game server engine reviving Yogurting Online (ヨーグルティング / 요구르팅). Replaces legacy Delphi with high-throughput Async TCP.",
+        "stars": 0,
+        "forks": 0,
+        "openIssues": 0,
+        "language": "C#",
+        "defaultBranch": "master",
+        "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher",
+        "updatedAt": "2026-09-15T16:11:59Z",
+        "pushedAt": "2026-09-15T16:11:54Z",
+        "license": null,
+        "latestCommit": {
+          "sha": "de1e11a",
+          "message": "still figuring out the episodes",
+          "date": "2026-09-15T16:11:46Z",
+          "author": "Hanazono Archive"
+        },
+        "latestRelease": null
+      },
+      "branches": [
+        "master"
+      ],
+      "languages": [
+        {
+          "name": "C#",
+          "bytes": 942900,
+          "percent": 99.5,
+          "percentDisplay": "99.5%",
+          "color": "#178600"
+        },
+        {
+          "name": "Batchfile",
+          "bytes": 3053,
+          "percent": 0.3,
+          "percentDisplay": "0.3%",
+          "color": "#C1F12E"
+        },
+        {
+          "name": "Python",
+          "bytes": 1552,
+          "percent": 0.2,
+          "percentDisplay": "0.2%",
+          "color": "#3572A5"
+        }
+      ],
+      "contents": [
+        {
+          "name": "config",
+          "path": "config",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/tree/master/config"
+        },
+        {
+          "name": "data",
+          "path": "data",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/tree/master/data"
+        },
+        {
+          "name": "dictionary",
+          "path": "dictionary",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/tree/master/dictionary"
+        },
+        {
+          "name": "docs",
+          "path": "docs",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/tree/master/docs"
+        },
+        {
+          "name": "logs",
+          "path": "logs",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/tree/master/logs"
+        },
+        {
+          "name": "scratch",
+          "path": "scratch",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/tree/master/scratch"
+        },
+        {
+          "name": "src",
+          "path": "src",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/tree/master/src"
+        },
+        {
+          "name": "tests",
+          "path": "tests",
+          "type": "dir",
+          "size": 0,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/tree/master/tests"
+        },
+        {
+          "name": "createAccount.bat",
+          "path": "createAccount.bat",
+          "type": "file",
+          "size": 2382,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/blob/master/createAccount.bat"
+        },
+        {
+          "name": "README.md",
+          "path": "README.md",
+          "type": "file",
+          "size": 15251,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/blob/master/README.md"
+        },
+        {
+          "name": "startServer.bat",
+          "path": "startServer.bat",
+          "type": "file",
+          "size": 671,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/blob/master/startServer.bat"
+        },
+        {
+          "name": "winyg.exe.lnk",
+          "path": "winyg.exe.lnk",
+          "type": "file",
+          "size": 897,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/blob/master/winyg.exe.lnk"
+        },
+        {
+          "name": "Yogurting.sln",
+          "path": "Yogurting.sln",
+          "type": "file",
+          "size": 3124,
+          "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/blob/master/Yogurting.sln"
+        }
+      ],
+      "cachedAt": "2026-10-01T23:47:51.323Z"
+    }
+  }
+}

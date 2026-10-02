@@ -1,0 +1,282 @@
+/* ========================================================
+   HANAZONO PORTFOLIO — CORE DESIGN SYSTEM
+   Solid dark day-cycle sky palette, no gradients:
+   • Night          (#060b16 / sky blue #38bdf8)
+   • Early Morning  (#161220 / sunrise gold #f59e0b)
+   • Daylight       (#081e3a / solar cyan #00e5ff)
+   • Dusk           (#1c0f26 / sunset coral #fb7185)
+   • Dark Night     (#02050d / emerald mint #10b981)
+   ======================================================== */
+
+:root {
+  --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Default sky: Night */
+  --sky-bg: #060b16;
+
+  /* Surfaces & Borders */
+  --card-bg: #0d1527;
+  --card-hover: #121c32;
+  --card-border: 1px solid rgba(255, 255, 255, 0.07);
+  --card-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  --subtle-box: rgba(255, 255, 255, 0.03);
+
+  /* Typography Colors */
+  --text-white: #ffffff;
+  --text-body: #cbd5e1;
+  --text-muted: #8292a8;
+
+  /* Accents */
+  --sky-accent: #38bdf8;
+  --sky-accent-soft: rgba(56, 189, 248, 0.12);
+  --sky-glow: rgba(56, 189, 248, 0.28);
+
+  /* Timeline */
+  --stream-line-bg: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE & Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera, Edge */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--sky-bg);
+  color: var(--text-body);
+  font-family: var(--font-main);
+  line-height: 1.85;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 1.5s ease;
+  overflow-x: hidden;
+  min-height: 100vh;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================= BUTTONS & PILLS ================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+  border: none;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn-primary {
+  background: var(--sky-accent);
+  color: #02050d;
+}
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text-white);
+  background: transparent;
+}
+.btn-ghost:hover {
+  border-color: var(--sky-accent);
+  color: var(--sky-accent);
+}
+.btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Tag cluster */
+.tag-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.tag-item, .tag {
+  font-size: 11.5px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.tag-item.accent, .tag.accent {
+  background: var(--sky-accent-soft);
+  color: var(--sky-accent);
+  font-weight: 500;
+}
+
+/* Sub sections */
+.sub-section {
+  background: var(--subtle-box);
+  border-radius: 14px;
+  padding: 24px 26px;
+  margin-top: 18px;
+  border: var(--card-border);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+.sub-section:first-of-type {
+  margin-top: 26px;
+}
+.sub-section:hover {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.sub-kicker {
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--sky-accent);
+  margin-bottom: 4px;
+  transition: color 0.6s;
+}
+.sub-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 8px;
+}
+.sub-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+.sub-desc:last-child {
+  margin-bottom: 0;
+}
+
+.case-link-btn {
+  color: var(--sky-accent);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s;
+  margin-top: 6px;
+}
+.case-link-btn:hover {
+  gap: 10px;
+  color: var(--text-white);
+}
+
+.story-quote {
+  border-left: 2px solid var(--sky-accent);
+  padding: 14px 20px;
+  margin: 28px 0;
+  background: var(--subtle-box);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+  color: var(--text-body);
+  font-size: 14.5px;
+  line-height: 1.75;
+  text-align: justify;
+  transition: border-color 0.6s;
+}
+
+/* ================= PAGE FOOTER ================= */
+.page-footer {
+  border-top: var(--card-border);
+  padding: 40px 0 60px;
+  color: var(--text-muted);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.page-footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.page-footer a:hover {
+  color: var(--sky-accent);
+}
+
+/* ================= PAGE CIRCULAR RIPPLE TRANSITION ================= */
+html.transitioning body {
+  overflow: hidden !important;
+}
+
+html.transitioning #page-transition-overlay {
+  display: block !important;
+  opacity: 1 !important;
+  background-color: var(--transition-incoming-bg, #161220) !important;
+}
+
+.page-transition-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  pointer-events: all;
+  overflow: hidden;
+  background: transparent;
+}
+
+.page-transition-circle {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-sizing: border-box;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  will-change: width, height;
+}
+
+.page-transition-circle.animate-grow {
+  transition: width 0.44s cubic-bezier(0.32, 0, 0.18, 1),
+              height 0.44s cubic-bezier(0.32, 0, 0.18, 1);
+}
+
+.page-transition-circle.animate-shrink {
+  transition: width 0.46s cubic-bezier(0.32, 0, 0.18, 1),
+              height 0.46s cubic-bezier(0.32, 0, 0.18, 1);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

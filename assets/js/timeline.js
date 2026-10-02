@@ -18,7 +18,7 @@ export async function initHomepage() {
     ]);
 
     renderHero(profile);
-    renderTimeline({ timeline, projects, certs, explorations, skills });
+    renderTimeline({ timeline, projects, certs, explorations, skills, profile });
 
     // Restore scroll position if returning from a project or credential view
     const savedScroll = sessionStorage.getItem('timeline_scroll_pos');
@@ -124,7 +124,7 @@ function renderHero(profile) {
 /**
  * Render Timeline Chapters dynamically
  */
-function renderTimeline({ timeline, projects, certs, explorations, skills }) {
+function renderTimeline({ timeline, projects, certs, explorations, skills, profile }) {
   const streamCol = document.querySelector('.stream-col');
   if (!streamCol) return;
 
@@ -233,13 +233,29 @@ function renderTimeline({ timeline, projects, certs, explorations, skills }) {
       gridHtml += '</div>';
       cardContentHtml += gridHtml;
 
-      // Bottom actions
-      cardContentHtml += `
-        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px;">
-          <a href="/data/updated-resume.pdf" class="btn btn-primary">Download Resume (PDF)</a>
-          <a href="https://github.com/HanazonoArchive" target="_blank" rel="noopener" class="btn btn-ghost">GitHub Archive &rarr;</a>
-        </div>
-      `;
+      // Professional Experience
+      if (profile && profile.experience && profile.experience.length) {
+        profile.experience.forEach(exp => {
+          const bullets = exp.bullets || (Array.isArray(exp.description) ? exp.description : [exp.description]);
+          const bulletsHtml = bullets && bullets.length
+            ? `<ul style="margin: 10px 0 16px 0; padding-left: 18px; color: var(--text-body); font-size: 13.5px; line-height: 1.75;">
+                ${bullets.map(b => `<li style="margin-bottom: 6px;">${escapeHtml(b)}</li>`).join('')}
+              </ul>`
+            : (exp.description ? `<div class="sub-desc">${escapeHtml(exp.description)}</div>` : '');
+
+          cardContentHtml += `
+            <div class="sub-section" style="margin-top: 24px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 4px;">
+                <div class="sub-kicker">${escapeHtml(exp.kicker || 'Professional Experience')}</div>
+                <div style="font-size: 11.5px; color: var(--text-muted); font-family: var(--font-mono);">${escapeHtml(exp.period || '')}</div>
+              </div>
+              <div class="sub-title">${escapeHtml(exp.role)} &middot; <span style="font-weight: 500; color: var(--sky-accent);">${escapeHtml(exp.company)}</span></div>
+              ${bulletsHtml}
+              ${renderTagCluster(exp.tags || [])}
+            </div>
+          `;
+        });
+      }
     } else if (ch.tags && ch.tags.length > 0) {
       cardContentHtml += renderTagCluster(ch.tags);
     }
@@ -250,7 +266,8 @@ function renderTimeline({ timeline, projects, certs, explorations, skills }) {
         data-bg="${ch.bg}"
         data-accent="${ch.accent}"
         data-soft="${ch.soft}"
-        data-glow="${ch.glow}">
+        data-glow="${ch.glow}"
+        data-companion-bg="${ch.companionBg || ''}">
         <div class="node-bead"></div>
         <div class="card">
           ${cardContentHtml}
@@ -377,6 +394,16 @@ function initTimelineInteractions() {
         if (d.accent) rootStyle.setProperty('--sky-accent', d.accent);
         if (d.soft) rootStyle.setProperty('--sky-accent-soft', d.soft);
         if (d.glow) rootStyle.setProperty('--sky-glow', d.glow);
+        if (d.companionBg) rootStyle.setProperty('--companion-bg', d.companionBg);
+      } else if (activeIndex === -1) {
+        if (thoughtEl && entries[0] && entries[0].dataset.thought) {
+          thoughtEl.textContent = `"${entries[0].dataset.thought}"`;
+        }
+        rootStyle.setProperty('--sky-bg', '#060b16');
+        rootStyle.setProperty('--sky-accent', '#38bdf8');
+        rootStyle.setProperty('--sky-accent-soft', 'rgba(56, 189, 248, 0.12)');
+        rootStyle.setProperty('--sky-glow', 'rgba(56, 189, 248, 0.28)');
+        rootStyle.setProperty('--companion-bg', '#0d1527');
       }
     }
 
@@ -417,7 +444,6 @@ function initTimelineInteractions() {
   // Use requestAnimationFrame for smooth 60/120fps sync without jank
   let ticking = false;
   function onScroll() {
-    sessionStorage.setItem('timeline_scroll_pos', window.scrollY.toString());
     if (!ticking) {
       requestAnimationFrame(() => {
         updateTimeline();

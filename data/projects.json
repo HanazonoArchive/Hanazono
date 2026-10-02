@@ -111,7 +111,7 @@
         "heading": "Direct Session Bridge",
         "items": [
           "Client-side bridge: connects through a lightweight browser userscript (Tampermonkey / Violentmonkey) directly into authenticated Roblox sessions.",
-          "Zero CORS & rate-limit bypass: bypasses external Cloudflare restrictions with 0ms local latency and zero proxy overhead."
+          "No proxy server needed: requests run inside the user's own logged-in browser session, so there's no backend to host."
         ]
       },
       {
@@ -176,7 +176,7 @@
       {
         "heading": "Multiplayer Safe Mode & In-Game UI",
         "items": [
-          "Intelligent multiplayer Safe Mode: automatically disables cheat-tier toggles when joining public multiplayer lobbies as a client to ensure fair, safe co-op play.",
+          "Intelligent multiplayer Safe Mode: automatically disables gameplay-altering options when joining public multiplayer lobbies as a client to ensure fair, safe co-op play.",
           "Custom in-game menu: fully modular SuperBLT in-game menu and keybind configuration with atomic disk persistence."
         ]
       }
@@ -185,8 +185,8 @@
   {
     "id": "philnits-lab",
     "title": "PhilNITS Lab",
-    "kicker": "Enterprise Exam Prep & OMR Portal",
-    "summary": "An enterprise-grade exam preparation platform for the Philippine National Information Technology Standards (PhilNITS / ITPEC) FE and IP examinations featuring automated computer vision OMR paper grading, interactive mock exams, and analytics.",
+    "kicker": "Exam Prep & OMR Grading Portal",
+    "summary": "An exam preparation platform for the Philippine National Information Technology Standards (PhilNITS / ITPEC) FE and IP examinations featuring automated computer vision OMR paper grading, interactive mock exams, and analytics.",
     "featured": true,
     "githubRepo": "HanazonoArchive/PhilNITSLab",
     "githubUrl": "https://github.com/HanazonoArchive/PhilNITSLab",
@@ -210,8 +210,8 @@
         "heading": "Computer Vision OMR Paper Grading",
         "items": [
           "Perspective homography deskewing: automatically aligns and un-warps smartphone photos of printed A4 answer sheets.",
-          "BFS corner registration detection: scans fiduciary orientation markers to anchor coordinate grids with millimeter precision.",
-          "Bubble darkness evaluation: evaluates optical pixel fill density across answer matrices to score 80-question exams in sub-second runtimes."
+          "BFS corner registration detection: scans fiduciary orientation markers to anchor coordinate grids for accurate alignment.",
+          "Bubble darkness evaluation: evaluates optical pixel fill density across answer matrices to score 80-question exams."
         ]
       },
       {

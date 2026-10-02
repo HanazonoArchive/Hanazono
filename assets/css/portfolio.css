@@ -17,6 +17,7 @@
 
   /* Surfaces & Borders */
   --card-bg: #0d1527;
+  --companion-bg: #0d1527;
   --card-hover: #121c32;
   --card-border: 1px solid rgba(255, 255, 255, 0.07);
   --card-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);

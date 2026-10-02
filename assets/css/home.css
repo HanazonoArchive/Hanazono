@@ -311,7 +311,6 @@
   color: var(--text-body);
   line-height: 1.9;
   margin-bottom: 20px;
-  text-align: justify;
 }
 .card p:last-child {
   margin-bottom: 0;
@@ -330,7 +329,6 @@
   border-left: 2px solid var(--sky-accent);
   padding-left: 14px;
   margin-bottom: 22px !important;
-  text-align: justify;
 }
 @media (max-width: 920px) {
   .mobile-thought { display: block; }
@@ -375,11 +373,12 @@
   pointer-events: auto;
 }
 .companion-card {
-  background: var(--card-bg);
+  background: var(--companion-bg, #0d1527);
   border-radius: 20px;
   padding: 28px 26px;
   box-shadow: var(--card-shadow);
   border: var(--card-border);
+  transition: background-color 1.5s ease, border-color 0.6s ease;
 }
 .companion-head {
   margin-bottom: 14px;

@@ -7,6 +7,7 @@
     "accent": "#38bdf8",
     "soft": "rgba(56, 189, 248, 0.12)",
     "glow": "rgba(56, 189, 248, 0.28)",
+    "companionBg": "#0d1527",
     "thought": "I don't chase hype — I pick the right tool for the job, make sure it holds up, and keep decisions reversible.",
     "title": "Building Systems That Hold Up",
     "paragraphs": [
@@ -47,10 +48,11 @@
     "accent": "#f59e0b",
     "soft": "rgba(245, 158, 11, 0.14)",
     "glow": "rgba(245, 158, 11, 0.3)",
-    "thought": "From zero-dependency mathematical UI to AI orchestration and encrypted storage, building software that solves concrete problems.",
+    "companionBg": "#20192e",
+    "thought": "Desktop tools, web apps, and reverse-engineered game servers, each one built to solve a specific problem.",
     "title": "Featured Projects",
     "paragraphs": [
-      "A collection of software systems, developer utilities, and interactive applications I've engineered. Each project represents an effort to solve real-world friction — whether that means eliminating bloated framework dependencies, orchestrating multi-model AI pipelines, or writing zero-knowledge cryptographic layers.",
+      "A collection of software systems, developer utilities, and interactive applications I've engineered. Each project represents an effort to solve real-world friction — whether that means locking down café PCs, identifying unknown file formats, or rebuilding a game server from its network protocol.",
       "I focus on writing software that holds up under real usage, respects system memory, and stays maintainable over time."
     ],
     "quote": "Working code beats perfect architecture every time. Build the smallest thing that solves the problem, then refine it.",
@@ -64,6 +66,7 @@
     "accent": "#00e5ff",
     "soft": "rgba(0, 229, 255, 0.14)",
     "glow": "rgba(0, 229, 255, 0.32)",
+    "companionBg": "#0c284a",
     "thought": "Hands-on projects teach you how to build; solid fundamentals teach you how things work under the hood.",
     "title": "Foundations & Certifications",
     "paragraphs": [
@@ -81,6 +84,7 @@
     "accent": "#fb7185",
     "soft": "rgba(251, 113, 133, 0.15)",
     "glow": "rgba(251, 113, 133, 0.3)",
+    "companionBg": "#2b143a",
     "thought": "Exploring diverse interests outside the main track keeps curiosity sharp and brings fresh perspective to software engineering.",
     "title": "Explorations & Other Interests",
     "paragraphs": [
@@ -99,6 +103,7 @@
     "accent": "#10b981",
     "soft": "rgba(16, 185, 129, 0.14)",
     "glow": "rgba(16, 185, 129, 0.28)",
+    "companionBg": "#081022",
     "thought": "Simple, safe, reversible. Working code beats perfect architecture every time. Ship the smallest thing that solves the problem.",
     "title": "The Toolkit",
     "paragraphs": [

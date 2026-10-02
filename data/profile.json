@@ -1,12 +1,12 @@
 {
   "name": "Jay Mark V. Agsoy",
-  "badge": "Software Developer | Systems Engineer",
+  "badge": "Software Developer | Backend Intern",
   "major": "Bachelor of Science in Computer Science",
   "education": "University of Mindanao",
   "educationYears": "2023–2027",
   "status": "Open to work",
   "tagline": "Simple, safe, reversible.",
-  "bio": "A computer science student who builds fast, dependable software and likes knowing how things work underneath, from interface physics to low-level binary tools.",
+  "bio": "A computer science student who builds fast, dependable software and likes knowing how things work underneath, from backend APIs to low-level binary tools.",
   "avatar": "https://github.com/HanazonoArchive.png?size=460",
   "avatarFallback": "JA",
   "links": {
@@ -26,5 +26,18 @@
     "Every decision should be reversible. Complexity is a liability until proven necessary.",
     "Ship the smallest thing that solves the problem, then iterate.",
     "I'd rather spend an hour preventing a bug than a day fixing one in production."
+  ],
+  "experience": [
+    {
+      "kicker": "Professional Experience",
+      "role": "Backend Developer Intern",
+      "company": "MiniClean Infosoft",
+      "period": "July 2026",
+      "bullets": [
+        "Developed a backend for a KIOSK Machine while building the backend of the admin side of the application using Laravel and Vue as a frontend.",
+        "API Integration on the frontend of the application, ensuring proper communication between the API and the Frontend Application."
+      ],
+      "tags": ["Laravel", "Vue", "REST API", "Backend", "KIOSK Systems"]
+    }
   ]
 }

@@ -31,10 +31,6 @@ A high-performance, dynamic portfolio centered on a 5-phase day-cycle vertical t
 ```
 ├── index.html                  # Overhauled dynamic homepage
 ├── project.html                # Dynamic dedicated project case study (?id=<slug>)
-├── home-sample.html            # Static reference template for homepage
-├── project-sample.html         # Static reference template for project case study
-├── projects-sample.html        # Static reference template
-│
 ├── credentials.html            # Minimal certificate viewer with embedded PDF showcase
 ├── assets/
 │   ├── css/
@@ -43,7 +39,7 @@ A high-performance, dynamic portfolio centered on a 5-phase day-cycle vertical t
 │   │   ├── project.css         # Split sticky desk layout and telemetry cards
 │   │   └── credentials.css     # Clean certification presentation styling
 │   ├── js/
-│   │   ├── github.js           # Static cache & GitHub API fetcher with rate-limit bypass
+│   │   ├── github.js           # Static cache & GitHub API fetcher with static cache fallback
 │   │   ├── timeline.js         # Dynamic timeline hydrator & intersection observers
 │   │   ├── project.js          # Dynamic case study hydrator (?id=...)
 │   │   ├── credentials.js      # Dynamic certification showcase hydrator (?id=...)
@@ -64,13 +60,6 @@ A high-performance, dynamic portfolio centered on a 5-phase day-cycle vertical t
 │
 └── .github/workflows/
     └── update-github-cache.yml # Automated CI workflow updating cache with GITHUB_TOKEN
-    ├── about/
-    ├── projects/
-    ├── certifications/
-    ├── explorations/
-    ├── skills/
-    ├── contact/
-    └── assets/
 ```
 
 ---
@@ -78,7 +67,7 @@ A high-performance, dynamic portfolio centered on a 5-phase day-cycle vertical t
 ## How to Add or Edit Content (Pure JSON)
 
 ### 1. Adding a New Project
-Open [data/projects.json](file:///d:/SharedProjects/Hanazono/data/projects.json) and add an entry:
+Open [data/projects.json](data/projects.json) and add an entry:
 ```json
 {
   "id": "my-tool",
@@ -113,7 +102,7 @@ Open [data/projects.json](file:///d:/SharedProjects/Hanazono/data/projects.json)
 - Specifying `githubRepo` will **automatically fetch live GitHub stars, forks, and latest commit info**!
 
 ### 2. Adding a Certification
-Open [data/certifications.json](file:///d:/SharedProjects/Hanazono/data/certifications.json) and add:
+Open [data/certifications.json](data/certifications.json) and add:
 ```json
 {
   "id": "cert-id",
@@ -128,7 +117,7 @@ Open [data/certifications.json](file:///d:/SharedProjects/Hanazono/data/certific
 ```
 
 ### 3. Adding Skills
-Open [data/skills.json](file:///d:/SharedProjects/Hanazono/data/skills.json) and add tools under any category (`Backend`, `Frontend`, `Systems & RE`, `Mobile & Data`).
+Open [data/skills.json](data/skills.json) and add tools under any category (`Backend`, `Frontend`, `Systems & RE`, `Mobile & Data`).
 
 ---
 
@@ -139,12 +128,12 @@ Unauthenticated client-side requests to GitHub REST API have an IP rate limit of
 1. **Automated GitHub Actions Pre-fetching (`.github/workflows/update-github-cache.yml`)**:
    - Runs automatically on GitHub runners twice daily (`00:00` and `12:00` UTC), on pushes to `data/projects.json`, and on manual dispatch.
    - Uses the built-in `GITHUB_TOKEN` secret (with a dedicated **1,000–5,000 requests/hour** quota).
-   - Pre-fetches stars, forks, commits, releases, branch list, language stats, and directory contents for all repositories listed in [data/projects.json](file:///d:/SharedProjects/Hanazono/data/projects.json).
-   - Writes the compiled snapshot into [data/github-cache.json](file:///d:/SharedProjects/Hanazono/data/github-cache.json) and commits changes automatically.
+   - Pre-fetches stars, forks, commits, releases, branch list, language stats, and directory contents for all repositories listed in [data/projects.json](data/projects.json).
+   - Writes the compiled snapshot into [data/github-cache.json](data/github-cache.json) and commits changes automatically.
 
 2. **Zero-Latency Client Hydration (`assets/js/github.js`)**:
-   - When visitors view project pages or the homepage timeline, `github.js` reads directly from [data/github-cache.json](file:///d:/SharedProjects/Hanazono/data/github-cache.json).
-   - Because it is served as a static asset, it is **100% immune to GitHub API rate limits** and loads in **0 ms**.
+   - When visitors view project pages or the homepage timeline, `github.js` reads directly from [data/github-cache.json](data/github-cache.json).
+   - Because it is served as a static asset, it doesn't count against GitHub API rate limits and loads like any other static file.
    - If a new repository is added locally before the CI workflow has run, `github.js` gracefully falls back to browser `localStorage` and direct API calls.
 
 ---

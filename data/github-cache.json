@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T19:12:28.238Z",
+  "generatedAt": "2026-11-12T05:36:30.701Z",
   "repos": {
     "HanazonoArchive/Chromatic-Menu": {
       "telemetry": {
@@ -12,13 +12,13 @@
         "language": "C#",
         "defaultBranch": "main",
         "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu",
-        "updatedAt": "2026-09-26T05:31:20Z",
-        "pushedAt": "2026-09-26T05:31:17Z",
+        "updatedAt": "2026-11-12T04:41:37Z",
+        "pushedAt": "2026-11-12T03:41:33Z",
         "license": null,
         "latestCommit": {
-          "sha": "e17ecd6",
-          "message": "removal of zip file",
-          "date": "2026-09-26T05:31:11Z",
+          "sha": "d843ea4",
+          "message": "docs: add read-only Supabase diagnostics and PGRST002 troubleshooting",
+          "date": "2026-11-12T03:37:21Z",
           "author": "Hanazono Archive"
         },
         "latestRelease": {
@@ -160,7 +160,7 @@
           "htmlUrl": "https://github.com/HanazonoArchive/Chromatic-Menu/blob/main/SPEC.md"
         }
       ],
-      "cachedAt": "2026-11-11T19:12:20.549Z"
+      "cachedAt": "2026-11-12T05:36:24.412Z"
     },
     "HanazonoArchive/RBX-Server-Manager": {
       "telemetry": {
@@ -275,7 +275,7 @@
           "htmlUrl": "https://github.com/HanazonoArchive/RBX-Server-Manager/blob/main/start.bat"
         }
       ],
-      "cachedAt": "2026-11-11T19:12:22.134Z"
+      "cachedAt": "2026-11-12T05:36:25.757Z"
     },
     "HanazonoArchive/SapphirePlus": {
       "telemetry": {
@@ -426,7 +426,7 @@
           "htmlUrl": "https://github.com/HanazonoArchive/SapphirePlus/blob/main/SafeMode_Restrictions.md"
         }
       ],
-      "cachedAt": "2026-11-11T19:12:23.586Z"
+      "cachedAt": "2026-11-12T05:36:27.020Z"
     },
     "HanazonoArchive/PhilNITSLab": {
       "telemetry": {
@@ -646,7 +646,7 @@
           "htmlUrl": "https://github.com/HanazonoArchive/PhilNITSLab/blob/main/vercel.json"
         }
       ],
-      "cachedAt": "2026-11-11T19:12:25.206Z"
+      "cachedAt": "2026-11-12T05:36:28.328Z"
     },
     "HanazonoArchive/Lumen": {
       "telemetry": {
@@ -765,7 +765,7 @@
           "htmlUrl": "https://github.com/HanazonoArchive/Lumen/blob/main/skills-lock.json"
         }
       ],
-      "cachedAt": "2026-11-11T19:12:26.563Z"
+      "cachedAt": "2026-11-12T05:36:29.477Z"
     },
     "HanazonoArchive/Yogurting-OS-Launcher": {
       "telemetry": {
@@ -908,7 +908,7 @@
           "htmlUrl": "https://github.com/HanazonoArchive/Yogurting-OS-Launcher/blob/master/Yogurting.sln"
         }
       ],
-      "cachedAt": "2026-11-11T19:12:28.238Z"
+      "cachedAt": "2026-11-12T05:36:30.701Z"
     }
   }
 }
